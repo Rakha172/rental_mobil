@@ -25,7 +25,7 @@ class Penyewa extends Model
     {
         return $this->belongsTo(Barang::class, 'plat_mobil', 'id');
     }
-    public function user()
+    public function profile()
     {
         return $this->belongsTo(User::class, 'nik_user', 'id');
     }

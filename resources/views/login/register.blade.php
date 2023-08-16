@@ -14,24 +14,24 @@
     <div class="container mt-5 width">
         <div class="card">
             <div class="body-card">
-                <form action="{{  route('login.store') }}" method="PUT">
+                <form action="{{  route('register.store') }}" method="POST">
                     @csrf
                     <h1 class="text-center">Daftar</h1>
                 <div class="form-floating mb-2">
-                    <input type="text" name="Username" class="form-control {{ $errors->has('Username') ? 'is-invalid' : '' }} " id="Username" placeholder="name@example.com" autofocus value="{{ old('Username') }}">
-                    <label for="Username">Username</label>
+                    <input type="text" name="nama_lengkap" class="form-control {{ $errors->has('nama_lengkap') ? 'is-invalid' : '' }} " id="nama_lengkap" placeholder="name@example.com" autofocus value="{{ old('nama_lengkap') }}">
+                    <label for="nama_lengkap">User Name</label>
                 </div>
                 <div class="form-floating mb-2">
                     <input type="email" name="email" class="form-control {{ $errors->has('email') ? 'is-invalid' : '' }} " id="email" placeholder="name@example.com" autofocus value="{{ old('email') }}">
-                    <label for="email">Email address</label>
+                    <label for="email">Email</label>
                 </div>
                 <div class="form-floating mb-2">
-                    <input type="number" name="nomer_tlp" class="form-control {{ $errors->has('nomer_tlp') ? 'is-invalid' : '' }} " id="nomer_tlp" placeholder="name@example.com" autofocus value="{{ old('nomer_tlp') }}">
-                    <label for="nomer_tlp">Nomer tlp</label>
+                    <input type="password" name="password" class="form-control {{ $errors->has('password') ? 'is-invalid' : '' }} " id="password" placeholder="name@example.com" autofocus value="{{ old('password') }}">
+                    <label for="password"> Make Password</label>
                 </div>
                 <div class="form-floating mb-3">
-                        <input type="password" name="password" class="form-control" id="password" placeholder="Password" >
-                        <label for="password">Password</label>
+                        <input type="password" name="confirm_password" class="form-control" id="confirm_password" placeholder="confirm_password" >
+                        <label for="confirm_password"> Confirm Password</label>
                 </div>
                     <div class="text-center mt-3 mb-3">
                         <button type="submit" class="btn btn-primary">Submit</button>

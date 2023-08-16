@@ -10,7 +10,7 @@ return new class extends Migration {
         Schema::create('penyewa', function (Blueprint $table) {
             $table->id();
             $table->foreignId('nik_user');
-            $table->foreign('nik_user')->references('id')->on('user');
+            $table->foreign('nik_user')->references('id')->on('profile');
             $table->foreignId('plat_mobil');
             $table->foreign('plat_mobil')->references('id')->on('barang');
             $table->date('tgl_peminjaman');

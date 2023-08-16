@@ -5,14 +5,16 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class User extends Model
+class profile extends Model
 {
-    protected $table = 'user';
+    protected $table = 'profile';
     protected $fillabel = [
-        'nama_lengkap',
-        'email',
-        'password',
-        'confirm_password',
+        'nik_user',
+        'jenis_kelamin',
+        'nomor_tlp',
+        'alamat_lengkap',
+        'foto_ktp',
+        'foto_sim',
         'created_at',
         'updated_at'
     ];
