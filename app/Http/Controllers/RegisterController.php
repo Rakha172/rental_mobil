@@ -23,14 +23,14 @@ class RegisterController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'nama_lengkap' => 'required',
+            'full_name' => 'required',
             'email' => 'required',
             'password' => 'required',
             'confirm_password' => 'required',
         ]);
 
         $user = new User;
-        $user->nama_lengkap = $request->nama_lengkap;
+        $user->full_name = $request->full_name;
         $user->email = $request->email;
         $user->password = $request->password;
         $user->confirm_password = $request->confirm_password;
