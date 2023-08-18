@@ -5,17 +5,17 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Barang extends Model
+class Items extends Model
 {
-    protected $table = 'barang';
+    protected $table = 'items';
     protected $fillabel = [
-        'plat_mobil',
-        'jenis_kendaraan',
-        'merek',
+        'mobile',
+        'vehicle_type',
+        'brand',
         'model',
-        'warna',
-        'kapasitas_penumpang',
-        'harga_sewa',
+        'color',
+        'passenger_capacity',
+        'rental_price',
         'created_at',
         'updated_at'
     ];
