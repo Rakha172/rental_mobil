@@ -7,23 +7,23 @@ use Illuminate\Support\Facades\Schema;
 return new class extends Migration {
     public function up(): void
     {
-        Schema::create('penyewa', function (Blueprint $table) {
+        Schema::create('renters', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('nik_user');
-            $table->foreign('nik_user')->references('id')->on('profile');
-            $table->foreignId('plat_mobil');
-            $table->foreign('plat_mobil')->references('id')->on('barang');
-            $table->date('tgl_peminjaman');
-            $table->date('tgl_pengembalian');
-            $table->integer('total_hari');
-            $table->string('total_harga');
-            $table->string('transaksi_pembayaran');
+            $table->foreignId('user_nik');
+            $table->foreign('user_nik')->references('id')->on('profiles');
+            $table->foreignId('car_plate');
+            $table->foreign('car_plate')->references('id')->on('items');
+            $table->date('rental_date');
+            $table->date('return_date');
+            $table->integer('total_days');
+            $table->string('total_price');
+            $table->string('payment_transaction');
             $table->timestamps();
         });
     }
 
     public function down(): void
     {
-        Schema::dropIfExists('penyewa');
+        Schema::dropIfExists('renters');
     }
 };
