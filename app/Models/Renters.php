@@ -7,15 +7,15 @@ use Illuminate\Database\Eloquent\Model;
 
 class Penyewa extends Model
 {
-    protected $table = 'penyewa';
+    protected $table = 'renters';
     protected $fillabel = [
-        'nik_user',
-        'plat_mobil',
-        'tgl_peminjaman',
-        'tgl_pengembalian',
-        'total_hari',
-        'total_harga',
-        'transaksi_pembayaran',
+        'user_nik',
+        'mobile',
+        'rental_date',
+        'return_date',
+        'total_days',
+        'total_price',
+        'payment_transaction',
         'created_at',
         'updated_at'
     ];

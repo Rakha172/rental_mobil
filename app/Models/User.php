@@ -9,7 +9,7 @@ class User extends Model
 {
     protected $table = 'user';
     protected $fillabel = [
-        'nama_lengkap',
+        'full_name',
         'email',
         'password',
         'confirm_password',

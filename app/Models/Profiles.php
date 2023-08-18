@@ -7,14 +7,14 @@ use Illuminate\Database\Eloquent\Model;
 
 class profile extends Model
 {
-    protected $table = 'profile';
+    protected $table = 'profiles';
     protected $fillabel = [
-        'nik_user',
-        'jenis_kelamin',
-        'nomor_tlp',
-        'alamat_lengkap',
-        'foto_ktp',
-        'foto_sim',
+        'user_nik',
+        'gender',
+        'phone_number',
+        'full_address',
+        'id_card_photo',
+        'driver_license_photo',
         'created_at',
         'updated_at'
     ];
