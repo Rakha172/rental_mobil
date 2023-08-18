@@ -11,8 +11,8 @@ return new class extends Migration {
             $table->id();
             $table->foreignId('user_nik');
             $table->foreign('user_nik')->references('id')->on('profiles');
-            $table->foreignId('car_plate');
-            $table->foreign('car_plate')->references('id')->on('items');
+            $table->foreignId('mobile');
+            $table->foreign('mobile')->references('id')->on('items');
             $table->date('rental_date');
             $table->date('return_date');
             $table->integer('total_days');
