@@ -11,15 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('barang', function (Blueprint $table) {
+        Schema::create('items', function (Blueprint $table) {
             $table->id();
-            $table->string('plat_mobil');
-            $table->string('jenis_kendaraan');
-            $table->string('merek');
+            $table->string('mobile');
+            $table->string('vehicle_type');
+            $table->string('brand');
             $table->string('model');
-            $table->string('warna');
-            $table->integer('kapasitas_penumpang');
-            $table->string('harga_sewa');
+            $table->string('color');
+            $table->integer('passenger_capacity');
+            $table->string('rental_price');
             $table->timestamps();
         });
     }
@@ -29,6 +29,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('barang');
+        Schema::dropIfExists('items');
     }
 };
