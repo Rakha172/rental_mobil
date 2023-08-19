@@ -1,8 +1,8 @@
 <?php
 
-use App\Http\Controllers\BarangController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\VehicleController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -22,4 +22,4 @@ Route::get('/', function () {
 
 route::resource('login', LoginController::class);
 route::resource('register', RegisterController::class);
-route::resource('barang', BarangController::class);
+route::resource('vehicle', VehicleControllerController::class);
