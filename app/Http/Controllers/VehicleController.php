@@ -30,7 +30,6 @@ class VehicleController extends Controller
             'pasengger_capacity' => 'required',
             'status' => 'required',
         ]);
-
         $vehicle = new Vehicle;
         $vehicle->image = $request->image;
         $vehicle->vehicle_type = $request->vehicle_type;
@@ -40,16 +39,16 @@ class VehicleController extends Controller
         $vehicle->status = $request->status;
         $vehicle->save();
 
-        return to_route('barang.index')->with('succes', 'data ditambah');
+        return to_route('vehicle.index')->with('succes', 'data ditambah');
     }
 
     public function edit($id)
     {
         $vehicle = Vehicle::find($id);
         if (!$vehicle)
-            return redirect()->route('barang.index')
+            return redirect()->route('vehicle.index')
                 ->with('error_message', 'pembeli dengan id = ' . $id . ' tidak ditemukan');
-        return view('barang.edit', [
+        return view('vehicle.edit', [
             'vehicle' => $vehicle,
         ]);
     }

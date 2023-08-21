@@ -22,4 +22,4 @@ Route::get('/', function () {
 
 route::resource('login', LoginController::class);
 route::resource('register', RegisterController::class);
-route::resource('vehicle', VehicleControllerController::class);
+route::resource('vehicle', VehicleController::class);
