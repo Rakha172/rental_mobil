@@ -15,7 +15,7 @@
        <form action="{{ route('vehicle.store')}}" method="POST" enctype="multipart/form-data">
         @csrf
         <div class="mb-3">
-            <label for="image" class="form-label">Image Mobile</label>
+            <label for="form-label" class="form-control">Image Mobile</label>
             <input type="file" name="image" class="form-control @error('image') is-invalid @enderror">
             @error('image')
                 <div class="alert alert-danger mt-2">
