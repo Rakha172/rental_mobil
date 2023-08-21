@@ -14,6 +14,7 @@ class Vehicle extends Model
         'brand',
         'color',
         'passenger_capacity',
+        'price',
         'status',
         'created_at',
         'updated_at'
