@@ -28,6 +28,7 @@ class VehicleController extends Controller
             'brand' => 'required',
             'color' => 'required',
             'pasengger_capacity' => 'required',
+            'price' => 'required',
             'status' => 'required',
         ]);
         $vehicle = new Vehicle;
@@ -36,6 +37,7 @@ class VehicleController extends Controller
         $vehicle->brand = $request->brand;
         $vehicle->color = $request->color;
         $vehicle->pasengger_capacity = $request->pasengger_capacity;
+        $vehicle->price = $request->price;
         $vehicle->status = $request->status;
         $vehicle->save();
 
@@ -60,6 +62,7 @@ class VehicleController extends Controller
             'brand' => 'required',
             'color' => 'required',
             'pasengger_capacity' => 'required',
+            'price' => 'required',
             'status' => 'required',
         ]);
 
@@ -69,10 +72,11 @@ class VehicleController extends Controller
         $vehicle->brand = $request->brand;
         $vehicle->color = $request->color;
         $vehicle->pasengger_capacity = $request->pasengger_capacity;
+        $vehicle->price = $request->price;
         $vehicle->status = $request->status;
         $vehicle->save();
 
-        return to_route('barang.index')->with('succes', 'data ditambah');
+        return to_route('vehicle.index')->with('succes', 'data ditambah');
     }
     public function destroy($id)
     {
