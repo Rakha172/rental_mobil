@@ -30,6 +30,7 @@
         <th scope="col">Brand</th>
         <th scope="col">Color</th>
         <th scope="col">Passenger Capacity</th>
+        <th scope="col">Price</th>
         <th scope="col">Status</th>
       </tr>
     </thead>
@@ -42,6 +43,7 @@
                 <td>{{ $vhcle->brand }}</td>
                 <td>{{ $vhcle->color }}</td>
                 <td>{{ $vhcle->pasengger_capacity }}</td>
+                <td>{{ $vhcle->price }}</td>
                 <td>{{ $vhcle->status }}</td>
                 <td>
                     <a href="#" class="btn btn-primary">Edit</a>

@@ -33,6 +33,15 @@
                     <div class="invalid-feedback">{{ $message }}</div>
                 @enderror
               </div>
+              <div class="mb-3">
+                <label for="form-label" class="form-control">Price Mobile</label>
+                <input type="number" name="price" class="form-control @error('price') is-invalid @enderror">
+                @error('price')
+                    <div class="alert alert-danger mt-2">
+                        {{ $message }}
+                    </div>
+                @enderror
+            </div>
               {{-- <div class="mb-3">
                 <label class="form-label">Pengarang</label>
                 <select name="pengarang_id" class="form-control @error('pengarang_id') is-invalid @enderror">
