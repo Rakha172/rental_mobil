@@ -77,14 +77,12 @@
                 @enderror
               </div>
               <div class="mb-3">
-                <label for="form-label" class="form-label">Price Mobile</label>
-                <input type="number" name="price" class="form-control @error('price') is-invalid @enderror">
-                @error('price')
-                    <div class="alert alert-danger mt-2">
-                        {{ $message }}
-                    </div>
-                @enderror
-            </div>
+                <label class="form-label">Price Mobile</label>
+                <input value="{{ old('price')}}" name="price" type="text" class="form-control @error('price') is-invalid @enderror">
+                  @error('price')
+                      <div class="invalid-feedback">{{ $message }}</div>
+                  @enderror
+              </div>
               {{-- <div class="mb-3">
                 <label class="form-label">Status Mobile</label>
                 <input value="{{ old('status')}}" name="status" type="text" class="form-control @error('status') is-invalid @enderror">
