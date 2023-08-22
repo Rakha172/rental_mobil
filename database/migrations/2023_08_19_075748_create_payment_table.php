@@ -13,10 +13,9 @@ return new class extends Migration
     {
         Schema::create('payment', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('tenant_id');
-            $table->foreign('tenant_id')->references('id')->on('tenant');
-            $table->foreignId('vehiclepackage_id');
-            $table->foreign('vehiclepackage_id')->references('id')->on('vehiclepackage');
+            $table->foreignId('order_id');
+            $table->foreign('order_id')->references('id')->on('order');
+            $table->float('total_price');
             $table->enum('payment_method', ['cash','gopay','dana']);
             $table->timestamps();
         });

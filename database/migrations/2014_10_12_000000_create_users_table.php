@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('phone_number');
             $table->string('address');
             $table->string('id_card_photo');
-            $table->string('driver_card_photo');
+            $table->string('driver_licence_photo');
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
