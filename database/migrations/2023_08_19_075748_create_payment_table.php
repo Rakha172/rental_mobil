@@ -16,7 +16,7 @@ return new class extends Migration
             $table->foreignId('tenant_id');
             $table->foreign('tenant_id')->references('id')->on('tenant');
             $table->foreignId('vehiclepackage_id');
-            $table->foreign('vehiclepackage_id')->references('id')->on('vehiclepackages');
+            $table->foreign('vehiclepackage_id')->references('id')->on('vehiclepackage');
             $table->enum('payment_method', ['cash','gopay','dana']);
             $table->timestamps();
         });
