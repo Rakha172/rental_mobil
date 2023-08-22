@@ -9,13 +9,11 @@ class Penyewa extends Model
 {
     protected $table = 'tenant';
     protected $fillabel = [
-        'user_nik',
-        'mobile',
+        'image',
+        'name',
+        'package_name',
         'rental_date',
         'return_date',
-        'total_days',
-        'total_price',
-        'payment_transaction',
         'created_at',
         'updated_at'
     ];
@@ -28,6 +26,11 @@ class Penyewa extends Model
     public function users()
     {
         return $this->belongsTo(User::class, 'name', 'id');
+    }
+
+    public function vehiclepackage()
+    {
+        return $this->belongsTo(Vehiclepackage::class, 'package_name', 'id');
     }
 
 
