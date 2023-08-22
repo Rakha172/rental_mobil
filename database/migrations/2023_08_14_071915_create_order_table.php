@@ -11,8 +11,6 @@ return new class extends Migration {
             $table->id();
             $table->foreignId('user_id');
             $table->foreign('user_id')->references('id')->on('users');
-            $table->foreignId('vehicle_id');
-            $table->foreign('vehicle_id')->references('id')->on('vehicle');
             $table->foreignId('vehiclepackage_id');
             $table->foreign('vehiclepackage_id')->references('id')->on('vehiclepackage');
             $table->date('rental_date');
