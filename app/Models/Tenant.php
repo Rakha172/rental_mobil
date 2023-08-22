@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Penyewa extends Model
 {
-    protected $table = 'renters';
+    protected $table = 'tenant';
     protected $fillabel = [
         'user_nik',
         'mobile',
@@ -21,13 +21,13 @@ class Penyewa extends Model
     ];
 
     use HasFactory;
-    public function barang()
+    public function vehicle()
     {
-        return $this->belongsTo(Barang::class, 'plat_mobil', 'id');
+        return $this->belongsTo(Vehicle::class, 'image', 'id');
     }
-    public function profile()
+    public function users()
     {
-        return $this->belongsTo(User::class, 'nik_user', 'id');
+        return $this->belongsTo(User::class, 'name', 'id');
     }
 
 
