@@ -76,20 +76,6 @@
                     <div class="invalid-feedback">{{ $message }}</div>
                 @enderror
               </div>
-              <div class="mb-3">
-                <label class="form-label">Price Mobile</label>
-                <input value="{{ old('price')}}" name="price" type="text" class="form-control @error('price') is-invalid @enderror">
-                  @error('price')
-                      <div class="invalid-feedback">{{ $message }}</div>
-                  @enderror
-              </div>
-              {{-- <div class="mb-3">
-                <label class="form-label">Status Mobile</label>
-                <input value="{{ old('status')}}" name="status" type="text" class="form-control @error('status') is-invalid @enderror">
-                  @error('status')
-                      <div class="invalid-feedback">{{ $message }}</div>
-                  @enderror
-              </div> --}}
             <button type="submit" class="btn btn-primary">Submit</button>
           </form>
     </div>

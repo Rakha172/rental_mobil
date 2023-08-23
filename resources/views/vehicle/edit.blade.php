@@ -34,27 +34,6 @@
                 @enderror
               </div>
               <div class="mb-3">
-                <label for="form-label" class="form-control">Price Mobile</label>
-                <input type="number" name="price" class="form-control @error('price') is-invalid @enderror">
-                @error('price')
-                    <div class="alert alert-danger mt-2">
-                        {{ $message }}
-                    </div>
-                @enderror
-            </div>
-              {{-- <div class="mb-3">
-                <label class="form-label">Pengarang</label>
-                <select name="pengarang_id" class="form-control @error('pengarang_id') is-invalid @enderror">
-                    <option value="">choose</option>
-                    @foreach ($pengarangs as $pengarang)
-                        <option @selected(old('pengarang', $buku->pengarang_id) == $pengarang->id) value={{ $pengarang->id }}>{{ $pengarang->nama_pengarang }}</option>
-                    @endforeach
-                </select>
-                @error('pengarang_id')
-                    <div class="invalid-feedback">{{ $message }}</div>
-                @enderror
-              </div> --}}
-              <div class="mb-3">
                 <label class="form-label">Mobile Brand</label>
                 <select name="brand" class="form-control @error('brand') is-invalid @enderror">
                     <option value="">choose</option>
@@ -94,21 +73,6 @@
                     <div class="invalid-feedback">{{ $message }}</div>
                 @enderror
               </div>
-              <div class="mb-3">
-                <label class="form-label">Price Mobile</label>
-                <input value="{{ old('price', $vehicle->price) }}" name="price" type="text" class="form-control @error('price') is-invalid @enderror">
-                  @error('price')
-                      <div class="invalid-feedback">{{ $message }}</div>
-                  @enderror
-
-              </div>
-              {{-- <div class="mb-3">
-                <label class="form-label">Status Mobile</label>
-                <input value="{{ old('status', $vehicle->status) }}" name="status" type="text" class="form-control @error('status') is-invalid @enderror">
-                  @error('status')
-                      <div class="invalid-feedback">{{ $message }}</div>
-                  @enderror
-              </div> --}}
             <button type="submit" class="btn btn-primary">Submit</button>
           </form>
     </div>
