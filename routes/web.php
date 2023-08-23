@@ -4,7 +4,6 @@ use App\Http\Controllers\LandingpageController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\VehicleController;
-use App\Http\Controllers\LandingpageController;
 use Illuminate\Support\Facades\Route;
 
 /*
