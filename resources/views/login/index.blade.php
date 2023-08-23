@@ -37,11 +37,11 @@
                             placeholder="Password">
                         <label for="password">Password</label>
                     </div>
-                    <div class="text-center">
-                        <button type="submit" class="btn btn-primary">Submit</button>
+                    <div class="text-center mb-7">
+                        <button type="sign in" style="width: 350px; height: 40px;" class="btn btn-primary">Sign In</button>
                     </div>
-                    <div class="text-center mb-3">
-                        <a href="{{ route('register.create') }}">Belum Punya Akun</a>
+                    <div class="text-center mb-1">
+                        <a href="{{ route('register.create') }}">Register</a>
                     </div>
                 </form>
             </div>
