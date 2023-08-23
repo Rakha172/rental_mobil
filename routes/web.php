@@ -3,6 +3,7 @@
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\VehicleController;
+use App\Http\Controllers\LandingpageController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -23,3 +24,4 @@ Route::get('/', function () {
 route::resource('login', LoginController::class);
 route::resource('register', RegisterController::class);
 route::resource('vehicle', VehicleController::class);
+route::resource('landingpage', LandingpageController::class);
