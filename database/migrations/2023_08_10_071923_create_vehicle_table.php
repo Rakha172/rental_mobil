@@ -18,7 +18,6 @@ return new class extends Migration
             $table->string('brand');
             $table->string('color');
             $table->integer('passenger_capacity');
-            $table->string('status');
             $table->timestamps();
         });
     }
