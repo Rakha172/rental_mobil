@@ -13,7 +13,7 @@ class RegisterController extends Controller
     public function create()
     {
         return view('login.register')->with([
-            'user' => User::all(),
+            'users' => User::all(),
         ]);
     }
 
@@ -23,17 +23,25 @@ class RegisterController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'full_name' => 'required',
+            'name' => 'required',
+            'gender' => 'required',
+            'phone_number' => 'required',
+            'address' => 'required',
+            'id_card_photo' => 'required',
+            'driver_licence_photo' => 'required',
             'email' => 'required',
             'password' => 'required',
-            'confirm_password' => 'required',
         ]);
 
         $user = new User;
-        $user->full_name = $request->full_name;
+        $user->name = $request->name;
+        $user->gender = $request->gender;
+        $user->phone_number = $request->phone_number;
+        $user->address = $request->address;
+        $user->id_card_photo = $request->id_card_photo;
+        $user->driver_licence_photo = $request->driver_licence_photo;
         $user->email = $request->email;
         $user->password = $request->password;
-        $user->confirm_password = $request->confirm_password;
         $user->save();
 
         return to_route('register.index')->with('succes', 'data ditambah');
