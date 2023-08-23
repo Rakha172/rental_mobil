@@ -17,6 +17,7 @@ return new class extends Migration
             $table->foreign('order_id')->references('id')->on('order');
             $table->float('total_price');
             $table->enum('payment_method', ['cash','gopay','dana']);
+            $table->string('proof_of_transaction');
             $table->timestamps();
         });
     }
