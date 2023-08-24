@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Login;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class LoginController extends Controller
@@ -12,17 +13,22 @@ class LoginController extends Controller
      */
     public function index()
     {
-        return view('login.index');
+        return view('login.index')->with([
+            'user' => User::all(),
+        ]);
     }
 
     /**
      * Show the form for creating a new resource.
      */
+    public function create(request $request)
+    {
+        
+    }
+
     public function store(Request $request)
     {
-        $request->validate([
 
-        ]);
     }
 
     /**

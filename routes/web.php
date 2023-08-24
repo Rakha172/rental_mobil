@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\LandingpageController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
@@ -23,6 +24,6 @@ Route::get('/', function () {
 
 route::resource('login', LoginController::class);
 route::resource('register', RegisterController::class);
-// route::resource('landingpage', LandingpageController::class);
+route::resource('login', LoginController::class);
 route::resource('vehicle', VehicleController::class);
-
+route::resource('admin', AdminController::class);
