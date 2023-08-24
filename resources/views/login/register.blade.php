@@ -30,7 +30,7 @@
                     <label for="phone_number">Phone</label>
                 </div>
                 <div class="form-floating mb-3">
-                        <input type="password" name="address" class="form-control" id="address" placeholder="address" >
+                        <input type="text" name="address" class="form-control" id="address" placeholder="address" >
                         <label for="address">Address</label>
                 </div>
                 <div class="form-floating mb-2">
