@@ -18,7 +18,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('landingpage.index', );
+    return view('landingpage.index');
 });
 
 route::resource('login', LoginController::class);
