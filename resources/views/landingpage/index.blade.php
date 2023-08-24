@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>Document</title>
 <style>
-      
+
 </style>
 </head>
 <body>
@@ -23,8 +23,8 @@
 
             <ul>
 
-                <li><a href="#">Daftar</a></li>
-                <li><a href="#">Masuk</a></li>
+                <li><a href="#">Register</a></li>
+                <li><a href="#">Login</a></li>
                 <li><a href="#">Contact us</a></li>
             </ul>
     </div>
@@ -39,8 +39,8 @@
                  adalah dengan menyewakan mobil untuk konsumen yang memerlukan
              .</p>
              <div>
-               <a href=""> <button type="button"> <span></span> Masuk</button></a>
-               <a href=""> <button type="button"> <span></span> Daftar</button></a>
+               <a href="{{ route('login.index') }}"> <button type="button"> <span></span> Login</button></a>
+               <a href="{{ route('register.create') }}"> <button type="button"> <span></span> Register</button></a>
              </div>
         </div>
     </div>
