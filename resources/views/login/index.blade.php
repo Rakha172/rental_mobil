@@ -18,8 +18,7 @@
     <div class="container mt-5 ">
         <div class="card">
             <div class="body-card">
-                <form action="{{ route('register.create') }}" method="POST">
-                    @csrf
+                <form action="{{ route('login.index') }}">
                     <h1 class="text-center">Login</h1>
                     <div class="form-floating mb-4">
                         <input type="email" name="email"
@@ -41,7 +40,7 @@
                         <button type="sign in" style="width: 350px; height: 40px;" class="btn btn-primary">Sign In</button>
                     </div>
                     <div class="text-center mb-1">
-                        <a href="{{ route('register.create') }}">Register</a>
+                        <a href="{{ route('register.create') }}">doesnt have a account?</a>
                     </div>
                 </form>
             </div>

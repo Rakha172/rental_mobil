@@ -14,9 +14,9 @@ return new class extends Migration
         Schema::create('users', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->enum('role', ['customer', 'pemilik'])->default('customer');
-            $table->enum('gender', ['male', 'female']);
-            $table->string('phone_number');
+            $table->string('role')->default('customer');
+            $table->string('gender');
+            $table->integer('phone_number');
             $table->string('address');
             $table->string('id_card_photo');
             $table->string('driver_licence_photo');
