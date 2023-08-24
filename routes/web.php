@@ -18,11 +18,11 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('login.index');
+    return view('landingpage.index', );
 });
 
 route::resource('login', LoginController::class);
 route::resource('register', RegisterController::class);
-route::resource('landingpage', LandingpageController::class);
+// route::resource('landingpage', LandingpageController::class);
 route::resource('vehicle', VehicleController::class);
-route::resource('landingpage', LandingpageController::class);
+
