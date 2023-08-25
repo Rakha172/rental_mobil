@@ -23,7 +23,7 @@ class VehicleController extends Controller
 
     public function store(Request $request)
     {
-        $validated = $request->validate([
+        $request->validate([
             'image' => 'required|image|mimes:png,jpg|max:2040',
             'vehicle_type' => 'required',
             'brand' => 'required',
@@ -42,16 +42,19 @@ class VehicleController extends Controller
         $vehicle->brand = $request->brand;
         $vehicle->color = $request->color;
         $vehicle->passenger_capacity = $request->passenger_capacity;
+        $vehicle->save();
 
-        return redirect('/vehicle')->with('berhasil', "$request->image Berhasil ditambahkan!");
+        return to_route('vehicle.index')->with('succes', 'data ditambah');
     }
 
     public function edit($id)
     {
         $vehicle = Vehicle::find($id);
         if (!$vehicle)
-            return redirect()->route('vehicle.index')->with('error_message', 'pembeli dengan id = ' . $id . ' tidak ditemukan');
-        return view('vehicle.edit', ['vehicle' => $vehicle,
+            return redirect()->route('vehicle.index')
+                ->with('error_message', 'pembeli dengan id = ' . $id . ' tidak ditemukan');
+        return view('vehicle.edit', [
+            'vehicle' => $vehicle,
         ]);
     }
     public function update(Request $request, $id)
@@ -72,13 +75,14 @@ class VehicleController extends Controller
         $vehicle->passenger_capacity = $request->passenger_capacity;
         $vehicle->save();
 
-        return to_route('vehicle.index')->with('berhasil', "$request->image Berhasil diubah!");
+        return to_route('vehicle.index')->with('succes', 'data ditambah');
     }
-    public function destroy(Vehicle $vehicle)
+    public function destroy($id)
     {
+        $vehicle = Vehicle::find($id);
         $vehicle->delete();
 
-       return redirect()->route('vehicle.index')->with('berhasil', "$vehicle->image Berhasil dihapus!");
+        return back()->with('succes', 'data dihapus');
     }
 
 
