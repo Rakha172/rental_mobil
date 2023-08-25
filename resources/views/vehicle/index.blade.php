@@ -35,12 +35,12 @@
     <tbody>
         @foreach ($vehicle as $index => $vhcle)
         <tr>
-            <th scope="row">{{ $index}}</th>
-                <td>{{ $vhcle->image }}</td>
+            <th scope="row">{{ $index+1}}</th>
+                <td><img src="{{ asset($vhcle->image)}}" width="100"></td>
                 <td>{{ $vhcle->vehicle_type }}</td>
                 <td>{{ $vhcle->brand }}</td>
                 <td>{{ $vhcle->color }}</td>
-                <td>{{ $vhcle->pasengger_capacity }}</td>
+                <td>{{ $vhcle->passenger_capacity }}</td>
                 <td>
                     <a href="#" class="btn btn-primary">Edit</a>
                 </td>
