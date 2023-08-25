@@ -17,34 +17,34 @@
             @csrf
             <h1>Sign Up</h1>
             <div class="form-floating">
-                <input type="text" name="name" placeholder="Full Name" class="form-control @error('name') is-invalid @enderror"
+                <input style="background-color: rgb(155, 152, 152);" type="text" name="name" placeholder="Full Name" class="form-control @error('name') is-invalid @enderror"
                     id="name" value="{{ old('name') }}">
                 @error('name')
                     <div class="invalid-feedback">{{ $message }}</div>
                 @enderror
                 <label for="name">Full Name</label>
             </div>
-            <div class="gender">
-                <label>Gender</label><br>
-                <input type="radio" name="Gender" value="Male">Male
-                <input type="radio" name="Gender" value="Female">Female
-            </div>
             <div class="form-floating">
-                <input type="number" placeholder="Phone" name="phone_number"
-                    class="form-control @error('phone_number') is-invalid @enderror" id="phone_number"
-                    value="{{ old('phone_number') }}">
+                <input style="background-color: rgb(155, 152, 152);" type="number" placeholder="Phone" name="phone_number"
+                class="form-control @error('phone_number') is-invalid @enderror" id="phone_number"
+                value="{{ old('phone_number') }}">
                 @error('phone_number')
-                    <div class="invalid-feedback">{{ $message }}</div>
+                <div class="invalid-feedback">{{ $message }}</div>
                 @enderror
                 <label for="phone_number">Phone</label>
             </div>
             <div class="form-floating">
-                <input type="text" placeholder="Address" name="address" class="form-control @error('address') is-invalid @enderror"
-                    id="address" value="{{ old('address') }}">
+                <input style="background-color: rgb(155, 152, 152);" type="text" placeholder="Address" name="address" class="form-control @error('address') is-invalid @enderror"
+                id="address" value="{{ old('address') }}">
                 @error('address')
-                    <div class="invalid-feedback">{{ $message }}</div>
+                <div class="invalid-feedback">{{ $message }}</div>
                 @enderror
                 <label for="address">Address</label>
+            </div>
+            <div class="gender">
+                <label>Gender</label><br>
+                <input type="radio" name="Gender" value="Male">Male
+                <input type="radio" name="Gender" value="Female">Female
             </div>
             <div class="label">
                 <label for="id_card_photo">Id Card Photo</label>
@@ -73,7 +73,7 @@
                 <img src="" id="output2" width="200" height="100">
             </div>
             <div class="form-floating">
-                <input type="email" placeholder="Email" name="email" class="form-control @error('email') is-invalid @enderror"
+                <input style="background-color: rgb(155, 152, 152);" type="email" placeholder="Email" name="email" class="form-control @error('email') is-invalid @enderror"
                     id="email" value="{{ old('email') }}">
                 @error('email')
                     <div class="invalid-feedback">{{ $message }}</div>
@@ -81,7 +81,7 @@
                 <label for="email">Your Email</label>
             </div>
             <div class="form-floating">
-                <input type="password" placeholder="Password" name="password"
+                <input style="background-color: rgb(155, 152, 152);" type="password" placeholder="Password" name="password"
                     class="form-control @error('password') is-invalid @enderror" id="password"
                     value="{{ old('password') }}">
                 @error('password')
@@ -92,7 +92,7 @@
             <div class="text-center">
                 <button>Submit</button>
             </div>
-            <div>
+            <div class="text-center">
                 <a href="{{ route('login.index') }}">have a account?</a>
             </div>
         </form>
