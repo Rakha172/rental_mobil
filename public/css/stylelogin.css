@@ -1,0 +1,29 @@
+body{
+background-color: #58AAE5;
+}
+.container-fluid{
+    font-family: 'inika';
+    margin-top: 5rem;
+    background-color:#D9D9D9;
+    height: 80vh;
+    width: 100vw;
+    margin-bottom: 3rem;
+}
+h1{
+    padding-top: 3rem;
+    margin-bottom: 3rem;
+    text-align: center;
+}
+.form-floating{
+    margin-right: 20rem;
+    margin-left: 20rem;
+    margin-top: 2rem;
+}
+button{
+    margin-top: 3rem;
+    background-color: #0075FF;
+    width: 10vw;
+    border-radius: 5px;
+    border: 0;
+    height: 6vh;
+}
