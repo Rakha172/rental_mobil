@@ -30,7 +30,6 @@
         <th scope="col">Brand</th>
         <th scope="col">Color</th>
         <th scope="col">Passenger Capacity</th>
-        <th scope="col">Option</th>
       </tr>
     </thead>
     <tbody>
@@ -43,12 +42,7 @@
                 <td>{{ $vhcle->color }}</td>
                 <td>{{ $vhcle->passenger_capacity }}</td>
                 <td>
-                    <a href="{{ route('vehicle.destroy', $vhcle->id)}}"method="POST">
-                        @csrf
-                        @method('delete')
-
-                        <button type="submit" class="btn btn-danger">Delete</button>
-                    </form>
+                    <a href="#" class="btn btn-primary">Edit</a>
                 </td>
         </tr>
         @endforeach
