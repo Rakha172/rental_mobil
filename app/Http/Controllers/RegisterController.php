@@ -39,20 +39,20 @@ class RegisterController extends Controller
         $id_card_photo = $request->id_card_photo;
         $slug = Str::slug($id_card_photo->getClientOriginalName());
         $new_id_card_photo = time() . '_' . $slug;
-        $id_card_photo->move('uploads/register', $new_id_card_photo);
+        $id_card_photo->move('uploads/register/', $new_id_card_photo);
 
         $driver_licence_photo = $request->driver_licence_photo;
         $slug = Str::slug($driver_licence_photo->getClientOriginalName());
         $new_driver_licence_photo = time() . '_' . $slug;
-        $driver_licence_photo->move('uploads/register', $new_driver_licence_photo);
+        $driver_licence_photo->move('uploads/register/', $new_driver_licence_photo);
 
         $user = new User;
         $user->name = $request->name;
         $user->gender = $request->gender;
         $user->phone_number = $request->phone_number;
         $user->address = $request->address;
-        $user->id_card_photo = 'uploads/register' . $new_id_card_photo;
-        $user->driver_licence_photo = 'uploads/register' . $new_driver_licence_photo;
+        $user->id_card_photo = 'uploads/register/' . $new_id_card_photo;
+        $user->driver_licence_photo = 'uploads/register/' . $new_driver_licence_photo;
         $user->email = $request->email;
         $user->password = $request->password;
         $user->save();

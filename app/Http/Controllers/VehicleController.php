@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Vehicle;
-
+use Illuminate\Support\Str;
+use Illuminate\Support\Facades\File;
 use Illuminate\Http\Request;
 
 class VehicleController extends Controller
@@ -23,18 +24,24 @@ class VehicleController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'image' => 'required',
+            'image' => 'required|image|mimes:png,jpg|max:2040',
             'vehicle_type' => 'required',
             'brand' => 'required',
             'color' => 'required',
-            'pasengger_capacity' => 'required',
+            'passenger_capacity' => 'required',
         ]);
+
+        $image = $request->image;
+        $slug = Str::slug($image->getClientOriginalName());
+        $new_image = time() . '_' . $slug;
+        $image->move('upload/vehicle/', $new_image);
+
         $vehicle = new Vehicle;
-        $vehicle->image = $request->image;
+        $vehicle->image = 'upload/vehicle/' . $new_image;
         $vehicle->vehicle_type = $request->vehicle_type;
         $vehicle->brand = $request->brand;
         $vehicle->color = $request->color;
-        $vehicle->pasengger_capacity = $request->pasengger_capacity;
+        $vehicle->passenger_capacity = $request->passenger_capacity;
         $vehicle->save();
 
         return to_route('vehicle.index')->with('succes', 'data ditambah');
@@ -57,7 +64,7 @@ class VehicleController extends Controller
             'vehicle_type' => 'required',
             'brand' => 'required',
             'color' => 'required',
-            'pasengger_capacity' => 'required',
+            'passenger_capacity' => 'required',
         ]);
 
         $vehicle = Vehicle::find($id);
@@ -65,7 +72,7 @@ class VehicleController extends Controller
         $vehicle->vehicle_type = $request->vehicle_type;
         $vehicle->brand = $request->brand;
         $vehicle->color = $request->color;
-        $vehicle->pasengger_capacity = $request->pasengger_capacity;
+        $vehicle->passenger_capacity = $request->passenger_capacity;
         $vehicle->save();
 
         return to_route('vehicle.index')->with('succes', 'data ditambah');

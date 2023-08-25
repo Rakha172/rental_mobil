@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('vehicle_type');
             $table->string('brand');
             $table->string('color');
-            $table->integer('passenger_capacity');
+            $table->string('passenger_capacity');
             $table->timestamps();
         });
     }

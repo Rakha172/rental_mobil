@@ -92,6 +92,20 @@
                             <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
                         <label for="password">Your Password</label>
+                        <input type="checkbox" name="" id="show">
+                        <i>Show Password</i>
+                        <script>
+                            let show = document.getElementById("show");
+                            let password = document.getElementById("password");
+
+                            show.onclick = function (){
+                                if(password.type == "password"){
+                                    password.type = "text";
+                                }else {
+                                    password.type = "password";
+                                }
+                            }
+                        </script>
                     </div>
                     <button class="btn btn-primary">Submit</button>
                     <a href="{{ route('login.index') }}">have a account?</a>

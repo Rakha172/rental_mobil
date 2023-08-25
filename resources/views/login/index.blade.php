@@ -7,11 +7,12 @@
     <title>Login</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-        <link rel="stylesheet" href="css/stylelogin.css">
-        <style>
-            @import url('https://fonts.googleapis.com/css2?family=Inika&display=swap');
-          </style>
+    <link rel="stylesheet" href="css/stylelogin.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inika&display=swap');
+    </style>
 </head>
+
 <body>
     <div class="container-fluid">
         <form action="{{ route('admin.index') }}">
@@ -28,9 +29,22 @@
                 @enderror
             </div>
             <div class="form-floating">
-                <input style="background-color: rgb(155, 152, 152);" type="password" name="password" class="form-control" id="password"
-                    placeholder="Password">
+                <input style="background-color: rgb(155, 152, 152);" type="password" name="password"
+                    class="form-control" id="password" placeholder="Password">
                 <label for="password">Password</label>
+                <input type="checkbox" name="" id="show">
+                <i>Show Password</i>
+                <script>
+                    let show = document.getElementById("show");
+                    let password = document.getElementById("password");
+                    show.onclick = function() {
+                        if (password.type == "password") {
+                            password.type = "text";
+                        } else {
+                            password.type = "password";
+                        }
+                    }
+                </script>
             </div>
             <div class="text-center mb-7">
                 <button>Sign In</button>

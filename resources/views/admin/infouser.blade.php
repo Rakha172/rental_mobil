@@ -21,8 +21,8 @@
                         <td>{{ $usr->name }}</td>
                         <td>{{ $usr->phone_number }}</td>
                         <td>{{ $usr->address }}</td>
-                        <td>{{ $usr->id_card_photo }}</td>
-                        <td>{{ $usr->driver_licence_photo }}</td>
+                        <td><img src="{{ asset($usr->id_card_photo)}}" width="100" alt=""></td>
+                        <td><img src="{{ asset($usr->driver_licence_photo)}}" width="100" alt=""></td>
                         <td>{{ $usr->email }}</td>
                         <td>{{ $usr->password }}</td>
                     </tr>
