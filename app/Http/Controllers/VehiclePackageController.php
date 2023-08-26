@@ -10,9 +10,9 @@ class VehiclePackageController extends Controller
 {
     public function index()
     {
-        $vehiclepackage = VehiclePackage::all();
-
-        return view('vehiclepackage.index', ['vehiclepackage' => $vehiclepackage]);
+        return view('vehiclepackage.index')->with([
+            'vehiclepackage' => VehiclePackage::all(),
+        ]);
     }
 
     public function create()
