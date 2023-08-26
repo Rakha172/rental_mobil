@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class VehiclePackage extends Model
 {
-    protected $table = 'vehiclepackage   ';
+    protected $table = 'vehicle_package';
     protected $fillabel = [
         'package_name',
         'desciprtion',

@@ -5,6 +5,7 @@ use App\Http\Controllers\LandingpageController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\VehicleController;
+use App\Http\Controllers\VehiclePackageController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -27,3 +28,6 @@ route::resource('register', RegisterController::class);
 route::resource('login', LoginController::class);
 route::resource('vehicle', VehicleController::class);
 route::resource('admin', AdminController::class);
+route::resource('landingpage', LandingpageController::class);
+route::resource('vehiclepackage', VehiclePackageController::class);
+
