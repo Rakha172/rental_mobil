@@ -60,15 +60,20 @@ class VehicleController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'image' => 'required',
+            'image' => 'required|image|mimes:png,jpg|max:2040',
             'vehicle_type' => 'required',
             'brand' => 'required',
             'color' => 'required',
             'passenger_capacity' => 'required',
         ]);
 
-        $vehicle = Vehicle::find($id);
-        $vehicle->image = $request->image;
+        $image = $request->image;
+        $slug = Str::slug($image->getClientOriginalName());
+        $new_image = time() . '_' . $slug;
+        $image->move('upload/vehicle/', $new_image);
+
+        $vehicle = new Vehicle;
+        $vehicle->image = 'upload/vehicle/' . $new_image;
         $vehicle->vehicle_type = $request->vehicle_type;
         $vehicle->brand = $request->brand;
         $vehicle->color = $request->color;
