@@ -3,7 +3,8 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <title>Edit Vehicle</title>
   </head>
   <body>
@@ -11,14 +12,16 @@
         <form action="{{ route("vehicle.update", $vehicle->id) }}" method="POST">
             @csrf
             @method('put')
-            <div class="mb-3">
-                <label for="form-label" class="form-control">Image Mobile</label>
-                <input type="file" name="image" class="form-control @error('image') is-invalid @enderror">
+            <div class="form-floating mb-2">
+                <input type="file" name="image"
+                    class="form-control @error('image') is-invalid @enderror" id="image"
+                    value="{{ old('image') }}" accept="image/*"
+                    onchange="document.getElementById('output').src = window.URL.createObjectURL(this.files[0])">
                 @error('image')
-                    <div class="alert alert-danger mt-2">
-                        {{ $message }}
-                    </div>
+                    <div class="invalid-feedback">{{ $message }}</div>
                 @enderror
+                <label for="image">Id Card</label>
+                <div class="mt-3"><img src="" id="output" width="200"></div>
             </div>
             <div class="mb-3">
                 <label class="form-label">Vehicle Type</label>
