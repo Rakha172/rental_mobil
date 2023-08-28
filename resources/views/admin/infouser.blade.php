@@ -37,8 +37,8 @@
                                         <form action="{{ route('register.destroy', $usr->id) }}" method="POST">
                                             @method('delete')
                                             @csrf
-                                            <button class="btn btn-dark"><ion-icon name="trash"
-                                                    style="font-size: 20px"></ion-icon></button>
+                                            <input name="_method" type="hidden" value="DELETE">
+                                            <button type="submit" class="btn btn-xs btn-danger btn-flat show-alert-delete-box btn-sm" data-toggle="tooltip" title='Delete'><ion-icon name="trash" style="font-size: 20px"></ion-icon></button>
                                         </form>
                                     </td>
                                 </tr>
@@ -49,3 +49,6 @@
             </div>
         </div>
     </div>
+
+
+
