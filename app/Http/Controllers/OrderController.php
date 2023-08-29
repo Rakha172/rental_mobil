@@ -9,13 +9,13 @@ class OrderController extends Controller
 {
     public function index()
     {
-        $order = Order::all();
 
-        return view('order.index', ['order' => $order]);
+        return view('admin.infoorder');
     }
 
     public function show()
     {
-        return([]);
+
     }
+
 }
