@@ -16,6 +16,11 @@ class OrderController extends Controller
 
     public function show()
     {
-        return([]);
+        return view('order.index');
+    }
+
+    public function create()
+    {
+
     }
 }

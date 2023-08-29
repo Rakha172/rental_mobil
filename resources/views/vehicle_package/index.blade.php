@@ -25,11 +25,11 @@
             <thead>
               <tr>
                 <th scope="col">NO</th>
+                <th scope="col">Image</th>
                 <th scope="col">Package Name</th>
                 <th scope="col">Description</th>
                 <th scope="col">Duration Date</th>
                 <th scope="col">Price</th>
-                <th scope="col">Image</th>
                 <th scope="col">Aksi</th>
               </tr>
             </thead>
@@ -37,11 +37,11 @@
                 @foreach ($vehicle_packages as $index => $vhcpck)
               <tr>
                 <th scope="row">{{ $index}}</th>
+                <td>{{ $vhcpck->vehicle->image }}</td>
                 <td>{{ $vhcpck->package_name }}</td>
                 <td>{{ $vhcpck->description }}</td>
                 <td>{{ $vhcpck->duration_date }}</td>
                 <td>{{ $vhcpck->price }}</td>
-                <td>{{ $vhcpck->vehicle->image }}</td>
                 <td>
                     <a href="{{ route('vehicle_package.edit', $vhcpck->id) }}" class="btn btn-primary">Edit</a>
 

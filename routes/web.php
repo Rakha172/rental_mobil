@@ -28,6 +28,7 @@ route::resource('register', RegisterController::class);
 route::resource('login', LoginController::class);
 route::resource('vehicle', VehicleController::class);
 route::resource('admin', AdminController::class);
+Route::get('/landing', [LandingpageController::class, 'index'])->name('landingpage.index');
 
 //vehicle_packages
 Route::get('vehicle_package', [Vehicle_PackageController::class, 'index'])->name('vehicle_package.index');
