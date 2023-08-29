@@ -25,7 +25,7 @@
                         @error('image')
                             <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
-                        <label for="image">Id Card</label>
+                        <label for="image">Image</label>
                         <div class="mt-3"><img src="" id="output" width="200"></div>
                     </div>
                     <div class="mb-3">

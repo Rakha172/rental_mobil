@@ -12,7 +12,7 @@ return new class extends Migration {
             $table->foreignId('user_id');
             $table->foreign('user_id')->references('id')->on('users');
             $table->foreignId('vehicle_package_id');
-            $table->foreign('vehicle_package_id')->references('id')->on('vehicle_package');
+            $table->foreign('vehicle_package_id')->references('id')->on('vehicle_packages');
             $table->date('rental_date');
             $table->date('return_date');
             $table->timestamps();
