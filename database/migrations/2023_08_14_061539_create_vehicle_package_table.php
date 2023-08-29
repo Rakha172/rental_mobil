@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('package_name');
             $table->string('description');
             $table->string('duration_date');
-            $table->float('price');
+            $table->string('price');
             $table->timestamps();
         });
     }

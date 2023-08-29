@@ -5,7 +5,7 @@ use App\Http\Controllers\LandingpageController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\VehicleController;
-use App\Http\Controllers\VehiclePackageController;
+use App\Http\Controllers\Vehicle_PackageController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -29,5 +29,10 @@ route::resource('login', LoginController::class);
 route::resource('vehicle', VehicleController::class);
 route::resource('admin', AdminController::class);
 route::resource('landingpage', LandingpageController::class);
-route::resource('vehiclepackage', VehiclePackageController::class);
 
+Route::get('vehicle_package', [Vehicle_PackageController::class, 'index'])->name('vehicle_package.index');
+Route::get('vehicle_package/create', [Vehicle_PackageController::class, 'create'])->name('vehicle_package.create');
+Route::post('vehicle_package', [Vehicle_PackageController::class, 'store'])->name('vehicle_package.store');
+Route::get('vehicle_package/{vehicle_package}', [Vehicle_PackageController::class, 'edit'])->name('vehicle_package.edit');
+Route::put('vehicle_package/{vehicle_package}', [Vehicle_PackageController::class, 'update'])->name('vehicle_package.update');
+Route::delete('vehicle_package/{vehicle_package}', [Vehicle_PackageController::class, 'destroy'])->name('vehicle_package.destroy');

@@ -2,18 +2,18 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Vehicle_Package;
+use App\Models\Vehicle_package;
 use App\Models\Vehicle;
 use Illuminate\Http\Request;
 
-class Vehicle_PackageController extends Controller
+class Vehicle_packageController extends Controller
 {
 
     public function index()
     {
-        $vehicle_packages = Vehicle_Package::all();
+        $vehicle_package = Vehicle_package::all();
 
-        return view('vehicle_package.index', ['vehicle_packages' => $vehicle_packages]);
+        return view('vehicle_package.index', ['vehicle_package' => $vehicle_package]);
     }
 
     public function show()
@@ -38,19 +38,24 @@ class Vehicle_PackageController extends Controller
             'vehicle_id' => 'required|exists:vehicle,id',
         ]);
 
-        Vehicle_Package::create($validated);
+        Vehicle_package::create($validated);
 
         return redirect('/vehicle_package')->with('berhasil', "$request->package_name Berhasil ditambahkan!");
     }
 
-    public function edit(Vehicle_Package $vehicle_packages)
+    public function edit($id)
     {
-        $vehicle = Vehicle::all();
+        $vehicle_package = vehicle_package::find($id);
+        if (!$vehicle_package)
+            return redirect()->route('vehicle_package.index');
+        return view('vehicle_package.edit', [
+            'vehicle_package' => $vehicle_package,
+            'vehicle' => Vehicle::all()
+        ]);
 
-        return view('vehicle_package.edit', compact('vehicle_packages', 'vehicle'));
     }
 
-    public function update(Request $request, Vehicle_Package $vehicle_packages)
+    public function update(Request $request, Vehicle_package $vehicle_package)
     {
         $validated = $request->validate([
             'package_name' => 'required',
@@ -60,15 +65,15 @@ class Vehicle_PackageController extends Controller
             'vehicle_id' => 'required|exists:vehicle,id',
         ]);
 
-        $vehicle_packages->update($validated);
+        $vehicle_package->update($validated);
 
         return redirect()->route('vehicle_package.index')->with('berhasil', "$request->package_name Berhasil diubah!");
     }
 
-    public function destroy(Vehicle_Package $vehicle_packages)
+    public function destroy(Vehicle_package $vehicle_package)
     {
-        $vehicle_packages->delete();
+        $vehicle_package->delete();
 
-        return redirect()->route('vehicle_package.index')->with('berhasil', "$vehicle_packages->package_name Berhasil dihapus!");
+        return redirect()->route('vehicle_package.index')->with('berhasil', "$vehicle_package->package_name Berhasil dihapus!");
     }
 }
