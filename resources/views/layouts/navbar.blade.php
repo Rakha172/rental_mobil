@@ -23,7 +23,11 @@
                         <li>
                             <hr class="dropdown-divider">
                         </li>
+                        
                         <li><a class="dropdown-item" href="">Vehicle Package</a></li>
+
+                        <li><a class="dropdown-item" href="{{ route('vehicle_package.index') }}">Vehicle Package</a></li>
+
                     </ul>
                 </li>
                 <li class="nav-item">
