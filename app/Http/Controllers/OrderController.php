@@ -11,13 +11,13 @@ class OrderController extends Controller
 {
     public function index()
     {
-        $order = Order::all();
 
-        return view('order.index', ['order' => $order]);
+        return view('admin.infoorder');
     }
 
     public function show()
     {
+
         return view('order.index');
     }
 
@@ -70,4 +70,5 @@ class OrderController extends Controller
 
         return redirect()->route('order.index')->with('berhasil', "$order->rental_date Berhasil dihapus!");
     }
+
 }

@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\LandingpageController;
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\VehicleController;
@@ -28,6 +29,7 @@ route::resource('register', RegisterController::class);
 route::resource('login', LoginController::class);
 route::resource('vehicle', VehicleController::class);
 route::resource('admin', AdminController::class);
+route::resource('order', OrderController::class);
 Route::get('/landing', [LandingpageController::class, 'index'])->name('landingpage.index');
 
 //vehicle_packages
