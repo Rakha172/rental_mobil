@@ -1,5 +1,5 @@
 @extends('components.main')
-@include('layouts.navbar')
+<x-app-layout>
 <div class="container mt-5">
     <div class="card">
         <h3 class="text-center mt-5">DATA USER</h3>
@@ -15,7 +15,6 @@
                             <th scope="col">Id Card Photo</th>
                             <th scope="col">Driver Licence Photo</th>
                             <th scope="col">Email</th>
-                            <th scope="col">Password</th>
                             <th scope="col">Action</th>
                         </tr>
                     </thead>
@@ -32,7 +31,6 @@
                                     <td><img src="{{ asset($usr->driver_licence_photo) }}" width="100"
                                             class="rounded mx-auto d-block"> </td>
                                     <td>{{ $usr->email }}</td>
-                                    <td>{{ $usr->password }}</td>
                                     <td>
                                         <form action="{{ route('register.destroy', $usr->id) }}" method="POST">
                                             @method('delete')
@@ -49,6 +47,7 @@
             </div>
         </div>
     </div>
+</x-app-layout>
 
 
 

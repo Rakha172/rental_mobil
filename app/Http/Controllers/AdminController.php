@@ -14,4 +14,10 @@ class AdminController extends Controller
             'user' => User::all()
         ]);
     }
+
+    function show (){
+        return view('admin.infouser')->with([
+            'user' => User::all()
+        ]);
+    }
 }

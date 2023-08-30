@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\LandingpageController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\LoginController;
@@ -40,5 +41,12 @@ Route::get('vehicle_package/{vehicle_packages}', [Vehicle_PackageController::cla
 Route::put('vehicle_package/{vehicle_packages}', [Vehicle_PackageController::class, 'update'])->name('vehicle_package.update');
 Route::delete('vehicle_package/{vehicle_packages}', [Vehicle_PackageController::class, 'destroy'])->name('vehicle_package.destroy');
 
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+});
+
+require __DIR__.'/auth.php';
 
 

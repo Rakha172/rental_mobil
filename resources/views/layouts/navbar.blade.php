@@ -23,7 +23,7 @@
                         <li>
                             <hr class="dropdown-divider">
                         </li>
-                        
+
                         <li><a class="dropdown-item" href="">Vehicle Package</a></li>
 
                         <li><a class="dropdown-item" href="{{ route('vehicle_package.index') }}">Vehicle Package</a></li>
@@ -31,7 +31,7 @@
                     </ul>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link border" href="{{ route('login.index') }}">Logout As Admin?</a>
+                    <a class="nav-link border" href="{{ route('login') }}">Logout As Admin?</a>
                 </li>
             </ul>
             <form class="d-flex" role="search">
