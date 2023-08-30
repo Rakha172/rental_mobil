@@ -5,9 +5,9 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class VehiclePackage extends Model
+class Vehicle_Package extends Model
 {
-    protected $table = 'vehiclepackage   ';
+    protected $table = 'vehicle_packages';
     protected $fillabel = [
         'package_name',
         'desciprtion',
@@ -16,6 +16,8 @@ class VehiclePackage extends Model
         'created_at',
         'updated_at'
     ];
+
+    protected $guarded = [];
 
     public function vehicle()
     {

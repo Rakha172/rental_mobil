@@ -52,6 +52,9 @@
             <div class="text-center mb-3">
                 <a href="{{ route('register.create') }}">doesnt have a account?</a>
             </div>
+            <div class="text-center mb-3">
+                <a href="#"> forget your password?</a>
+            </div>
         </form>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
