@@ -21,8 +21,8 @@
 
        </ul>
        <div class="header-btn">
-        <a href="#" class="sign-up">Sign Up</a>
-        <a href="#" class="sign-in">Sign In</a>
+        <a href="{{ route('register.create') }}" class="sign-up">Sign Up</a>
+        <a href="{{ route('login.index') }}" class="sign-in">Sign In</a>
        </div>
     </header>
     <!-- home -->
