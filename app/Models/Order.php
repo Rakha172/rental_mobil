@@ -26,7 +26,4 @@ class Order extends Model
     {
         return $this->belongsTo(Vehicle_Package::class);
     }
-  
-    use HasFactory;
-    protected $table = 'order';
 }
