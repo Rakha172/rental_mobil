@@ -11,10 +11,11 @@
 
         <div>
             <x-input-label for="gender" :value="__('gender')" />
-            <x-text-input id="gender" class="block mt-1 w-full" type="text" name="gender" :value="old('gender')"
-                required autofocus autocomplete="gender" />
+            <x-text-input id="gender" class="block mt-1 w-full" type="text" name="gender" :value="old('gender')" required
+                autofocus autocomplete="gender" />
             <x-input-error :messages="$errors->get('gender')" class="mt-2" />
         </div>
+
 
         <div>
             <x-input-label for="phone_number" :value="__('phone_number')" />
@@ -32,8 +33,9 @@
 
 
         <div class="form-floating">
+            <x-input-label for="id_card_photo" :value="__('id_card_photo')" />
                 <input style="background-color:  rgb(155, 152, 152);" type="file" name="id_card_photo"
-                    class="form-control @error('id_card_photo') is-invalid @enderror" id="id_card_photo"
+                    class="block mt-1 w-full @error('id_card_photo') is-invalid @enderror" id="id_card_photo"
                     value="{{ old('id_card_photo') }}" accept="image/*"
                     onchange="document.getElementById('output').src = window.URL.createObjectURL(this.files[0])">
                 @error('id_card_photo')
@@ -43,10 +45,11 @@
             </div>
 
             <div class="form-floating">
-                <input style="background-color:  rgb(155, 152, 152);" type="file" name="driver_licence_photo"
-                    class="form-control @error('driver_licence_photo') is-invalid @enderror"
+                <x-input-label for="driver_licence_photo" :value="__('driver_licence_photo')" />
+                     <input style="background-color:  rgb(155, 152, 152);" type="file" name="driver_licence_photo"
+                    class="block mt-1 w-full @error('driver_licence_photo') is-invalid @enderror"
                     id="driver_licence_photo" value="{{ old('driver_licence_photo') }}"accept="image/*"
-                    onchange="document.getElementById('output2').src = window.URL.createObjectURL(this.files[0])">
+                    onchange="document.getElementById('output2').src = windowz.URL.createObjectURL(this.files[0])">
                 @error('driver_licence_photo')
                     <div class="invalid-feedback">{{ $message }}</div>
                 @enderror
