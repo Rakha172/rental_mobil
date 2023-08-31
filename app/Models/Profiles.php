@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class profile extends Model
 {
+    // fewweff
     protected $table = 'profiles';
     protected $fillabel = [
         'user_nik',
