@@ -16,6 +16,7 @@ class VehicleController extends Controller
         return view('vehicle.index', ['vehicle' => $vehicle]);
     }
 
+
     public function create()
     {
         return view('vehicle.create');
@@ -60,42 +61,35 @@ class VehicleController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'image' => 'required|image|mimes:jpeg,png,jpg|max:2040',
+            'image' => 'required|image|mimes:png,jpg|max:2040',
             'vehicle_type' => 'required',
             'brand' => 'required',
             'color' => 'required',
             'passenger_capacity' => 'required',
         ]);
 
-        if ($request->hasFile('image')) {
-            $image = $request->file('image');
-            $slug = Str::slug($image->getClientOriginalName());
-            $new_image = time() . '_' . $slug;
-            $image->move(public_path('upload/vehicle/'), $new_image);
+        $image = $request->image;
+        $slug = Str::slug($image->getClientOriginalName());
+        $new_image = time() . '_' . $slug;
+        $image->move('upload/vehicle/', $new_image);
 
-            $vehicle = new Vehicle;
-            $vehicle->image = 'upload/vehicle/' . $new_image;
-        } else {
-            // Handle jika tidak ada gambar yang diunggah
-            // Anda dapat memberikan nilai default atau pesan kesalahan
-        }
-
+        $vehicle = Vehicle::find($id);
+        $vehicle->image = 'upload/vehicle/' . $new_image;
         $vehicle->vehicle_type = $request->vehicle_type;
         $vehicle->brand = $request->brand;
         $vehicle->color = $request->color;
         $vehicle->passenger_capacity = $request->passenger_capacity;
         $vehicle->save();
 
-        return redirect()->route('vehicle.index')->with('success', 'Data ditambah');
+        return to_route('vehicle.index')->with('succes', 'data ditambah');
     }
-    public function destroy(Vehicle $vehicle)
+    public function destroy($id)
     {
+        $vehicle = Vehicle::find($id);
         $vehicle->delete();
 
-        return redirect()->route('vehicle.index')->with('berhasil', "$vehicle->image Berhasil dihapus!");
-
+        return back()->with('succes', 'data dihapus');
     }
 
 
 }
-
