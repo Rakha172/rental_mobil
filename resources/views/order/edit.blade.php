@@ -36,7 +36,7 @@
                         </option>
                     @endforeach
                 </select>
-                @error('vehicle_id')
+                @error('vehicle_packages_id')
                     <div class="invalid-feedback">{{ $message }}</div>
                 @enderror
               </div>
