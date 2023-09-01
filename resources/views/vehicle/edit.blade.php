@@ -21,10 +21,7 @@
                     <div class="invalid-feedback">{{ $message }}</div>
                 @enderror
                 <label for="image">Image</label>
-                {{-- <div class="mt-3">
-                    <!-- Tampilkan gambar yang sudah ada -->
-                    <img src="{{ asset($vehicle->image) }}" id="output" width="200" alt="Preview Image">
-                </div> --}}
+                <div class="mt-3"><img src="" id="output" width="200"></div>
             </div>
             <div class="mb-3">
                 <label class="form-label">Vehicle Type</label>

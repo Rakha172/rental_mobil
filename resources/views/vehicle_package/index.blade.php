@@ -37,7 +37,7 @@
                 @foreach ($vehicle_packages as $index => $vhcpck)
               <tr>
                 <th scope="row">{{ $index}}</th>
-                <td>{{ $vhcpck->vehicle->image }}</td>
+                <td><img src="{{ asset($vhcpck->vehicle->image)}}" width="100"></td>
                 <td>{{ $vhcpck->package_name }}</td>
                 <td>{{ $vhcpck->description }}</td>
                 <td>{{ $vhcpck->duration_date }}</td>
