@@ -9,7 +9,7 @@
   </head>
   <body>
     <div class="container mt-5">
-        <form action="{{ route("vehicle.update", $vehicle->id) }}" method="POST">
+        <form action="{{ route("vehicle.update", $vehicle->id) }}" method="POST" enctype="multipart/form-data">
             @csrf
             @method('put')
             <div class="form-floating mb-2">
@@ -20,8 +20,11 @@
                 @error('image')
                     <div class="invalid-feedback">{{ $message }}</div>
                 @enderror
-                <label for="image">Id Card</label>
-                <div class="mt-3"><img src="" id="output" width="200"></div>
+                <label for="image">Image</label>
+                {{-- <div class="mt-3">
+                    <!-- Tampilkan gambar yang sudah ada -->
+                    <img src="{{ asset($vehicle->image) }}" id="output" width="200" alt="Preview Image">
+                </div> --}}
             </div>
             <div class="mb-3">
                 <label class="form-label">Vehicle Type</label>
@@ -65,14 +68,14 @@
                 @enderror
               </div>
               <div class="mb-3">
-                <label class="form-label">Pasengger Capacity</label>
-                <select name="pasengger_capacity" class="form-control @error('pasengger_capacity') is-invalid @enderror">
+                <label class="form-label">Passenger Capacity</label>
+                <select name="passenger_capacity" class="form-control @error('passenger_capacity') is-invalid @enderror">
                     <option value="">choose</option>
-                    <option @selected(old('pasengger_capacity', $vehicle->pasengger_capacity) == '15 Pasengger') value="15 Pasengger">15 Pasengger</option>
-                    <option @selected(old('pasengger_capacity', $vehicle->pasengger_capacity) == '7 Pasengger') value="7 Pasengger">7 Pasengger</option>
-                    <option @selected(old('pasengger_capacity', $vehicle->pasengger_capacity) == '5 Pasengger') value="5 Pasengger">5 Pasengger</option>
+                    <option @selected(old('passenger_capacity', $vehicle->passenger_capacity) == '15 Passenger') value="15 Passenger">15 Passenger</option>
+                    <option @selected(old('passenger_capacity', $vehicle->passenger_capacity) == '7 Passenger') value="7 Passenger">7 Passenger</option>
+                    <option @selected(old('passenger_capacity', $vehicle->passenger_capacity) == '5 Passenger') value="5 Passenger">5 Passenger</option>
                 </select>
-                @error('pasengger_capacity')
+                @error('passenger_capacity')
                     <div class="invalid-feedback">{{ $message }}</div>
                 @enderror
               </div>
