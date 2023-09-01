@@ -12,7 +12,10 @@ class OrderController extends Controller
     public function index()
     {
 
-        return view('admin.infoorder');
+        // return view('admin.infoorder');
+        $order = Order::all();
+
+        return view('order.index', ['order' => $order]);
     }
 
     public function show()
@@ -46,6 +49,7 @@ class OrderController extends Controller
     public function edit(Order $order)
     {
         $users = User::all();
+        $vehicle_packages = Vehicle_Package::all();
 
         return view('order.edit', compact('order', 'users', 'vehicle_packages'));
     }
