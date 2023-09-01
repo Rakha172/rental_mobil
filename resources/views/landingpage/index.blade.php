@@ -8,10 +8,24 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
+    <style>
+        .home{
+    width: 100%;
+    min-height: 100vh;
+    position: relative;
+    background-image: url({{asset('images/bg.png')}});
+    background-repeat: no-repeat;
+    background-position: center right;
+    background-size: cover ;
+    display: grid;
+    align-items: center;
+    grid-template-columns: repeat(2, 1fr);
+}
+    </style>
 </head>
 <body>
     <header>
-        <a href="" class="logo"><img src="img/jeep.png" alt=""></a>
+        <a href="" class="logo"><img src="{{asset('images/jeep.png')}}" alt=""></a>
 
        <div class="bx bx-menu" id="menu-icon"></div>
        <ul class="navbar">
@@ -83,7 +97,7 @@
         <div class="services-container">
             <div class="box">
                 <div class="box-img">
-                    <img src="img/car1.jpg" alt="">
+                    <img src="{{asset('images/')}}" alt="">
                     <p>2023</p>
                     <h3>2021 Honda Civic</h3>
                     <h2>Harga /1<span>Day</span></h2>
@@ -93,7 +107,7 @@
 
             <div class="box">
                 <div class="box-img">
-                    <img src="img/car1.jpg" alt="">
+                    <img src="{{asset('images/')}}" alt="">
                 </div>
                     <p>2023</p>
                     <h3>2021 Honda Civic</h3>
@@ -103,7 +117,7 @@
 
             <div class="box">
                 <div class="box-img">
-                    <img src="img/car1.jpg" alt="">
+                    <img src="{{asset('images/')}}" alt="">
                 </div>
                     <p>2023</p>
                     <h3>2021 Honda Civic</h3>
@@ -113,7 +127,7 @@
 
             <div class="box">
                 <div class="box-img">
-                    <img src="img/car1.jpg" alt="">
+                    <img src="{{asset('images/')}}" alt="">
                 </div>
                     <p>2023</p>
                     <h3>2021 Honda Civic</h3>
@@ -123,7 +137,7 @@
 
              <div class="box">
                 <div class="box-img">
-                    <img src="img/car1.jpg" alt="">
+                    <img src="{{asset('images/')}}" alt="">
                 </div>
                     <p>2023</p>
                     <h3>2021 Honda Civic</h3>
@@ -133,7 +147,7 @@
 
             <div class="box">
                 <div class="box-img">
-                    <img src="img/car1.jpg" alt="">
+                    <img src="{{asset('images/')}}" alt="">
                 </div>
                     <p>2023</p>
                     <h3>2021 Honda Civic</h3>
@@ -143,7 +157,7 @@
 
             <div class="box">
                 <div class="box-img">
-                    <img src="img/car1.jpg" alt="">
+                    <img src="{{asset('images/')}}" alt="">
                 </div>
                     <p>2023</p>
                     <h3>2021 Honda Civic</h3>
@@ -152,7 +166,7 @@
             </div>
             <div class="box">
                 <div class="box-img">
-                    <img src="img/car1.jpg" alt="">
+                    <img src="{{asset('images/')}}" alt="">
                 </div>
                     <p>2023</p>
                     <h3>2021 Honda Civic</h3>
@@ -168,9 +182,9 @@
             <div class="footer-left">
                 <h3> <span> Payment Method</span> </h3>
                 <div class="credit-cards">
-                    <img src="img/png-transparent-removebg-preview.png" alt="">
-                    <img src="img/png-transparent1-removebg-preview.png" alt="">
-                    <img src="img/bri-removebg-preview.png" alt="">
+                    <img src="{{asset('images/gopay.png')}}" alt="">
+                    <img src="{{asset('')}}" alt="">
+                    <img src="{{asset('')}}" alt="">
                 </div>
                 <p class="footer-copyright">Rental Mobil</p>
             </div>
