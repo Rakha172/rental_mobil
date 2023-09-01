@@ -34,7 +34,7 @@ class RegisteredUserController extends Controller
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
             'gender' => 'required',
-            'phone_number' => 'required',
+            'phone_number' => ['required', 'string', 'max:255', 'unique:'.User::class],
             'address' => 'required',
             'id_card_photo' => 'required|image|mimes:png,jpg|max:2040',
             'driver_licence_photo' => 'required|image|mimes:png,jpg|max:2040',
