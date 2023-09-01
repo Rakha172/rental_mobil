@@ -33,6 +33,7 @@
             </tr>
     </thead>
     <tbody>
+        @if(isset($vehicle))
         @foreach ($vehicle as $index => $vhcle)
         <tr>
             <th scope="row">{{ $index+1}}</th>
@@ -51,6 +52,7 @@
             </td>
         </tr>
         @endforeach
+        @endif
     </tbody>
   </table>
 </html>
