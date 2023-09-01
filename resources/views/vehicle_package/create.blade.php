@@ -12,18 +12,20 @@
         <form action="{{ route("vehicle_package.store") }}" method="post">
             @csrf
             @method('post')
-                <div class="mb-3">
-                    <label class="form-label">Vehicle</label>
-                    <select name="vehicle_id" class="form-control @error('vehicle_id') is-invalid @enderror">
-                        <option value="">Pilih</option>
-                        @foreach ($vehicle as $vehicle)
-                            <option @selected(old('vehicle') == $vehicle->id) value={{ $vehicle->id }}>{{ $vehicle->image }}</option>
-                        @endforeach
-                    </select>
-                    @error('vehicle_id')
-                        <div class="invalid-feedback">{{ $message }}</div>
-                    @enderror
-                  </div>
+            <div class="mb-3">
+                <label class="form-label">Vehicle</label>
+                <select name="vehicle_id" class="form-control @error('vehicle_id') is-invalid @enderror">
+                    <option value="">Pilih</option>
+                    @foreach ($vehicle as $vehicle)
+                        <option value="{{ $vehicle->id}}" {{ old('vehicle_id') == $vehicle->id ? 'selected' : ''}}>
+                            {{ $vehicle->image }}
+                        </option>
+                    @endforeach
+                </select>
+                @error('vehicle_id')
+                    <div class="invalid-feedback">{{ $message }}</div>
+                @enderror
+              </div>
                   <div class="mb-3">
                     <label class="form-label">Package Name</label>
                     <input value="{{ old('package_name')}}" name="package_name" type="text" class="form-control @error('package_name') is-invalid @enderror">

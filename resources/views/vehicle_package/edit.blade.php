@@ -17,7 +17,9 @@
                     <select name="vehicle_id" class="form-control @error('vehicle_id') is-invalid @enderror">
                         <option value="">Pilih</option>
                         @foreach ($vehicle as $vehicle)
-                            <option @selected(old('vehicle') == $vehicle->id) value={{ $vehicle->id }}>{{ $vehicle->image }}</option>
+                            <option value="{{ $vehicle->id}}" {{ old('vehicle_id') == $vehicle->id ? 'selected' : ''}}>
+                                {{ $vehicle->image }}
+                            </option>
                         @endforeach
                     </select>
                     @error('vehicle_id')
