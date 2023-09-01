@@ -44,7 +44,6 @@
                 <td>{{ $vhcpck->price }}</td>
                 <td>
                     <a href="{{ route('vehicle_package.edit', $vhcpck->id) }}" class="btn btn-primary">Edit</a>
-
                     <form action="{{ route('vehicle_package.destroy', $vhcpck->id)}}"method="POST">
                         @csrf
                         @method('delete')
