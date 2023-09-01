@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('role')->default('customer');
             $table->string('gender');
-            $table->integer('phone_number')->unique();
+            $table->string('phone_number')->unique();
             $table->string('address');
             $table->string('id_card_photo');
             $table->string('driver_licence_photo');
