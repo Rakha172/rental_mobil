@@ -13,8 +13,7 @@ return new class extends Migration
     {
         Schema::create('vehicle_packages', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('vehicle_id');
-            $table->foreign('vehicle_id')->references('id')->on('vehicle');
+            $table->foreignId('vehicle_id')->constrained('vehicle')->cascadeOnDelete();
             $table->string('package_name');
             $table->string('description');
             $table->string('duration_date');
