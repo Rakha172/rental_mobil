@@ -22,8 +22,8 @@
 
         <div class="mt-4">
             <x-input-label for="phone_number" :value="__('phone_number')" />
-            <x-text-input id="phone_number" class="block mt-1 w-full" type="number" name="phone_number" :value="old('phone_number')"
-                required autocomplete="phone_number" />
+            <x-text-input id="phone_number" class="block mt-1 w-full" type="number" name="phone_number"
+                :value="old('phone_number')" required autocomplete="phone_number" />
             <x-input-error :messages="$errors->get('phone_number')" class="mt-2" />
         </div>
 
@@ -38,25 +38,22 @@
         <div class="form-floating">
             <x-input-label for="id_card_photo" :value="__('id_card_photo')" />
             <input style="border-radius: 5px; border: rgba(185, 184, 184, 0.637) 1px solid;" type="file"
-                name="id_card_photo" class="block mt-1 w-full @error('id_card_photo') is-invalid @enderror"
+                name="id_card_photo" class="block mt-1 w-full"
                 id="id_card_photo" value="{{ old('id_card_photo') }}" accept="image/*"
                 onchange="document.getElementById('output').src = window.URL.createObjectURL(this.files[0])">
-            @error('id_card_photo')
-                <div class="invalid-feedback">{{ $message }}</div>
-            @enderror
-            <div class="mt-3"><img src="" id="output" width="300"></div>
+            <div class="block mt-1 w-full"><img src="" id="output" height="30"></div>
+            <x-input-error :messages="$errors->get('id_card_photo')" class="mt-2" />
         </div>
 
         <div class="form-floating">
             <x-input-label for="driver_licence_photo" :value="__('driver_licence_photo')" />
             <input style="border-radius: 5px; border: rgba(185, 184, 184, 0.637) 1px solid;" type="file"
-                name="driver_licence_photo" class="block mt-1 w-full @error('driver_licence_photo') is-invalid @enderror"
-                id="driver_licence_photo" value="{{ old('driver_licence_photo') }}" accept="image/*"
+                name="driver_licence_photo"
+                class="block mt-1 w-full" id="driver_licence_photo"
+                value="{{ old('driver_licence_photo') }}" accept="image/*"
                 onchange="document.getElementById('output2').src = window.URL.createObjectURL(this.files[0])">
-            @error('driver_licence_photo')
-                <div class="invalid-feedback">{{ $message }}</div>
-            @enderror
-            <div class="mt-3"><img src="" id="output2" width="300"></div>
+            <div class="block mt-1 w-full"><img src="" id="output2" height="30""></div>
+            <x-input-error :messages="$errors->get('driver_licence_photo')" class="mt-2" />
         </div>
 
         <!-- Email Address -->
@@ -85,6 +82,26 @@
                 name="password_confirmation" required autocomplete="new-password" />
 
             <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
+            <input id="show" type="checkbox"
+                class="rounded border-gray-300 text-indigo-600 shadow-sm
+                focus:ring-indigo-500"
+                name="show" id="show">
+            <span class="ml-2 text-sm text-gray-600">{{ __('Show password') }}</span>
+            <script>
+                let show = document.getElementById("show")
+                let password = document.getElementById("password")
+                let password_confirmation = document.getElementById("password_confirmation")
+
+                show.onclick = function() {
+                    if (password_confirmation.type && password.type == "password") {
+                        password_confirmation.type = "text";
+                        password.type = "text";
+                    } else {
+                        password_confirmation.type = "password"
+                        password.type = "password"
+                    }
+                }
+            </script>
         </div>
 
         <div class="flex items-center justify-end mt-4">
