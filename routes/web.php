@@ -28,10 +28,21 @@ Route::get('/', function () {
 route::resource('login', LoginController::class);
 route::resource('register', RegisterController::class);
 route::resource('login', LoginController::class);
-route::resource('vehicle', VehicleController::class);
+// route::resource('vehicle', VehicleController::class);
 route::resource('admin', AdminController::class);
 route::resource('order', OrderController::class);
 Route::get('/landing', [LandingpageController::class, 'index'])->name('landingpage.index');
+
+
+// vehicle
+Route::get('vehicle', [VehicleController::class, 'index'])->name('vehicle.index');
+Route::get('vehicle/create', [VehicleController::class, 'create'])->name('vehicle.create');
+Route::post('vehicle/store', [VehicleController::class, 'store'])->name('vehicle.store');
+Route::post('vehicle/update{id}', [VehicleController::class, 'store'])->name('vehicle.update');
+Route::get('vehicle/edit{id}', [VehicleController::class, 'edit'])->name('vehicle.edit');
+Route::delete('vehicle/destroy/{id}', [VehicleController::class, 'destroy'])->name('vehicle.destroy');
+Route::put('/vehicle/{id}', 'App\Http\Controllers\VehicleController@update')->name('vehicle.update');
+
 
 //vehicle_packages
 Route::get('vehicle_package', [Vehicle_PackageController::class, 'index'])->name('vehicle_package.index');
@@ -45,6 +56,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+
+
 });
 
 require __DIR__.'/auth.php';
