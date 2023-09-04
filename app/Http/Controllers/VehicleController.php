@@ -6,7 +6,7 @@ use App\Models\Vehicle;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\File;
 use Illuminate\Http\Request;
-
+use App\Models\Vehicle_Package;
 class VehicleController extends Controller
 {
     public function index()
@@ -48,16 +48,14 @@ class VehicleController extends Controller
         return to_route('vehicle.index')->with('succes', 'data ditambah');
     }
 
-    public function edit($id)
-    {
-        $vehicle = Vehicle::find($id);
-        if (!$vehicle)
-            return redirect()->route('vehicle.index')
-                ->with('error_message', 'pembeli dengan id = ' . $id . ' tidak ditemukan');
-        return view('vehicle.edit', [
-            'vehicle' => $vehicle,
-        ]);
-    }
+
+        public function edit($id)
+        {
+            $vehicle = Vehicle::findOrFail($id);
+            return view('vehicle.edit', compact('vehicle'));
+        }
+
+
     public function update(Request $request, $id)
     {
         $request->validate([
@@ -80,7 +78,6 @@ class VehicleController extends Controller
         $vehicle->color = $request->color;
         $vehicle->passenger_capacity = $request->passenger_capacity;
         $vehicle->save();
-
         return to_route('vehicle.index')->with('succes', 'data ditambah');
     }
     public function destroy($id)
