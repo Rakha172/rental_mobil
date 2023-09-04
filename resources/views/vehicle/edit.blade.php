@@ -70,7 +70,11 @@
                     <option value="">choose</option>
                     <option @selected(old('passenger_capacity', $vehicle->passenger_capacity) == '15 passenger') value="15 Passenger">15 Passenger</option>
                     <option @selected(old('passenger_capacity', $vehicle->passenger_capacity) == '7 passenger') value="7 Passenger">7 Passenger</option>
+
+                    <option @selected(old('passenger_capacity', $vehicle->passenger_capacity) == '5 Passenger') value="5 Passenger">5 Passenger</option>
+
                     <option @selected(old('passenger_capacity', $vehicle->passenger_capacity) == '5 passenger') value="5 Passenger">5 Passenger</option>
+
                 </select>
                 @error('passenger_capacity')
                     <div class="invalid-feedback">{{ $message }}</div>
