@@ -18,9 +18,9 @@
                 <th scope="col">Rental Date</th>
                 <th scope="col">Return Date</th>
                 <th scope="col">Aksi</th>
-            </tr>
-        </thead>
-        <tbody>
+              </tr>
+            </thead>
+            <tbody>
             @foreach ($order as $index => $ordr)
                 <tr>
                     <th scope="row">{{ $index }}</th>
@@ -31,7 +31,6 @@
                     <td>{{ $ordr->return_date }}</td>
                     <td>
                         <a href="{{ route('order.edit', $ordr->id) }}" class="btn btn-primary">Edit</a>
-
                         <form action="{{ route('order.destroy', $ordr->id) }}"method="POST">
                             @csrf
                             @method('delete')
