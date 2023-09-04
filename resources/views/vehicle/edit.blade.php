@@ -68,9 +68,9 @@
             <div class="form-floating">
                 <select style="background-color: rgb(139, 139, 139);" name="passenger_capacity" class="form-control @error('passenger_capacity') is-invalid @enderror">
                     <option value="">choose</option>
-                    <option @selected(old('passenger_capacity', $vehicle->passenger_capacity) == '15 passenger') value="15 Passenger">15 Passenger</option>
-                    <option @selected(old('passenger_capacity', $vehicle->passenger_capacity) == '7 passenger') value="7 Passenger">7 Passenger</option>
-                    <option @selected(old('passenger_capacity', $vehicle->passenger_capacity) == '5 passenger') value="5 Passenger">5 Passenger</option>
+                    <option @selected(old('passenger_capacity', $vehicle->passenger_capacity) == '15 Passenger') value="15 Passenger">15 Passenger</option>
+                    <option @selected(old('passenger_capacity', $vehicle->passenger_capacity) == '7 Passenger') value="7 Passenger">7 Passenger</option>
+                    <option @selected(old('passenger_capacity', $vehicle->passenger_capacity) == '5 Passenger') value="5 Passenger">5 Passenger</option>
                 </select>
                 @error('passenger_capacity')
                     <div class="invalid-feedback">{{ $message }}</div>
