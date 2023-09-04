@@ -28,15 +28,15 @@
               </div>
               <div class="mb-3">
                 <label class="form-label">Package Name</label>
-                <select name="vehicle_packages_id" class="form-control @error('vehicle_packages_id') is-invalid @enderror">
+                <select name="vehicle_package_id" class="form-control @error('vehicle_package_id') is-invalid @enderror">
                     <option value="">Pilih</option>
                     @foreach ($vehicle_packages as $vehicle_packages)
-                        <option value="{{ $vehicle_packages->id}}" {{ old('vehicle_packages_id') == $vehicle_packages->id ? 'selected' : ''}}>
+                        <option value="{{ $vehicle_packages->id}}" {{ old('vehicle_package_id') == $vehicle_packages->id ? 'selected' : ''}}>
                             {{ $vehicle_packages->package_name }}
                         </option>
                     @endforeach
                 </select>
-                @error('vehicle_packages_id')
+                @error('vehicle_package_id')
                     <div class="invalid-feedback">{{ $message }}</div>
                 @enderror
               </div>

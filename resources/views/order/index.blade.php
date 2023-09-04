@@ -37,12 +37,11 @@
               <tr>
                 <th scope="row">{{ $index}}</th>
                 <td>{{ $ordr->users ? $ordr->users->name : 'Name Not Found' }}</td>
-                <td>{{ $ordr->vehicle_packages ? $ordr->vehicle_packages->package_name : 'Package Name Not Found' }}</td>
+                <td>{{ $ordr->vehicle_package ? $ordr->vehicle_package->package_name : 'Package Name Not Found' }}</td>
                 <td>{{ $ordr->rental_date }}</td>
                 <td>{{ $ordr->return_date }}</td>
                 <td>
                     <a href="{{ route('order.edit', $ordr->id) }}" class="btn btn-primary">Edit</a>
-
                     <form action="{{ route('order.destroy', $ordr->id)}}"method="POST">
                         @csrf
                         @method('delete')
