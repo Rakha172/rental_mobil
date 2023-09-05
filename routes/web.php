@@ -5,7 +5,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\LandingpageController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\LoginController;
-use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\VehicleController;
 use App\Http\Controllers\Vehicle_PackageController;
 use Illuminate\Support\Facades\Route;
@@ -26,10 +26,9 @@ Route::get('/', function () {
 });
 
 route::resource('login', LoginController::class);
-route::resource('register', RegisterController::class);
 route::resource('login', LoginController::class);
-// route::resource('vehicle', VehicleController::class);
 route::resource('admin', AdminController::class);
+route::resource('register', RegisteredUserController::class);
 route::resource('order', OrderController::class);
 Route::get('/landing', [LandingpageController::class, 'index'])->name('landingpage.index');
 
