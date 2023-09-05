@@ -29,14 +29,14 @@ class OrderController extends Controller
         $users = User::all();
         $vehicle_packages = Vehicle_Package::all();
 
-        return view('order.create', ['users' => $users, 'vehicle_packages' => $vehicle_packages]);
+        return view('order.create', ['users' => $users ,'vehicle_packages' => $vehicle_packages]);
     }
 
     public function store(Request $request)
     {
         $validated = $request->validate([
             'rental_date' => 'required',
-            'retun_date' => 'required',
+            'return_date' => 'required',
             'user_id' => 'required|exists:users,id',
             'vehicle_package_id' => 'required|exists:vehicle_packages,id'
         ]);
