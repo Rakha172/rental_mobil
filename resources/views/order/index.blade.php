@@ -25,8 +25,7 @@
                 <tr>
                     <th scope="row">{{ $index }}</th>
                     <td>{{ $ordr->users ? $ordr->users->name : 'Name Not Found' }}</td>
-                    <td>{{ $ordr->vehicle_packages ? $ordr->vehicle_packages->package_name : 'Package Name Not Found' }}
-                    </td>
+                    <td>{{ $ordr->vehicle_packages ? $ordr->vehicle_packages->package_name : 'Package Name Not Found' }}</td>
                     <td>{{ $ordr->rental_date }}</td>
                     <td>{{ $ordr->return_date }}</td>
                     <td>
