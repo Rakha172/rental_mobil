@@ -69,4 +69,10 @@ class RegisteredUserController extends Controller
 
         return redirect(RouteServiceProvider::HOME);
     }
+    public function destroy(string $id)
+    {
+        $user = User::find($id);
+        $user->delete();
+        return back()->with('succes', 'data dihapus');
+    }
 }

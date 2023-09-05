@@ -5,6 +5,14 @@
             <h3 class="text-center mt-5">DATA USER</h3>
             <div class="card-body">
                 <div class="shadow p-3 mb-5 bg-body rounded">
+                    <form action="" method="GET">
+                        <div class="row mb-2">
+                            <label for="search" class="col-sm-2 col-form-label">Search</label>
+                            <div class="col-sm-10">
+                                <input type="text" placeholder="Please input key for search data" name="search" autofocus class="form-control" value="{{ $search }}">
+                            </div>
+                        </div>
+                    </form>
                     <table class="table table-bordered">
                         <thead>
                             <tr class="table-dark">
@@ -19,10 +27,13 @@
                             </tr>
                         </thead>
                         <tbody>
+                            @php
+                            $nomor = 1 + (($user->currentPage() - 1 ) * $user->perPage());
+                            @endphp
                             @if ($user->count() > 0)
                                 @foreach ($user as $no => $usr)
                                     <tr>
-                                        <th scope="col">{{ $no + 1 }}</th>
+                                        <th>{{ $nomor++ }}</th>
                                         <td>{{ $usr->name }}</td>
                                         <td>{{ $usr->phone_number }}</td>
                                         <td>{{ $usr->address }}</td>
@@ -32,31 +43,21 @@
                                                 class="rounded mx-auto d-block"> </td>
                                         <td>{{ $usr->email }}</td>
                                         <td>
-                                            <x-danger-button x-data=""
-                                                x-on:click.prevent="$dispatch('open-modal', 'confirm-user-deletion')">{{ __('Delete') }}</x-danger-button>
-                                                <x-modal name="confirm-user-deletion" :show="$errors->userDeletion->isNotEmpty()" focusable>
-                                            <form  class="p-6" action="{{ route('register.destroy', $usr->id) }}" method="POST">
+                                            <form  class="p-2" action="{{ route('register.destroy', $usr->id) }}" method="POST">
                                                 @method('delete')
                                                 @csrf
-                                                <h2 class="text-lg font-medium text-gray-900 text-center">
-                                                    {{ __('Are you sure you want to delete this account?') }}
-                                                </h2>
-                                                <div class="mt-6 flex justify-center">
-                                                    <x-secondary-button x-on:click="$dispatch('close')">
-                                                        {{ __('Cancel') }}
-                                                    </x-secondary-button>
-                                                    <x-danger-button class="ml-3">
-                                                        {{ __('Delete Account') }}
-                                                    </x-danger-button>
-                                                </div>
+                                                <input name="_method" type="hidden" value="DELETE">
+                                                <button type="submit" class="btn btn-xs btn-danger btn-flat show-alert-delete-box btn-sm" data-toggle="tooltip" title='Delete'><ion-icon name="trash-outline" style="font-size: 20px"></ion-icon></button>
                                             </form>
-                                            </x-modal>
+                                            </form>
                                         </td>
                                     </tr>
                                 @endforeach
                             @endif
                         </tbody>
                     </table>
+                    {{-- {{ $user->links()}} --}}
+                     {!! $user->appends(Request::except('page'))->render() !!}
                 </div>
             </div>
         </div>

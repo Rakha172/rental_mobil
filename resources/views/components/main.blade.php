@@ -30,7 +30,7 @@
                 type: "warning",
                 buttons: ["Cancel", "Yes"],
                 confirmButtonColor: 'red',
-                cancelButtonColor: '#d33',
+                cancelButtonColor: '#DD6B55',
                 confirmButtonText: 'Yes, delete it!'
             }).then((willDelete) => {
                 if (willDelete) {
