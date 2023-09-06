@@ -5,13 +5,11 @@
             <div class="flex">
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center">
-                    <a href="{{ route('landingpage.index') }}">
                         <img src="{{asset('images/jeep.png')}}" width="40" alt="">
-                    </a>
                 </div>
 
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link :href="route('landingpage.index')" :active="request()->routeIs('Home')">
+                    <x-nav-link :active="request()->routeIs('Home')">
                         {{ __('Home') }}
                     </x-nav-link>
                 </div>
