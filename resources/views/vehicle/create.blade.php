@@ -17,7 +17,7 @@
                 <form action="{{ route('vehicle.store') }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="form-floating">
-                        <input style="background-color: dimgrey;" type="file" name="image"
+                        <input style="background-color:rgb(167, 166, 166)" type="file" name="image"
                             class="form-control @error('image') is-invalid @enderror" id="image"
                             value="{{ old('image') }}" accept="image/*"
                             onchange="document.getElementById('output').src = window.URL.createObjectURL(this.files[0])">
@@ -27,7 +27,7 @@
                         <div class="mt-3"><img src="" id="output" height="70"></div>
                     </div>
                     <div class="form-floating">
-                        <select style="background-color: dimgrey;"  name="vehicle_type" class="form-control @error('vehicle_type') is-invalid @enderror">
+                        <select style="background-color:rgb(167, 166, 166)"  name="vehicle_type" class="form-control @error('vehicle_type') is-invalid @enderror">
                             <option value="">Choose</option>
                             <option @selected(old('vehicle_type') == 'Sedan') value="Sedan">Sedan</option>
                             <option @selected(old('vehicle_type') == 'SUV') value="SUV">SUV</option>
@@ -39,7 +39,7 @@
                         @enderror
                     </div>
                     <div class="form-floating">
-                        <select style="background-color: dimgrey;" name="brand" class="form-control @error('brand') is-invalid @enderror">
+                        <select style="background-color:rgb(167, 166, 166)" name="brand" class="form-control @error('brand') is-invalid @enderror">
                             <option value="">Choose</option>
                             <option @selected(old('brand') == 'Toyota') value="Toyota">Toyota</option>
                             <option @selected(old('brand') == 'Honda') value="Honda">Honda</option>
@@ -54,7 +54,7 @@
                         @enderror
                     </div>
                     <div class="form-floating">
-                        <select style="background-color: dimgrey;" name="color" class="form-control @error('color') is-invalid @enderror">
+                        <select style="background-color:rgb(167, 166, 166)" name="color" class="form-control @error('color') is-invalid @enderror">
                             <option value="">Choose</option>
                             <option @selected(old('color') == 'Black') value="Black">Black</option>
                             <option @selected(old('color') == 'White') value="White">White</option>
@@ -65,7 +65,7 @@
                         @enderror
                     </div>
                     <div class="form-floating">
-                        <select style="background-color: dimgrey;" name="passenger_capacity"
+                        <select style="background-color:rgb(167, 166, 166)" name="passenger_capacity"
                             class="form-control @error('passenger_capacity') is-invalid @enderror">
                             <option value="">Choose</option>
                             <option @selected(old('passenger_capacity') == '15 passenger') value="15 passenger">15 passenger</option>
