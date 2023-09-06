@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\Order_DetailController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\LandingpageController;
 use App\Http\Controllers\OrderController;
@@ -30,6 +31,7 @@ route::resource('login', LoginController::class);
 route::resource('admin', AdminController::class);
 route::resource('register', RegisteredUserController::class);
 route::resource('order', OrderController::class);
+route::resource('order_detail', Order_DetailController::class);
 Route::get('/landing', [LandingpageController::class, 'index'])->name('landingpage.index');
 
 
