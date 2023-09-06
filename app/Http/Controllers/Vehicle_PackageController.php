@@ -8,12 +8,21 @@ use Illuminate\Http\Request;
 
 class Vehicle_PackageController extends Controller
 {
-
-    public function index()
-    {
-        $vehicle_packages = Vehicle_Package::all();
-
-        return view('vehicle_package.index', ['vehicle_packages' => $vehicle_packages]);
+    public function index(Request $request){
+        $search = $request->query('search');
+        if(!empty($search)){
+            $dataPackage = Vehicle_Package::where('vehicle_packages.package_name', 'like', '%' . $search . '%')
+            ->orWhere('vehicle_packages.description', 'like', '%' . $search . '%')
+            ->orWhere('vehicle_packages.duration_date', 'like', '%' . $search . '%')
+            ->orWhere('vehicle_packages.price', 'like', '%' . $search . '%')
+            ->paginate(5)->fragment('pckg');
+        }else {
+            $dataPackage = Vehicle_Package::paginate(5)->fragment('pckg');
+        }
+        return view('vehicle_package.index')->with([
+            'vehicle_packages' => $dataPackage,
+            'search' => $search
+        ]);
     }
 
     public function show()

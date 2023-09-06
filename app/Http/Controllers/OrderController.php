@@ -9,13 +9,22 @@ use Illuminate\Http\Request;
 
 class OrderController extends Controller
 {
-    public function index()
-    {
 
-        // return view('admin.infoorder');
-        $order = Order::all();
-
-        return view('order.index', ['order' => $order]);
+    public function index(Request $request){
+        $search = $request->query('search');
+        if(!empty($search)){
+            $dataOrder = Order::where('order.name', 'like', '%' . $search . '%')
+            ->orWhere('order.package_name', 'like', '%' . $search . '%')
+            ->orWhere('order.rental_date', 'like', '%' . $search . '%')
+            ->orWhere('order.return_date', 'like', '%' . $search . '%')
+            ->paginate(5)->fragment('ord');
+        }else {
+            $dataOrder = Order::paginate(5)->fragment('ord');
+        }
+        return view('order.index')->with([
+            'order' => $dataOrder,
+            'search' => $search
+        ]);
     }
 
     public function show()
