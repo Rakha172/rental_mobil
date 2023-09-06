@@ -13,14 +13,8 @@
             @csrf
             @method('put')
             <div class="form-floating mb-2">
-                <input type="file" name="image"
-                    class="form-control @error('image') is-invalid @enderror" id="image"
-                    value="{{ old('image') }}" accept="image/*"
-                    onchange="document.getElementById('output').src = window.URL.createObjectURL(this.files[0])">
-                @error('image')
-                    <div class="invalid-feedback">{{ $message }}</div>
-                @enderror
-                <label for="image">Image</label>
+                <input type="file" name="image">
+                <img src="{{ asset('images')}}" alt="">
                 <div class="mt-3"><img src="" id="output" width="200"></div>
             </div>
             <div class="mb-3">
