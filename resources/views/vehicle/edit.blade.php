@@ -30,57 +30,28 @@
             </div>
                 <label class="form-label">Vehicle Type</label>
             <div class="form-floating">
-                <select style="background-color:rgb(167, 166, 166)" name="vehicle_type" class="form-control @error('vehicle_type') is-invalid @enderror">
-                    <option value="">choose</option>
-                    <option @selected(old('vehicle_type', $vehicle->vehicle_type) == 'Sedan') value="Sedan">Sedan</option>
-                    <option @selected(old('vehicle_type', $vehicle->vehicle_type) == 'SUV') value="SUV">SUV</option>
-                    <option @selected(old('vehicle_type', $vehicle->vehicle_type) == 'MPV') value="MPV">MPV</option>
-                    <option @selected(old('vehicle_type', $vehicle->vehicle_type) == 'Minivan') value="Minivan">Minivan</option>
-                </select>
+                <input type="text" style="background-color:rgb(167, 166, 166)" name="vehicle_type" class="form-control @error('vehicle_type') is-invalid @enderror" value="{{$vehicle->vehicle_type}}">
                 @error('vehicle_type')
                     <div class="invalid-feedback">{{ $message }}</div>
                 @enderror
               </div>
               <label class="form-label">Mobile Brand</label>
               <div class="form-floating">
-                <select style="background-color:rgb(167, 166, 166)" name="brand" class="form-control @error('brand') is-invalid @enderror">
-                    <option value="">choose</option>
-                    <option @selected(old('brand', $vehicle->brand) == 'Toyota') value="Toyota">Toyota</option>
-                    <option @selected(old('brand', $vehicle->brand) == 'Honda') value="Honda">Honda</option>
-                    <option @selected(old('brand', $vehicle->brand) == 'BMW') value="BMW">BMW</option>
-                    <option @selected(old('brand', $vehicle->brand) == 'Suzuki') value="Suzuki">Suzuki</option>
-                    <option @selected(old('brand', $vehicle->brand) == 'Hyundai') value="Hyundai">Hyundai</option>
-                    <option @selected(old('brand', $vehicle->brand) == 'Mitsubishi') value="Mitsubishi">Mitsubishi</option>
-                    <option @selected(old('brand', $vehicle->brand) == 'Daihatsu') value="Daihatsu">Daihatsu</option>
-                </select>
+                <input type="text" style="background-color:rgb(167, 166, 166)" name="brand" class="form-control @error('brand') is-invalid @enderror" value="{{$vehicle->brand}}">
                 @error('brand')
                     <div class="invalid-feedback">{{ $message }}</div>
                 @enderror
               </div>
               <label class="form-label">Mobile Color</label>
               <div class="form-floating">
-                <select style="background-color:rgb(167, 166, 166)" name="color" class="form-control @error('color') is-invalid @enderror">
-                    <option value="">choose</option>
-                    <option @selected(old('color', $vehicle->color) == 'Black') value="Black">Black</option>
-                    <option @selected(old('color', $vehicle->color) == 'White') value="White">White</option>
-                    <option @selected(old('color', $vehicle->color) == 'Silver') value="Silver">Silver</option>
-                </select>
+                <input type="text" style="background-color:rgb(167, 166, 166)" name="color" class="form-control @error('color') is-invalid @enderror" value="{{$vehicle->color}}">
                 @error('color')
                     <div class="invalid-feedback">{{ $message }}</div>
                 @enderror
               </div>
               <label class="form-label">Passenger Capacity</label>
               <div class="form-floating">
-                <select style="background-color:rgb(167, 166, 166)" name="passenger_capacity" class="form-control @error('passenger_capacity') is-invalid @enderror">
-                    <option value="">choose</option>
-                    <option @selected(old('passenger_capacity', $vehicle->passenger_capacity) == '15 passenger') value="15 Passenger">15 Passenger</option>
-                    <option @selected(old('passenger_capacity', $vehicle->passenger_capacity) == '7 passenger') value="7 Passenger">7 Passenger</option>
-
-                    <option @selected(old('passenger_capacity', $vehicle->passenger_capacity) == '5 Passenger') value="5 Passenger">5 Passenger</option>
-
-                    <option @selected(old('passenger_capacity', $vehicle->passenger_capacity) == '5 passenger') value="5 Passenger">5 Passenger</option>
-
-                </select>
+                <input type="text" style="background-color:rgb(167, 166, 166)" name="passenger_capacity" class="form-control @error('passenger_capacity') is-invalid @enderror" placeholder="Passenger Capacity" value="{{$vehicle->passenger_capacity}}">
                 @error('passenger_capacity')
                     <div class="invalid-feedback">{{ $message }}</div>
                 @enderror
