@@ -8,6 +8,7 @@ use App\Http\Controllers\OrderController;
 use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\VehicleController;
 use App\Http\Controllers\Vehicle_PackageController;
+use App\Http\Controllers\HomepageController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -25,6 +26,7 @@ Route::get('/', function () {
     return view('landingpage.index');
 });
 
+route::resource('homepage', HomepageController::class);
 route::resource('admin', AdminController::class);
 route::resource('register', RegisteredUserController::class);
 route::resource('order', OrderController::class);
