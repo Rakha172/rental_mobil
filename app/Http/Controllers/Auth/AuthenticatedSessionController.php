@@ -31,7 +31,7 @@ class AuthenticatedSessionController extends Controller
         if(Auth::user()->role == 'admin'){
             return redirect('admin');
             } elseif(Auth::user()->role =='customer') {
-            return redirect('order');
+            return redirect('homepage');
             } else {
                 return back();
             }

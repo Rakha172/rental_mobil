@@ -9,28 +9,28 @@
                 </div>
 
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link :active="request()->routeIs('Home')">
+                    <x-nav-link :href="route('homepage.index')" :active="request()->routeIs('home')">
                         {{ __('Home') }}
                     </x-nav-link>
                 </div>
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-nav-link :href="route('order.index')" :active="request()->routeIs('order')">
-                        {{ __('order') }}
+                        {{ __('Order') }}
                     </x-nav-link>
                 </div>
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-nav-link :href="route('admin.index')" :active="request()->routeIs('info user')">
-                        {{ __('info user') }}
+                        {{ __('Info user') }}
                     </x-nav-link>
                 </div>
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-nav-link :href="route('vehicle.index')" :active="request()->routeIs('vehicle')">
-                        {{ __('vehicle') }}
+                        {{ __('Vehicle') }}
                     </x-nav-link>
                 </div>
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-nav-link :href="route('vehicle_package.index')" :active="request()->routeIs('vehicle package')">
-                        {{ __('vehicle package') }}
+                        {{ __('Vehicle package') }}
                     </x-nav-link>
                 </div>
             </div>
