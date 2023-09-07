@@ -1,43 +1,32 @@
-<nav class="navbar navbar-expand-lg bg-light">
-    <div class="container-fluid">
-        <ion-icon name="person-circle-outline" style="font-size: 50px;"></ion-icon>
-        <p class="btn btn-dark mt-3">Admin</p>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                    <a class="nav-link active border" style="margin-left: 20px;" aria-current="page" href="#">Home</a>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle border" href="#" role="button" data-bs-toggle="dropdown"
-                        aria-expanded="false">
-                        Option
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="{{ route('order.index')}}">Order List</a></li>
-                        <li><a class="dropdown-item" href="{{ route('vehicle.index') }}">Vehicle List</a></li>
-                        <li><a class="dropdown-item" href="{{ route('admin.index') }}">Info Users</a></li>
-                        <li>
-                            <hr class="dropdown-divider">
-                        </li>
+<!DOCTYPE html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="csrf-token" content="{{ csrf_token() }}">
 
-                        <li><a class="dropdown-item" href="">Vehicle Package</a></li>
+        <title>{{ config('app.name', 'Laravel') }}</title>
 
-                        <li><a class="dropdown-item" href="{{ route('vehicle_package.index') }}">Vehicle Package</a></li>
+        @include('components.main')
+        
+        <link rel="preconnect" href="https://fonts.bunny.net">
+        <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
 
-                    </ul>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link border" href="{{ route('login') }}">Logout As Admin?</a>
-                </li>
-            </ul>
-            <form class="d-flex" role="search">
-                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success" type="submit">Search</button>
-            </form>
+        <!-- Scripts -->
+        @vite(['resources/css/app.css', 'resources/js/app.js'])
+    </head>
+    <body class="font-sans antialiased">
+        <div class="min-h-screen bg-gray-100">
+
+            <!-- Page Heading -->
+            @if (isset($header))
+                <header class="bg-white shadow">
+                    <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+                        {{ $header }}
+                    </div>
+                </header>
+            @endif
+
         </div>
-    </div>
-</nav>
+    </body>
+</html>

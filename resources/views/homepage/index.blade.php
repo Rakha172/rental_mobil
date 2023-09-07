@@ -24,9 +24,18 @@
        </ul>
        <div class="header-btn">
         <a href="#" class="sign-up"></a>
-       <i class="fa fa-profil"> <a href="#" class="sign-in">Profil</a></i>
-
-
+       <i class="fa fa-profil"> <a href="{{ route('profile.edit')}}" class="sign-in">Profile</a></i>
+        <a style="">{{ Auth::user()->name}}</a>
+       </div>
+       <div>
+        <form method="POST" action="{{ route('logout') }}">
+            @csrf
+            <x-responsive-nav-link :href="route('logout')"
+                    onclick="event.preventDefault();
+                                this.closest('form').submit();">
+                {{ __('Log Out') }}
+            </x-responsive-nav-link>
+        </form>
        </div>
     </header>
     <!-- Vehicle -->

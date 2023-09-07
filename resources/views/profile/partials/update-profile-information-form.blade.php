@@ -1,4 +1,6 @@
 <section>
+    <a class="class="btn btn-primary mb-5" href="{{ URL::previous() }}"><ion-icon style="font-size: 40px" name="arrow-back-circle-outline"></ion-icon></a>
+
     <header>
         <h2 class="text-lg font-medium text-gray-900">
             {{ __('Profile Information') }}
