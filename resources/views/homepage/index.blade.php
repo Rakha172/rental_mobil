@@ -39,24 +39,38 @@
        </div>
     </header>
     <!-- Vehicle -->
-    <section class="services" id="services">
-        <div class="heading">
-            <br>
-            <br>
-            <h1>Vehicle</h1>
-        </div>
-        <div class="services-container">
-            <div class="box">
-                <div class="box-img">
-                    <img src="{{asset('images/')}}" alt="">
-                </div>
-                    <p>2023</p>
-                    <h3>Name Car</h3>
-                    <h2>Harga /1<span>Day</span></h2>
-                    <a href="#" class="btn">booking</a>
-            </div>
+  <!-- Vehicle -->
+@if(isset($vehicle))
+<section class="services" id="services">
+    <div class="services-container">
+        @foreach ( $vehicle as $vhcl )
+        <div class="box">
+            <div class="box-img">
+                <img src="{{ asset($vhcl->image)}}" width="100px" height="100px">
+                <ul>
+                    <li>
+                        {{ $vhcl->vehicle_type }}
+                    </li>
+                </ul>
+                    <ul>
+                        <li>
+                            {{ $vhcl->brand }}
+                        </li>
+                    </ul>
 
-            <div class="box">
+            </div>
+            <p></p>
+            <h3></h3>
+            <h2><span></span></h2>
+            <a href="#" class="btn">booking</a>
+        </div>
+        @endforeach
+    </div>
+</section>
+@endif
+
+
+            {{-- <div class="box">
                 <div class="box-img">
                     <img src="{{asset('images/')}}" alt="">
                 </div>
@@ -167,7 +181,7 @@
 
 
         </div>
-    </section>
+     --}}
 
     <script src="main.js"></script>
 </body>
