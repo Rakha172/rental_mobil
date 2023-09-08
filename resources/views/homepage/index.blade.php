@@ -42,6 +42,40 @@
        </div>
     </header>
     <!-- Vehicle -->
+yusup
+  <!-- Vehicle -->
+@if(isset($vehicle))
+<section class="services" id="services">
+    <div class="services-container">
+        @foreach ( $vehicle as $vhcl )
+        <div class="box">
+            <div class="box-img">
+                <img src="{{ asset($vhcl->image)}}" width="100px" height="100px">
+                <ul>
+                    <li>
+                        {{ $vhcl->vehicle_type }}
+                    </li>
+                </ul>
+                    <ul>
+                        <li>
+                            {{ $vhcl->brand }}
+                        </li>
+                    </ul>
+
+            </div>
+            <p></p>
+            <h3></h3>
+            <h2><span></span></h2>
+            <a href="#" class="btn">booking</a>
+        </div>
+        @endforeach
+    </div>
+</section>
+@endif
+
+
+            {{-- <div class="box">
+=======
     <section class="services" id="services">
         <div class="heading">
             <br>
@@ -69,6 +103,7 @@
                 <a href="{{ route('vehicle.index') }}">Vehicle</a>
             @endif
             <div class="box">
+ main
                 <div class="box-img">
                     <img src="{{asset('images/')}}" alt="">
                 </div>
@@ -179,7 +214,7 @@
 
 
         </div>
-    </section>
+     --}}
 
     <script src="main.js"></script>
 </body>

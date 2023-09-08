@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Vehicle;
 use Illuminate\Http\Request;
 use App\Models\Vehicle;
 class HomepageController extends Controller
@@ -11,9 +12,15 @@ class HomepageController extends Controller
      */
     public function index()
     {
+ yusup
+        $vehicle =  Vehicle::all();
+        return view('homepage.index', compact('vehicle'));
+
+
         return view('homepage.index')->with([
             'vehicle' => Vehicle::all(),
         ]);
+ main
     }
 
     /**

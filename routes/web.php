@@ -1,15 +1,16 @@
 <?php
 
-use App\Http\Controllers\AdminController;
-use App\Http\Controllers\Order_DetailController;
-use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\LandingpageController;
-use App\Http\Controllers\OrderController;
-use App\Http\Controllers\Auth\RegisteredUserController;
-use App\Http\Controllers\VehicleController;
-use App\Http\Controllers\Vehicle_PackageController;
-use App\Http\Controllers\HomepageController;
+use App\Models\Vehicle;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\OrderController;
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\VehicleController;
+use App\Http\Controllers\HomepageController;
+use App\Http\Controllers\LandingpageController;
+use App\Http\Controllers\Order_DetailController;
+use App\Http\Controllers\Vehicle_PackageController;
+use App\Http\Controllers\Auth\RegisteredUserController;
 
 Route::get('/', function () {
     return view('landingpage.index');
