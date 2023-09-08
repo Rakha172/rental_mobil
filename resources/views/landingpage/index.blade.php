@@ -34,10 +34,23 @@
         <li><a href="{{ route('homepage.index' )}}">Booking</a></li>
 
        </ul>
+       @if (Route::has('login'))
         <div class="header-btn">
-        <a href="{{ route('register') }}" class="sign-up">Sign Up</a>
-        <a href="{{ route('login') }}" class="sign-in">Sign In</a>
+            @auth
+            <form method="POST" action="{{ route('logout') }}">
+                @csrf
+                <x-dropdown-link :href="route('logout')"
+                        onclick="event.preventDefault();
+                                    this.closest('form').submit();">
+                    {{ __('Log Out') }}
+                </x-dropdown-link>
+            </form>
+            @else
+            <a href="{{ route('login') }}" class="sign-in">Sign In</a>
+            <a href="{{ route('register') }}" class="sign-up">Sign Up</a>
+            @endauth
        </div>
+       @endif
     </header>
     <!-- home -->
     <section class="home" id="home">
