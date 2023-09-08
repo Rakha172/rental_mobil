@@ -28,30 +28,32 @@
                     <div class="invalid-feedback">{{ $message }}</div>
                 @enderror
             </div>
-                <label class="form-label">Vehicle Type</label>
+
             <div class="form-floating">
                 <input type="text" style="background-color:rgb(167, 166, 166)" name="vehicle_type" class="form-control @error('vehicle_type') is-invalid @enderror" value="{{$vehicle->vehicle_type}}">
+                    <label class="form-label">Vehicle Type</label>
                 @error('vehicle_type')
                     <div class="invalid-feedback">{{ $message }}</div>
                 @enderror
               </div>
-              <label class="form-label">Mobile Brand</label>
+
               <div class="form-floating">
                 <input type="text" style="background-color:rgb(167, 166, 166)" name="brand" class="form-control @error('brand') is-invalid @enderror" value="{{$vehicle->brand}}">
+                    <label class="form-label">Mobile Brand</label>
                 @error('brand')
                     <div class="invalid-feedback">{{ $message }}</div>
                 @enderror
               </div>
-              <label class="form-label">Mobile Color</label>
               <div class="form-floating">
                 <input type="text" style="background-color:rgb(167, 166, 166)" name="color" class="form-control @error('color') is-invalid @enderror" value="{{$vehicle->color}}">
+                    <label class="form-label">Mobile Color</label>
                 @error('color')
                     <div class="invalid-feedback">{{ $message }}</div>
                 @enderror
               </div>
-              <label class="form-label">Passenger Capacity</label>
               <div class="form-floating">
                 <input type="text" style="background-color:rgb(167, 166, 166)" name="passenger_capacity" class="form-control @error('passenger_capacity') is-invalid @enderror" placeholder="Passenger Capacity" value="{{$vehicle->passenger_capacity}}">
+                    <label class="form-label">Passenger Capacity</label>
                 @error('passenger_capacity')
                     <div class="invalid-feedback">{{ $message }}</div>
                 @enderror
