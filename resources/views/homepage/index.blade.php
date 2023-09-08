@@ -51,21 +51,18 @@ yusup
         <div class="box">
             <div class="box-img">
                 <img src="{{ asset($vhcl->image)}}" width="100px" height="100px">
-                <ul>
-                    <li>
-                        {{ $vhcl->vehicle_type }}
-                    </li>
-                </ul>
-                    <ul>
-                        <li>
-                            {{ $vhcl->brand }}
-                        </li>
-                    </ul>
 
             </div>
-            <p></p>
-            <h3></h3>
-            <h2><span></span></h2>
+            <ul>
+                <li>
+                    {{ $vhcl->vehicle_type }}
+                </li>
+            </ul>
+                <ul>
+                    <li>
+                        {{ $vhcl->brand }}
+                    </li>
+                </ul>
             <a href="#" class="btn">booking</a>
         </div>
         @endforeach
