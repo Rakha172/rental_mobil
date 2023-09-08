@@ -8,12 +8,23 @@ use Illuminate\Http\Request;
 
 class Order_DetailController extends Controller
 {
-     public function index()
-     {
-        $order_detail = Order_Detail::all();
-
-        return view('order_detail.index', ['order_detail' => $order_detail]);
+      public function index(Request $request){
+     $search = $request->query('search');
+     if(!empty($search)){
+         $dataOrder = Order_Detail::where('Order_Detail.name', 'like', '%' . $search . '%')
+         ->orWhere('Order_Detail.package_name', 'like', '%' . $search . '%')
+         ->orWhere('Order_Detail.rental_date', 'like', '%' . $search . '%')
+         ->orWhere('Order_Detail.return_date', 'like', '%' . $search . '%')
+         ->paginate(5)->fragment('ord');
+     }else {
+         $dataOrder = Order_Detail::paginate(5)->fragment('ord');
      }
+     return view('order_detail.index')->with([
+         'order' => $dataOrder,
+         'search' => $search
+     ]);
+
+ }
 
      public function show()
      {

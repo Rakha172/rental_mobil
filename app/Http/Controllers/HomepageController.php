@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Models\Vehicle;
 class HomepageController extends Controller
 {
     /**
@@ -11,7 +11,9 @@ class HomepageController extends Controller
      */
     public function index()
     {
-        return view('homepage.index');
+        return view('homepage.index')->with([
+            'vehicle' => Vehicle::all(),
+        ]);
     }
 
     /**
