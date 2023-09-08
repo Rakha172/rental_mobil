@@ -29,12 +29,12 @@
 
        <div class="bx bx-menu" id="menu-icon"></div>
        <ul class="navbar">
-        <li><a href="#">Home</a></li>
-        <li><a href="#">Vehivcle</a></li>
-        <li><a href="#">Booking</a></li>
+        <li><a href="{{ route('homepage.index' )}}">Home</a></li>
+        <li><a href="#services">Vehicle</a></li>
+        <li><a href="{{ route('homepage.index' )}}">Booking</a></li>
 
        </ul>
-       <div class="header-btn">
+        <div class="header-btn">
         <a href="{{ route('register') }}" class="sign-up">Sign Up</a>
         <a href="{{ route('login') }}" class="sign-in">Sign In</a>
        </div>
