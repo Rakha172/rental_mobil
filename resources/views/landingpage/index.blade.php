@@ -36,7 +36,7 @@
             <li><a href="{{ route('homepage.index') }}">Booking</a></li>
 
         </ul>
-        {{-- logout --}}
+        {{-- logout otomatis keubah jika udah login --}}
         @if (Route::has('login'))
             <div class="header-btn">
                 @auth
