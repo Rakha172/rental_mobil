@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Vehicle;
 use Illuminate\Http\Request;
+
 class HomepageController extends Controller
 {
     /**
@@ -18,7 +19,6 @@ class HomepageController extends Controller
 
         return view('homepage.index')->with([
             'vehicle' => Vehicle::all(),
-        ]);
 
     }
 
