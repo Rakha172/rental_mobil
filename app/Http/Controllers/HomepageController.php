@@ -19,7 +19,7 @@ class HomepageController extends Controller
 
         return view('homepage.index')->with([
             'vehicle' => Vehicle::all(),
-        ]);
+
     }
 
     /**
