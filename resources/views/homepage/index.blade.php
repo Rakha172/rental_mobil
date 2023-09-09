@@ -55,12 +55,12 @@ yusup
             </div>
             <ul>
                 <li>
-                    {{ $vhcl->vehicle_type }}
+                    {{ $vhcl->brand }}
                 </li>
             </ul>
                 <ul>
                     <li>
-                        {{ $vhcl->brand }}
+                        {{ $vhcl->vehicle_type }}
                     </li>
                 </ul>
             <a href="#" class="btn">booking</a>
