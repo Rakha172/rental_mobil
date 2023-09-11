@@ -15,8 +15,8 @@
 
        <div class="bx bx-menu" id="menu-icon"></div>
        <ul class="navbar">
-        <li><a href="#">Vehicle</a></li>
-        <li><a href="#">Vehicle Package</a></li>
+        <li><a href="{{ route('homepage.index') }}">Vehicle</a></li>
+        <li><a href="{{ route('package.index') }}">Vehicle Package</a></li>
         <li><a href="#">Booking</a></li>
         <li><a href="#">Order</a></li>
 
