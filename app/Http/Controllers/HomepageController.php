@@ -63,4 +63,3 @@ class HomepageController extends Controller
         //
     }
 }
-
