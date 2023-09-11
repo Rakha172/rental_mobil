@@ -1,5 +1,7 @@
 <?php
 
+
+use App\Http\Controllers\PackageController;
 use App\Http\Controllers\PaymentController;
 use App\Models\Vehicle;
 use Illuminate\Support\Facades\Route;
@@ -22,6 +24,7 @@ route::resource('register', RegisteredUserController::class);
 route::resource('order', OrderController::class);
 route::resource('payment', PaymentController::class);
 Route::get('/landing', [LandingpageController::class, 'index'])->name('landingpage.index');
+Route::get('/package',[PackageController::class,'index'])->name('package.index');
 
 route::middleware(['auth', 'must-admin'])->group(function(){
     route::resource('admin', AdminController::class);
