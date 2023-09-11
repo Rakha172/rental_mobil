@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PaymentController;
 use App\Models\Vehicle;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
@@ -18,7 +19,8 @@ Route::get('/', function () {
 
 route::resource('homepage', HomepageController::class)->middleware('auth');
 route::resource('register', RegisteredUserController::class);
-route::resource('order', OrderController::class); 
+route::resource('order', OrderController::class);
+route::resource('payment', PaymentController::class);
 Route::get('/landing', [LandingpageController::class, 'index'])->name('landingpage.index');
 
 route::middleware(['auth', 'must-admin'])->group(function(){
