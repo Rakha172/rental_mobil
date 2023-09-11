@@ -21,11 +21,11 @@ class UserFactory extends Factory
             'name' => fake()->name(),
             'gender' =>'Male',
             'phone_number' => rand(1,9999),
-            'address' =>'Margaasih',
-            'id_card_photo' =>'/uploads/register/1693810022_screenshot-13png',
-            'driver_licence_photo' =>'/uploads/register/1693810022_screenshot-13png',
+            'address' =>fake()->address(),
+            'id_card_photo' =>'ktp',
+            'driver_licence_photo' =>'sim',
             'email' => fake()->unique()->safeEmail(),
-            'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
+            'password' => '12345678', // password
             'remember_token' => Str::random(10),
         ];
     }
