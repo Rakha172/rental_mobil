@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Order;
+// use App\Models\Order;
 use App\Models\Payment;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\File;
 use Illuminate\Http\Request;
 
 class PaymentController extends Controller
@@ -18,21 +19,21 @@ class PaymentController extends Controller
 
     public function create()
     {
-        $order = Order::all();
+        // $order = Order::all();
 
-        return view('payment.create', ['order' => $order]);
+        return view('payment.create');
     }
 
     public function store(Request $request)
 {
     $request->validate([
+        'name' => 'required',
         'total_price' => 'required',
         'payment_method' => 'required',
         'proof_of_transaction' => 'required|image|mimes:png,jpg|max:2040',
-        'order_id' => 'required|exists:orders,id'
+        // 'order_id' => 'required|exists:orders,id'
     ]);
 
-    if ($request->hasFile('proof_of_transaction')) {
         $image = $request->file('proof_of_transaction');
         $slug = Str::slug($image->getClientOriginalName());
         $new_image = time() . '_' . $slug;
@@ -44,27 +45,24 @@ class PaymentController extends Controller
         $payment->proof_of_transaction = 'upload/payment/' . $new_image;
         $payment->save();
 
-        return redirect()->route('payment.index')->with('success', 'Data ditambah');
-    } else {
-        return back()->with('error', 'Tidak ada file gambar yang diunggah');
-    }
+       return to_route('payment.index')->with('succes', 'data ditambah');
 }
 
 
-    public function edit(Payment $oayment)
+    public function edit(Payment $payment)
     {
-        $order = Order::all();
-
-        return view('payment.edit', compact('payment', 'order'));
+        // $order = Order::all();
+        return view('payment.edit', compact('payment'));
     }
 
-    public function update(Request $request, Payment $payment)
+    public function update(Request $request, $id)
     {
         $request->validate([
+            'name' => 'required',
             'total_price' => 'required',
             'payment_method' => 'required',
             'proof_of_transaction' => 'required|image|mimes:png,jpg|max:2040',
-            'order_id' => 'required|exists:orders,id'
+            // 'order_id' => 'required|exists:orders,id'
         ]);
 
         $image = $request->file('proof_of_transaction');
@@ -72,18 +70,19 @@ class PaymentController extends Controller
         $new_image = time() . '_' . $slug;
         $image->move('upload/payment/', $new_image);
 
-        // Memperbarui entitas Payment yang ada daripada membuat yang baru
+        $payment = new Payment;
         $payment->total_price = $request->total_price;
         $payment->payment_method = $request->payment_method;
         $payment->proof_of_transaction = 'upload/payment/' . $new_image;
         $payment->save();
 
-        return redirect()->route('payment.index')->with('success', 'Data diperbarui');
-    }
+       return to_route('payment.index')->with('succes', 'data ditambah');
+}
 
 
-    public function destroy(Payment $payment)
+    public function destroy($id)
     {
+        $payment = Payment::find($id);
         $payment->delete();
 
         return redirect()->route('payment.index')->with('berhasil', "$payment->total_price Berhasil dihapus!");
