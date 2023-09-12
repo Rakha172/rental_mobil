@@ -16,9 +16,9 @@ class HomepageController extends Controller
         return view('homepage.index', compact('vehicle'));
 
 
-        return view('homepage.index')->with([
-            'vehicle' => Vehicle::all(),
-        ]);
+        // return view('homepage.index')->with([
+        //     'vehicle' => Vehicle::all(),
+        // ]);
     }
 
     /**
