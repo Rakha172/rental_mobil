@@ -44,25 +44,23 @@
                                         <td><img src="{{ asset($usr->driver_licence_photo) }}" width="100"
                                                 class="rounded mx-auto d-block"> </td>
                                         <td>{{ $usr->email }}</td>
-                                        <td>
+                                        <td style="width: 150px;">
                                             @if ($usr->role != 'admin')
-                                                <form class="p-2" action="{{ route('register.destroy', $usr->id) }}"
+                                                <form class="" action="{{ route('register.destroy', $usr->id) }}"
                                                     method="POST">
                                                     @method('delete')
                                                     @csrf
-                                                    <button type="button" class="btn btn-primary"
+                                                    <button type="button" class="shadow p-3 mb-5 bg-body rounded"
                                                         data-bs-toggle="modal" data-bs-target="#exampleModal"
                                                         name="{{ $usr->name }}"
                                                         phone_number="{{ $usr->phone_number }}"
-                                                        address="{{ $usr->address }}"
-                                                        id_card_photo="{{ $usr->id_card_photo }}"
-                                                        driver_licence_photo="{{ $usr->driver_licence_photo }}">Detail</button> 
+                                                        address="{{ $usr->address }}"><ion-icon name="eye-outline" style="font-size: 20px; "></ion-icon></button>
                                                     <input name="_method" type="hidden" value="DELETE">
                                                     <button type="submit"
-                                                        class="btn btn-xs btn-danger btn-flat show-alert-delete-box btn-sm"
+                                                        class="btn btn-xs btn-flat show-alert-delete-box btn-sm  "
                                                         data-toggle="tooltip" title='Delete'><ion-icon
                                                             name="trash-outline"
-                                                            style="font-size: 20px"></ion-icon></button>
+                                                            style="font-size: 20px; position: absolute;" class="shadow p-3 mb-5 bg-body rounded "></ion-icon ></button>
                                                 </form>
                                             @endif
                                         </td>
@@ -78,7 +76,7 @@
         </div>
 </x-app-layout>
 
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade p-10" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -103,18 +101,6 @@
                     <input type="text" class="form-control" id="recipient-name" value="{{ $usr->address }}">
                 </div>
             </div>
-            <div class="modal-id_card_photo">
-                <div class="mb-3">
-                    <label for="recipient-name" class="col-form-label">Id Card Photo</label>
-                    <img src="{{ asset($usr->id_card_photo) }}" alt="">
-                </div>
-            </div>
-            <div class="modal-driver_licence_photo">
-                <div class="mb-3">
-                    <label for="recipient-name" class="col-form-label">Driver Licence Photo</label>
-                    <img src="{{ asset($usr->driver_licence_photo) }}" alt="">
-                </div>
-            </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                 <button type="button" class="btn btn-primary">Send message</button>
@@ -131,22 +117,16 @@
         const name = button.getAttribute('name')
         const phone_number = button.getAttribute('phone_number')
         const address = button.getAttribute('address')
-        const id_card_Photo = button.getAttribute('id_card_Photo')
-        const drive_licence_photo = button.getAttribute('drive_licence_photo')
 
         const modalTitle = exampleModal.querySelector('.modal-title')
         const modalNameInput = exampleModal.querySelector('.modal-name input')
         const modalPhone_numberInput = exampleModal.querySelector('.modal-phone_number input')
         const modalAddressInput = exampleModal.querySelector('.modal-address input')
-        const modalId_card_photoImg = exampleModal.querySelector('.modal-id_card_photo img')
-        const modalDriver_licence_photoImg = exampleModal.querySelector('.modal-driver_licence_photo img')
 
         modalTitle.textContent = `Detail ${name}`
         modalNameInput.value = name
         modalPhone_numberInput.value = phone_number
         modalAddressInput.value = address
-        modalId_card_photoImg.value = id_card_photo
-        modalDriver_licence_photoImg.value = driver_licence_photo
 
     })
 </script>
