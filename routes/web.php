@@ -18,7 +18,6 @@ Route::get('/', function () {
     return view('landingpage.index');
 });
 
-route::resource('homepage', HomepageController::class)->middleware('auth');
 route::resource('register', RegisteredUserController::class);
 route::resource('order', OrderController::class);
 route::resource('payment', PaymentController::class);
@@ -49,13 +48,13 @@ route::middleware(['auth', 'must-admin'])->group(function(){
     Route::delete('vehicle_package/{vehicle_packages}', [Vehicle_PackageController::class, 'destroy'])->name('vehicle_package.destroy');
 });
 
-Route::middleware('auth')->group(function () {
+Route::middleware(['auth' , 'verified'])->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-
-
+    route::resource('homepage', HomepageController::class)->middleware('auth');
 });
+
 
 require __DIR__.'/auth.php';
 

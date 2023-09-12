@@ -1,7 +1,11 @@
 <section>
+    @if ($user->role == 'admin')
+    <a class="class="btn btn-primary mb-5" href="{{ route('admin.index') }}"><ion-icon style="font-size: 40px"
+        name="arrow-back-circle-outline"></ion-icon></a>
+    @else
     <a class="class="btn btn-primary mb-5" href="{{ route('homepage.index') }}"><ion-icon style="font-size: 40px"
             name="arrow-back-circle-outline"></ion-icon></a>
-
+    @endif
     <header>
         <h2 class="text-lg font-medium text-gray-900">
             {{ __('Profile Information') }}
