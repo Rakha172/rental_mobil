@@ -33,7 +33,7 @@
         <div class="package-container">
             @foreach ($vehicle_package as $vhclpck)
             <div class="card">
-                <img src="{{asset($vhclpck->vehicle->image)}}" width="100">
+                <img src="{{asset($vhclpck->vehicle->image)}}" width="80">
                 <ul>
                     <li>{{ $vhclpck->package_name }}</li>
                 </ul>
