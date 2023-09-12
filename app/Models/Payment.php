@@ -15,8 +15,8 @@ class Payment extends Model
     'proof_of_transaction'
    ];
 
-   public function Order()
-   {
-    return $this->belongsTo(Order::class);
-   }
+//    public function Order()
+//    {
+//     return $this->belongsTo(Order::class);
+//    }
 }
