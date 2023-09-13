@@ -52,8 +52,9 @@ class OrderController extends Controller
 
         Order::create($validated);
 
-        return redirect('/order')->with('berhasil', "$request->rental_date Berhasil ditambahkan!");
+        return redirect('/order')->with('berhasil', "{$request->rental_date} Berhasil ditambahkan!");
     }
+
 
     public function edit(Order $order)
     {

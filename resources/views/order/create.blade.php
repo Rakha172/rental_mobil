@@ -48,7 +48,7 @@
                     @enderror
                 </div>
                 <div class="mb-3">
-                    <label class="form-label">Return date</label>
+                    <label class="form-label">Return Date</label>
                     <input value="{{ old('return_date')}}" name="return_date" type="date" class="form-control @error('return_date') is-invalid @enderror">
                   @error('return_date')
                       <div class="invalid-feedback">{{ $message }}</div>

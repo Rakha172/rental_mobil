@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BookingController;
 use App\Models\Vehicle;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PackageController;
@@ -23,6 +24,8 @@ route::resource('order', OrderController::class);
 route::resource('payment', PaymentController::class);
 Route::get('/landing', [LandingpageController::class, 'index'])->name('landingpage.index');
 Route::get('/package',[PackageController::class,'index'])->name('package.index');
+Route::get('/booking',[BookingController::class,'index'])->name('booking.index');
+
 
 route::middleware(['auth', 'must-admin'])->group(function(){
     route::resource('admin', AdminController::class);
