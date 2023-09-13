@@ -1,10 +1,10 @@
 <section>
     @if ($user->role == 'admin')
-    <a class="class="btn btn-primary mb-5" href="{{ route('admin.index') }}"><ion-icon style="font-size: 40px"
-        name="arrow-back-circle-outline"></ion-icon></a>
+        <a class="class="btn btn-primary mb-5" href="{{ route('admin.index') }}"><ion-icon style="font-size: 40px"
+                name="arrow-back-circle-outline"></ion-icon></a>
     @else
-    <a class="class="btn btn-primary mb-5" href="{{ route('homepage.index') }}"><ion-icon style="font-size: 40px"
-            name="arrow-back-circle-outline"></ion-icon></a>
+        <a class="class="btn btn-primary mb-5" href="{{ route('homepage.index') }}"><ion-icon style="font-size: 40px"
+                name="arrow-back-circle-outline"></ion-icon></a>
     @endif
     <header>
         <h2 class="text-lg font-medium text-gray-900">
@@ -39,7 +39,7 @@
 
             @if ($user instanceof \Illuminate\Contracts\Auth\MustVerifyEmail && !$user->hasVerifiedEmail())
                 <div>
-                    <p class="text-sm mt-2 text-gray-800">
+                    <p class="text-sm mt-2 text-gray-800" style="color:red;">
                         {{ __('Your email address is unverified.') }}
 
                         <button form="send-verification"
@@ -65,5 +65,33 @@
                     class="text-sm text-gray-600">{{ __('Saved.') }}</p>
             @endif
         </div>
+    </form>
+
+    <form method="post" action="{{ route('register.update', $user->id) }}" class="mt-6 space-y-6"  enctype="multipart/form-data">
+        @csrf
+        @method('patch')
+        <div>
+            <x-input-label for="name" :value="__('Id Card')" />
+            {{-- <x-text-input id="id_card_photo" name="id_card_photo" type="file" class="mt-1 block w-full" :value="old('id_card_photo', $user->id_card_photo)"accept="image/*" --}}
+            {{-- onchange="document.getElementById('output').src = window.URL.createObjectURL(this.files[0])"/> --}}
+            <div class="block mt-1 w-full"><img src="{{asset($user->id_card_photo)}}" id="output" height="30"></div>
+            <x-input-error :messages="$errors->get('id_card_photo')" class="mt-2" />
+        </div>
+        <div>
+            <x-input-label for="email" :value="__('Driver Licence')" />
+            {{-- <input style="border-radius: 5px; border: rgba(185, 184, 184, 0.637) 1px solid;" type="file" --}}
+                {{-- name="driver_licence_photo" class="block mt-1 w-full" id="driver_licence_photo" --}}
+                {{-- value="{{ old('driver_licence_photo') }}" accept="image/*" --}}
+                {{-- onchange="document.getElementById('output2').src = window.URL.createObjectURL(this.files[0])"> --}}
+            <div class="block mt-1 w-full"><img src="{{ asset($user->driver_licence_photo)}}" id="output2" height="30""></div>
+            <x-input-error class="mt-2" :messages="$errors->get('driver_licence_photo')" />
+        </div>
+        {{-- <div class="flex items-center gap-4"> --}}
+            {{-- <x-primary-button>{{ __('Save') }}</x-primary-button> --}}
+            {{-- @if (session('status') === 'profile-updated') --}}
+                {{-- <p x-data="{ show: true }" x-show="show" x-transition x-init="setTimeout(() => show = false, 2000)" --}}
+                    {{-- class="text-sm text-gray-600">{{ __('Saved.') }}</p> --}}
+            {{-- @endif --}}
+        {{-- </div> --}}
     </form>
 </section>

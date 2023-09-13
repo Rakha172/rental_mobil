@@ -67,6 +67,28 @@ class RegisteredUserController extends Controller
 
         return redirect(RouteServiceProvider::HOME);
     }
+    public function update(Request $request, $id)
+    {
+        $request->validate([
+            'id_card_photo' => 'required|image|mimes:png,jpg|max:2040',
+            'driver_licence_photo' => 'required|image|mimes:png,jpg|max:2040',
+        ]);
+        $id_card_photo = $request->id_card_photo;
+        $slug = Str::slug($id_card_photo->getClientOriginalName());
+        $new_id_card_photo = time() . '_' . $slug;
+        $id_card_photo->move('uploads/register/', $new_id_card_photo);
+
+        $driver_licence_photo = $request->driver_licence_photo;
+        $slug = Str::slug($driver_licence_photo->getClientOriginalName());
+        $new_driver_licence_photo = time() . '_' . $slug;
+        $driver_licence_photo->move('uploads/register/', $new_driver_licence_photo);
+
+        $user = User::find($id);
+        $user->id_card_photo = 'upload/register/' . $new_id_card_photo;
+        $user->driver_licence_photo = 'upload/register/' . $new_driver_licence_photo;
+        $user->save();
+        return to_route('profile.edit')->with('status', 'profile-updated');
+    }
     public function destroy(string $id)
     {
         $user = User::find($id);
