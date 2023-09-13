@@ -12,18 +12,10 @@
         <form action="{{ route("order.update", $order->id) }}" method="post">
             @csrf
             @method('put')
-            <div class="mb-3">
-                <label class="form-label">User</label>
-                <select name="user_id" class="form-control @error('user_id') is-invalid @enderror">
-                    <option value="">Pilih</option>
-                    @foreach ($users as $users)
-                        <option @selected(old('user', $order->user_id) == $users->id) value={{ $users->id }}>{{ $users->name }}</option>
-                    @endforeach
-                </select>
-                @error('user_id')
-                    <div class="invalid-feedback">{{ $message }}</div>
-                @enderror
-              </div>
+            <div class="form-group">
+                <label class="form-label">User ID</label>
+                <input name="user_id" type="number" class="form-control" value="{{ auth()->user()->id }}" readonly>
+            </div>
               <div class="mb-3">
                 <label class="form-label">Vehicle Package</label>
                 <select name="vehicle_package_id" class="form-control @error('vehicle_package_id') is-invalid @enderror">
