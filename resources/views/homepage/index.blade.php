@@ -11,6 +11,7 @@
 </head>
 <body>
     <header>
+        <h1 style="font-size: 24px">Vehicle</h1>
         <a href="" class="logo"><img src="{{asset('images/jeep.png')}}" alt=""></a>
     <nav class="navbar navbar-light bg-light">
         <div class="container-fluid">
@@ -53,14 +54,31 @@
         </div>
     </nav>
     </header>
-        @if($vehicle->count()>0)
+        @if(isset($vehicle))
+        <div class="text">
+        </div>
             <div class="container">
                 @foreach ( $vehicle as $vhcl )
                 <div class="card">
                     <div class="card-body">
-                        <img src="{{ asset($vhcl->image)}}" style="width: 230px;">
+                        <img src="{{ asset($vhcl->image)}}" style="width: 250px;">
+                        <ul>
+                            <li>
+                                {{ $vhcl->brand }}
+                            </li>
+                        </ul>
+                        <ul>
+                            <li>
+                                {{ $vhcl->vehicle_type }}
+                            </li>
+                        </ul>
+                        <ul>
+                            <li>
+                                {{ $vhcl->color }}
+                            </li>
+                        </ul>
                     </div>
-                    <a href="#" class="btn">booking</a>
+                    <a href="{{ route('booking.index') }}" class="btn">booking</a>
                 </div>
                 @endforeach
         </div>
