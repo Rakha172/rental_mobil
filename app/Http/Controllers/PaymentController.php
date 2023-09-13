@@ -37,12 +37,12 @@ class PaymentController extends Controller
         $image = $request->file('proof_of_transaction');
         $slug = Str::slug($image->getClientOriginalName());
         $new_image = time() . '_' . $slug;
-        $image->move('upload/payment/', $new_image);
+        $image->move('upload/vehicle/', $new_image);
 
         $payment = new Payment;
         $payment->total_price = $request->total_price;
         $payment->payment_method = $request->payment_method;
-        $payment->proof_of_transaction = 'upload/payment/' . $new_image;
+        $payment->proof_of_transaction = 'upload/vehicle/' . $new_image;
         $payment->save();
 
        return to_route('payment.index')->with('succes', 'data ditambah');
@@ -68,12 +68,12 @@ class PaymentController extends Controller
         $image = $request->file('proof_of_transaction');
         $slug = Str::slug($image->getClientOriginalName());
         $new_image = time() . '_' . $slug;
-        $image->move('upload/payment/', $new_image);
+        $image->move('upload/vehicle/', $new_image);
 
         $payment = new Payment;
         $payment->total_price = $request->total_price;
         $payment->payment_method = $request->payment_method;
-        $payment->proof_of_transaction = 'upload/payment/' . $new_image;
+        $payment->proof_of_transaction = 'upload/vehicle/' . $new_image;
         $payment->save();
 
        return to_route('payment.index')->with('succes', 'data ditambah');
