@@ -29,7 +29,6 @@ class OrderController extends Controller
 
     public function show()
     {
-
         return view('order.index');
     }
 
@@ -52,7 +51,7 @@ class OrderController extends Controller
 
         Order::create($validated);
 
-        return redirect('/order')->with('berhasil', "{$request->rental_date} Berhasil ditambahkan!");
+        return redirect('/order')->with('berhasil', "$request->rental_date Berhasil ditambahkan!");
     }
 
 
