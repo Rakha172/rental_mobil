@@ -36,9 +36,8 @@
                             @foreach ($order as $index => $ordr)
                                 <tr>
                                     <th scope="row">{{ $nomor++ }}</th>
-                                    <td>{{ $ordr->users ? $ordr->users->name : 'Name Not Found' }}</td>
-                                    <td>{{ $ordr->vehicle_packages ? $ordr->vehicle_packages->package_name : 'Package Name Not Found' }}
-                                    </td>
+                                    <td>{{ $ordr->user?->name }}</td>
+                                    <td>{{ $ordr->vehicle_package?->package_name }}</td>
                                     <td>{{ $ordr->rental_date }}</td>
                                     <td>{{ $ordr->return_date }}</td>
                                     <td>

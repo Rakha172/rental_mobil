@@ -17,9 +17,7 @@
                 <select name="user_id" class="form-control @error('user_id') is-invalid @enderror">
                     <option value="">Pilih</option>
                     @foreach ($users as $users)
-                        <option value="{{ $users->id}}" {{ old('user_id') == $users->id ? 'selected' : ''}}>
-                            {{ $users->name }}
-                        </option>
+                        <option @selected(old('user', $order->user_id) == $users->id) value={{ $users->id }}>{{ $users->name }}</option>
                     @endforeach
                 </select>
                 @error('user_id')
@@ -27,13 +25,11 @@
                 @enderror
               </div>
               <div class="mb-3">
-                <label class="form-label">Package Name</label>
+                <label class="form-label">Vehicle Package</label>
                 <select name="vehicle_package_id" class="form-control @error('vehicle_package_id') is-invalid @enderror">
                     <option value="">Pilih</option>
                     @foreach ($vehicle_packages as $vehicle_packages)
-                        <option value="{{ $vehicle_packages->id}}" {{ old('vehicle_package_id') == $vehicle_packages->id ? 'selected' : ''}}>
-                            {{ $vehicle_packages->package_name }}
-                        </option>
+                        <option @selected(old('vehicle_packages', $order->vehicle_package_id) == $vehicle_packages->id) value={{ $vehicle_packages->id }}>{{ $vehicle_packages->package_name }}</option>
                     @endforeach
                 </select>
                 @error('vehicle_package_id')
