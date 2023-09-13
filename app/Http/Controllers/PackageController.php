@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Vehicle_Package;
+use App\Http\Controllers\BookingController;
 
 class PackageController extends Controller
 {

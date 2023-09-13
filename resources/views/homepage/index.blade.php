@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet"  type="text/css" href="{{asset('/css/vehicle.css')}}">
+    <link rel="stylesheet"  type="text/css" href="{{asset('/css/homepage.css')}}">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="icon" href="{{ asset('images/jeep.png')}}">
@@ -11,8 +11,8 @@
 </head>
 <body>
     <header>
+        <h1 style="font-size: 24px">Vehicle</h1>
         <a href="" class="logo"><img src="{{asset('images/jeep.png')}}" alt=""></a>
-
     <nav class="navbar navbar-light bg-light">
         <div class="container-fluid">
             <a class="navbar-brand" href="{{ route('homepage.index') }}">Vehicle</a>
@@ -54,29 +54,33 @@
         </div>
     </nav>
     </header>
-    @if(isset($vehicle))
-    <div class="text">
-        <h1>Vehicle</h1>
-    </div>
-    <div class="container">
-        @foreach ( $vehicle as $vhcl )
-        <div class="card">
-            <div class="card-body">
-                    <img src="{{ asset($vhcl->image)}}">
+        @if(isset($vehicle))
+        <div class="text">
+        </div>
+            <div class="container">
+                @foreach ( $vehicle as $vhcl )
+                <div class="card">
+                    <div class="card-body">
+                        <img src="{{ asset($vhcl->image)}}" style="width: 250px;">
+                        <ul>
+                            <li>
+                                {{ $vhcl->brand }}
+                            </li>
+                        </ul>
+                        <ul>
+                            <li>
+                                {{ $vhcl->vehicle_type }}
+                            </li>
+                        </ul>
+                        <ul>
+                            <li>
+                                {{ $vhcl->color }}
+                            </li>
+                        </ul>
+                    </div>
+                    <a href="{{ route('booking.index') }}" class="btn">booking</a>
                 </div>
-                <ul>
-                    <li>
-                        {{ $vhcl->brand }}
-                    </li>
-                </ul>
-                    <ul>
-                        <li>
-                            {{ $vhcl->vehicle_type }}
-                        </li>
-                    </ul>
-                <a href="#" class="btn">booking</a>
-            </div>
-            @endforeach
+                @endforeach
         </div>
         @endif
     <script src="main.js"></script>

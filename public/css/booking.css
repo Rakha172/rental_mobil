@@ -64,26 +64,48 @@ header{
     color: var(--text-color);
     font-weight: 500;
 }
+.navbar  a::after{
+   width:0% ;
+    height:3px ;
+    background: var(--gradient);
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    transition: 0.5s;
+}
+.navbar  a:hover::after{
+    background-color: #fe5b3d;
+    width: 100%;
+}
+#menu-icon{
+    font-size: 24px;
+    cursor: pointer;
+    z-index: 10001;
+    display: none;
+}
+.header-btn a{
+    padding: 10px 20px;
+    color: var(--text-color);
+    font-weight: 500;
+}
 .card {
-    background-color: #444;
-    width: 18rem;
+    width:20%;
+    margin-top: 40px;
+    background-color: #AEC3AE;
     border-radius: 1rem;
     margin-left: 2rem;
-    margin-bottom: 2rem;
-}
-
-.card img {
+    padding-top: 7px;
+  }
+  .card img {
     border-radius: 1rem;
-    width:  95%;
-    height: 250px;
-    padding-top: 2%;
-}
-  .container{
+    width: 95%;
+    height: 300px;
+  }
+  .container {
     padding: 2px 16px;
-    margin-top: 2px;
-    padding-top: 5rem;
-    text-align: center;
+    margin-top: 5rem;
     display: flex;
+    text-align: center;
   }
   .card  .btn{
     margin-bottom:10%;
@@ -92,14 +114,7 @@ header{
     background: #474fa0;
     color: #fff;
     padding: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
     border-radius: 0.5rem;
-  }
-.text{
-    text-align: center;
-    padding-top: 5rem;
-    margin-top: 2rem;
-    font-size: 24px;
 }
-
-
-
