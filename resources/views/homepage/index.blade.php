@@ -25,12 +25,7 @@
     </nav>
     <nav class="navbar navbar-light bg-light">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">Booking</a>
-        </div>
-    </nav>
-    <nav class="navbar navbar-light bg-light">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#">Order</a>
+            <a class="navbar-brand" href="#">Detail Order</a>
         </div>
     </nav>
     <nav class="navbar navbar-light bg-light">
@@ -55,8 +50,6 @@
     </nav>
     </header>
         @if(isset($vehicle))
-        <div class="text">
-        </div>
             <div class="container">
                 @foreach ( $vehicle as $vhcl )
                 <div class="card">
@@ -64,25 +57,36 @@
                         <img src="{{ asset($vhcl->image)}}" style="width: 250px;">
                         <ul>
                             <li>
+                                Brend:
                                 {{ $vhcl->brand }}
                             </li>
                         </ul>
                         <ul>
                             <li>
+                                Type:
                                 {{ $vhcl->vehicle_type }}
                             </li>
                         </ul>
                         <ul>
                             <li>
+                                Color:
                                 {{ $vhcl->color }}
                             </li>
                         </ul>
                     </div>
-                    <a href="{{ route('booking.index') }}" class="btn">booking</a>
+                    <a href="#" data-id-vhcl="{{ $vhcl->id }}" id="booking" class="btn">Order</a>
                 </div>
                 @endforeach
-        </div>
+            </div>
         @endif
-    <script src="main.js"></script>
+    <script>
+        document.querySelectorAll('#booking').forEach(function(link) {
+            link.addEventListener('click', function(event) {
+                const idVehicle = link.getAttribute('data-id-vhcl');
+
+                window.location.href = 'homepage/' + idVehicle;
+            });
+        });
+    </script>
 </body>
 </html>
