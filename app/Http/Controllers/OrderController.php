@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Order;
 use App\Models\User;
+use App\Models\Vehicle;
 use App\Models\Vehicle_Package;
 use Illuminate\Http\Request;
 
@@ -21,7 +22,7 @@ class OrderController extends Controller
         }else {
             $dataOrder = Order::paginate(5)->fragment('ord');
         }
-        return view('order.index')->with([
+        return view('payment.create')->with([
             'order' => $dataOrder,
             'search' => $search
         ]);
@@ -32,12 +33,13 @@ class OrderController extends Controller
         return view('order.index');
     }
 
-    public function create()
+    public function create(Request $request)
     {
+        $vehicle = Vehicle::find($request->vehicle);
         $users = User::all();
         $vehicle_packages = Vehicle_Package::all();
 
-        return view('order.create', ['users' => $users ,'vehicle_packages' => $vehicle_packages]);
+        return view('order.create', ['users' => $users ,'vehicle_packages' => $vehicle_packages, 'vehicle' => $vehicle]);
     }
 
     public function store(Request $request)
