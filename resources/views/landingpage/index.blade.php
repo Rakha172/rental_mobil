@@ -31,7 +31,7 @@
 
         <div class="bx bx-menu" id="menu-icon"></div>
         <ul class="navbar">
-            <li><a href="#services">Vehicle</a></li>
+            <li><a href="{{ route('homepage.index') }}">Vehicle</a></li>
             <li><a href="{{ route('homepage.index') }}">Booking</a></li>
 
         </ul>
@@ -66,7 +66,7 @@
             <h1>Aplikasi <span>Rental</span><br>Mobil</h1>
             <p>Rental mobil merupakan salah satu usaha yang bergerak <br> di bidang jasa tranportasi.</p>
         </div>
-        <div class="form-container">
+        {{-- <div class="form-container">
             <form action="">
                 <div class="input-box">
                     <span>Location</span>
@@ -82,7 +82,7 @@
                 </div>
                 <input type="submit" value="simpan" class="btn">
             </form>
-        </div>
+        </div> --}}
     </section>
     <!-- Ride -->
     <section class="ride" id="ride">
@@ -111,7 +111,7 @@
         </div>
     </section>
     <section class="services" id="services">
-        <div class="heading">
+        {{-- <div class="heading">
             <span>Best Services</span>
             <h1>Vehivcle</h1>
         </div>
@@ -193,7 +193,7 @@
                 <h3>2021 Honda Civic</h3>
                 <h2>Harga/<span>Day</span></h2>
                 <a href="#" class="btn">booking</a>
-            </div>
+            </div> --}}
 
 
         </div>

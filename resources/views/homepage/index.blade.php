@@ -25,7 +25,7 @@
     </nav>
     <nav class="navbar navbar-light bg-light">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">Detail Order</a>
+            {{-- <a class="navbar-brand" href="#">Order Detail</a> --}}
         </div>
     </nav>
     <nav class="navbar navbar-light bg-light">
@@ -57,7 +57,7 @@
                         <img src="{{ asset($vhcl->image)}}" style="width: 250px;">
                         <ul>
                             <li>
-                                Brend:
+                                Brand:
                                 {{ $vhcl->brand }}
                             </li>
                         </ul>
@@ -74,7 +74,7 @@
                             </li>
                         </ul>
                     </div>
-                    <a href="#" data-id-vhcl="{{ $vhcl->id }}" id="booking" class="btn">Order</a>
+                    <a href="{{ route('order.create') }}?vehicle={{ $vhcl->id }}" data-id-vhcl="{{ $vhcl->id }}" id="booking" class="btn">Order</a>
                 </div>
                 @endforeach
             </div>
