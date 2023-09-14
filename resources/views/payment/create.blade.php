@@ -39,15 +39,14 @@
                     <div class="invalid-feedback">{{ $message }}</div>
                 @enderror
               </div>
-              <div class="form-floating">
-                <input style="background-color: rgb(167, 166, 166)" type="file" name="proof_of_transaction"
-                    @error('proof_of_transaction') is-invalid @enderror id="proof_of_transaction"
-                    value="{{ old('proof_of_transaction') }}" accept="proof_of_transaction/*"
-                    onchange="document.getElementById('output').src = window.URL.createObjectURL(this.files[0])">
+              <div class="mb-3">
+                <label for="proof_of_transaction" class="form-label">Proof Of Transaction</label>
+                <input type="file" name="proof_of_transaction" class="form-control @error('proof_of_transaction') is-invalid @enderror">
                 @error('proof_of_transaction')
-                    <div class="invalid-feedback">{{ $message }}</div>
+                    <div class="alert alert-danger mt-2">
+                        {{ $message }}
+                    </div>
                 @enderror
-                <div class="mt-3"><img src="{{ old('proof_of_transaction') ? asset(old('proof_of_transaction')) : '' }}" id="output" height="70"></div>
             </div>
             <button type="submit" class="btn btn-primary">Submit</button>
           </form>
