@@ -16,8 +16,7 @@
         <ul class="navbar">
             <li><a href="{{ route("homepage.index") }}">Vehicle</a></li>
             <li><a href="{{ route('package.index') }}">Vehicle Package</a></li>
-            <li><a href="{{ route('booking.index') }}">Booking</a></li>
-            <li><a href="#">Order</a></li>
+            <li><a href="{{ route('homepage.index') }}"> Detail Order</a></li>
         </ul>
         <div class="header-btn">
             <a href="#" class="sign-up"></a>

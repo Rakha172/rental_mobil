@@ -21,6 +21,13 @@ class HomepageController extends Controller
         // ]);
     }
 
+    public function booking(Request $request, $vehicleId)
+    {
+        $vehicle =  Vehicle::query()->where('id', $vehicleId)->get();
+
+        return view('booking.index', compact('vehicle', 'vehicleId'));
+    }
+
     /**
      * Show the form for creating a new resource.
      */

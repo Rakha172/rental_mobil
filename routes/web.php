@@ -24,7 +24,7 @@ route::resource('order', OrderController::class);
 route::resource('payment', PaymentController::class);
 Route::get('/landing', [LandingpageController::class, 'index'])->name('landingpage.index');
 Route::get('/package',[PackageController::class,'index'])->name('package.index');
-Route::get('/booking',[BookingController::class,'index'])->name('booking.index');
+// Route::get('/booking',[BookingController::class,'index'])->name('booking.index');
 
 
 route::middleware(['auth', 'must-admin'])->group(function(){
@@ -55,7 +55,9 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-    route::resource('homepage', HomepageController::class)->middleware('auth');
+    // route::resource('homepage', HomepageController::class)->middleware('auth');
+    Route::get('homepage/', [HomepageController::class, 'index'])->name('homepage.index');
+    Route::get('homepage/{vehicleId}', [HomepageController::class, 'booking'])->name('hompage.booking');
 });
 
 require __DIR__.'/auth.php';
