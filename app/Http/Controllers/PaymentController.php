@@ -36,13 +36,13 @@ class PaymentController extends Controller
         ]);
 
         // Hitung total harga dari paket kendaraan yang dipilih
-        $selectedPackages = $request->input('vehicle_packages');
-        $totalPrice = 0;
+        $vehicle_packages = $request->input('vehicle_packages');
+        $total_price = 0;
 
-        foreach ($selectedPackages as $packageId) {
+        foreach ($vehicle_packages as $packageId) {
             $package = Vehicle_Package::find($packageId);
             if ($package) {
-                $totalPrice += $package->price;
+                $total_price += $package->price;
             }
         }
 
@@ -55,13 +55,13 @@ class PaymentController extends Controller
         // Simpan data pembayaran
         $payment = new Payment;
         $payment->name = $request->name;
-        $payment->total_price = $totalPrice;
+        $payment->total_price = $total_price;
         $payment->payment_method = $request->payment_method;
         $payment->proof_of_transaction = 'upload/vehicle/' . $new_image;
         $payment->save();
 
         // Sisipkan relasi antara pembayaran dan paket kendaraan yang dipilih
-        $payment->vehiclePackages()->attach($selectedPackages);
+        $payment->vehiclePackages()->attach($vehicle_packages);
 
         return redirect()->route('payment.index')->with('success', 'Data ditambah');
     }
