@@ -14,6 +14,7 @@ class Vehicle extends Model
         'brand',
         'color',
         'passenger_capacity',
+        'status_pesanan',
         'created_at',
         'updated_at'
     ];
