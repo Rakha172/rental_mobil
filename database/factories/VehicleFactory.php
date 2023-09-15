@@ -17,10 +17,10 @@ class VehicleFactory extends Factory
     public function definition(): array
     {
         return [
-            'image' => 'upload\vehicle\1694427168_car3jpg',
-            'vehicle_type' => fake()->company(),
-            'brand' => fake()->userAgent(),
-            'color' => fake()->colorName,
+            'image' => 'upload\vehicle\1694594782_car3jpg',
+            'vehicle_type' => 'Sport',
+            'brand' => 'Honda',
+            'color' => 'Black',
             'passenger_capacity' => rand(1, 10),
         ];
     }
