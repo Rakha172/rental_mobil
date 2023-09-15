@@ -30,6 +30,7 @@ class VehicleController extends Controller
             'brand' => 'required',
             'color' => 'required',
             'passenger_capacity' => 'required',
+            'status_pesanan' => 'required',
         ]);
 
         $image = $request->image;
@@ -43,6 +44,7 @@ class VehicleController extends Controller
         $vehicle->brand = $request->brand;
         $vehicle->color = $request->color;
         $vehicle->passenger_capacity = $request->passenger_capacity;
+        $vehicle->status_pesanan = $request->status_pesanan;
         $vehicle->save();
 
         return to_route('vehicle.index')->with('succes', 'data ditambah');
@@ -64,6 +66,7 @@ class VehicleController extends Controller
             'brand' => 'required',
             'color' => 'required',
             'passenger_capacity' => 'required',
+            'status_pesanan' => 'required',
         ]);
 
         $image = $request->image;
@@ -77,6 +80,7 @@ class VehicleController extends Controller
         $vehicle->brand = $request->brand;
         $vehicle->color = $request->color;
         $vehicle->passenger_capacity = $request->passenger_capacity;
+        $vehicle->status_pesanan = $request->status_pesanan;
         $vehicle->save();
         return to_route('vehicle.index')->with('succes', 'data ditambah');
     }
