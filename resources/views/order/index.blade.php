@@ -15,9 +15,6 @@
                             </div>
                         </div>
                     </form>
-                    <a href="{{ route('order.create')}}" class="btn btn-dark mb-2" style="width:50px;
-                    padding:10px; height:40px;"><ion-icon name="add-circle-outline" style="font-size: 20px;"></
-                    ion-icon></a>
                     <table class="table table-bordered">
                         <thead>
                             <tr class="table-dark">
@@ -42,10 +39,10 @@
                                     <td>{{ $ordr->rental_date }}</td>
                                     <td>{{ $ordr->return_date }}</td>
                                     <td>
-                                        <a href="{{ route('order.edit', $ordr->id) }}" class="btn btn-primary">Edit</a>
                                         <form action="{{ route('order.destroy', $ordr->id) }}"method="POST">
                                             @csrf
                                             @method('delete')
+                                            <a href="{{ route('order.edit', $ordr->id) }}"><ion-icon name="create-outline"></ion-icon></a>
                                             <button type="submit" class="btn btn-danger">Delete</button>
                                         </form>
                                     </td>
