@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('brand');
             $table->string('color');
             $table->string('passenger_capacity');
+            $table->enum('status_pesanan', ['tersedia', 'dipesan'])->default('tersedia');;
             $table->timestamps();
         });
     }
