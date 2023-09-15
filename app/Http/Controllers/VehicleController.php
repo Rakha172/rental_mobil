@@ -43,6 +43,14 @@ class VehicleController extends Controller
             'status_pesanan' => 'required',
         ]);
 
+        // Cek apakah mobil dengan status pesanan 'dipesan' sudah ada
+        $existingOrderedVehicle = Vehicle::where('status_pesanan', 'dipesan')->first();
+
+        if ($existingOrderedVehicle) {
+        // Mobil dengan status 'dipesan' sudah ada
+        return redirect()->route('vehicle.create')->with('error', 'Maaf, mobil sudah dipesan.');
+    }
+
         $image = $request->image;
         $slug = Str::slug($image->getClientOriginalName());
         $new_image = time() . '_' . $slug;
@@ -57,7 +65,7 @@ class VehicleController extends Controller
         $vehicle->status_pesanan = $request->status_pesanan;
         $vehicle->save();
 
-        return to_route('vehicle.index')->with('succes', 'data ditambah');
+        return redirect('vehicle.index')->with('succes', 'data ditambah');
     }
 
 

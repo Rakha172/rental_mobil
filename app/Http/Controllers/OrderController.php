@@ -22,7 +22,7 @@ class OrderController extends Controller
         }else {
             $dataOrder = Order::paginate(5)->fragment('ord');
         }
-        return view('payment.create')->with([
+        return view('order.index')->with([
             'order' => $dataOrder,
             'search' => $search
         ]);
