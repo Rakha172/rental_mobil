@@ -9,11 +9,21 @@ use Illuminate\Http\Request;
 use App\Models\Vehicle_Package;
 class VehicleController extends Controller
 {
-    public function index()
-    {
-        $vehicle = Vehicle::all();
-
-        return view('vehicle.index', ['vehicle' => $vehicle]);
+    public function index(Request $request){
+        $search = $request->query('search');
+        if(!empty($search)){
+            $dataVehicle = Vehicle::where('vehicle.name', 'like', '%' . $search . '%')
+            ->orWhere('vehicle.package_name', 'like', '%' . $search . '%')
+            ->orWhere('vehicle.rental_date', 'like', '%' . $search . '%')
+            ->orWhere('vehicle.return_date', 'like', '%' . $search . '%')
+            ->paginate(5)->fragment('ord');
+        }else {
+            $dataVehicle = Vehicle::paginate(5)->fragment('ord');
+        }
+        return view('vehicle.index')->with([
+            'vehicle' => $dataVehicle,
+            'search' => $search
+        ]);
     }
 
 

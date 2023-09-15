@@ -1,3 +1,4 @@
+<x-app-layout>
 <!doctype html>
 <html lang="en">
 
@@ -24,7 +25,10 @@
                     @error('image')
                         <div class="invalid-feedback">{{ $message }}</div>
                     @enderror
-                    <div class="mt-3"><img src="{{ old('image') ? asset(old('image')) : '' }}" id="output" height="70"></div>
+                    <center>
+                        <div class="mt-3"><img src="{{ old('image') ? asset(old('image')) : '' }}" id="output"
+                            style="width: 400px;"></div>
+                    </center>
                 </div>
                 <div class="form-floating">
                     <input type="text" style="background-color: rgb(167, 166, 166)" name="brand"
@@ -84,3 +88,4 @@
         </script>
 </body>
 </html>
+</x-app-layout>

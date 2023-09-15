@@ -1,11 +1,10 @@
     @import url('https://fonts.googleapis.com/css2?family=Inika&display=swap');
 
 body{
-    background-color: #58AAE5;
+    background-color: #D9D9D9;
 }
 .container-fluid{
     font-family: 'inika';
-    margin-top: 5rem;
     background-color:#D9D9D9;
     height: 120vh;
     width: 100vw;

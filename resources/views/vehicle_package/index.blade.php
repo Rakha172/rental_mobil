@@ -15,7 +15,9 @@
                             </div>
                         </div>
                     </form>
-                    <a href="{{ route('vehicle_package.create')}}" class="btn btn-dark mb-2" style="width:50px; padding:10px; height:40px;"><ion-icon name="add-circle-outline" style="font-size: 20px;"></ion-icon></a>
+                    <a href="{{ route('vehicle_package.create') }}" class="btn btn-dark mb-2"
+                        style="width:50px; padding:10px; height:40px;"><ion-icon name="add-circle-outline"
+                            style="font-size: 20px;"></ion-icon></a>
                     <table class="table table-bordered">
                         <thead>
                             <tr class="table-dark">
@@ -30,12 +32,12 @@
                         </thead>
                         <tbody>
                             @php
-                            $nomor = 1 + ($vehicle_packages->currentPage() - 1) * $vehicle_packages->perPage();
+                                $nomor = 1 + ($vehicle_packages->currentPage() - 1) * $vehicle_packages->perPage();
                             @endphp
                             @foreach ($vehicle_packages as $index => $vhcpck)
                                 <tr>
                                     <th scope="row">{{ $nomor++ }}</th>
-                                    <td ><img src="{{asset($vhcpck->vehicle->image)}}" width="100"></td>
+                                    <td><img src="{{ asset($vhcpck->vehicle->image) }}" width="100"></td>
                                     <td>{{ $vhcpck->package_name }}</td>
                                     <td>{{ $vhcpck->description }}</td>
                                     <td>{{ $vhcpck->duration_date }}</td>
@@ -45,15 +47,17 @@
                                             action="{{ route('vehicle_package.destroy', $vhcpck->id) }}"method="POST">
                                             @csrf
                                             @method('delete')
-                                            <a href="{{ route('vehicle_package.edit', $vhcpck->id) }}"
-                                                class="btn btn-primary" style="height:35px;"><ion-icon name="create-outline" style="font-size: 20px"></ion-icon></a>
+                                            <a href="{{ route('vehicle_package.edit', $vhcpck->id) }}"><ion-icon
+                                                    name="create-outline"
+                                                    style="font-size: 20px; position: absolute;color:black; "
+                                                    class="shadow p-3 mb-5 bg-body rounded "></ion-icon></a>
                                             <input name="_method" type="hidden" value="DELETE">
                                             <button type="submit"
-                                                class="btn btn-xs btn-danger btn-flat show-alert-delete-box
-                                            btn-sm"
-                                                data-toggle="tooltip" title='Delete'><ion-icon
-                                            name="trash-outline"
-                                                    style="font-size: 20px"></ion-icon></button>
+                                                class="btn btn-xs btn-flat show-alert-delete-box btn-sm  "
+                                                data-toggle="tooltip" title='Delete'><ion-icon name="trash-outline"
+                                                    style="font-size: 20px; position: absolute;
+                                       margin-left:50px; margin-top:-13px"
+                                                    class="shadow p-3 mb-5 bg-body rounded "></ion-icon></button>
                                         </form>
                                     </td>
                                 </tr>

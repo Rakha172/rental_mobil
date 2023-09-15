@@ -1,3 +1,4 @@
+<x-app-layout>
 <!doctype html>
 <html lang="en">
   <head>
@@ -19,10 +20,11 @@
             @method('put')
             <div class="form-floating">
                 <div class="">
-                    <input type="file" name="image">
-                    <img src="{{ asset($vehicle->image) }}" alt="{{ $vehicle->image }}" width="150">
+                    <input type="file" name="image" value="{{$vehicle->image}}">
+                    <center>
+                    <img src="{{ asset($vehicle->image) }}" alt="{{ $vehicle->image }}" width="400">
                     <img src="{{ asset('upload/vehicle/' .  $vehicle->image)}}" alt="">
-
+                </center>
                 </div>
                 @error('image')
                     <div class="invalid-feedback">{{ $message }}</div>
@@ -78,3 +80,4 @@
     </script>
   </body>
 </html>
+</x-app-layout>
