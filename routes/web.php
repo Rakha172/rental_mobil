@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\BookingController;
+use App\Http\Controllers\SettingController;
 use App\Models\Vehicle;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PackageController;
@@ -22,6 +23,7 @@ Route::get('/', function () {
 route::resource('register', RegisteredUserController::class);
 route::resource('order', OrderController::class);
 route::resource('payment', PaymentController::class);
+route::resource('setting', SettingController::class);
 Route::get('/landing', [LandingpageController::class, 'index'])->name('landingpage.index');
 Route::get('/package',[PackageController::class,'index'])->name('package.index');
 // Route::get('/booking',[BookingController::class,'index'])->name('booking.index');
