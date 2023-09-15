@@ -61,7 +61,7 @@
                             @endif
                         </tbody>
                     </table>
-                    {!! $settings->appends(Request::except('page'))->render() !!}
+                    {{-- {!! $settings->appends(Request::except('page'))->render() !!} --}}
                 </div>
             </div>
         </div>

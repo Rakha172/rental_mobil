@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('history');
             $table->string('image');
-            $table->string('viis_misi');
+            $table->string('visi_misi');
             $table->timestamps();
         });
     }
