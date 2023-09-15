@@ -66,5 +66,51 @@
                 </div>
             </div>
         </div>
+
+        @if ($pesan = session('berhasil'))
+        <div class="alert alert-primary" role="alert">
+           {{ $pesan }}
+        </div>
+        @endif
+    <table class="table table-rounded">
+    <thead>
+        <tr class="bg-secondary">
+                <th scope="col">No</th>
+                <th scope="col">Image</th>
+                <th scope="col">Vehicle Type</th>
+                <th scope="col">Brand</th>
+                <th scope="col">Color</th>
+                <th scope="col">Passenger Capacity</th>
+                <th scope="col">Status Pesanan</th>
+                <th scope="col">Option</th>
+            </tr>
+    </thead>
+    <tbody>
+        @if(isset($vehicle))
+        @foreach ($vehicle as $index => $vhcle)
+        <tr>
+            <th scope="row">{{ $index+1}}</th>
+            <td><img src="{{ asset($vhcle->image)}}" width="100"></td>
+            <td>{{ $vhcle->vehicle_type }}</td>
+            <td>{{ $vhcle->brand }}</td>
+            <td>{{ $vhcle->color }}</td>
+            <td>{{ $vhcle->passenger_capacity }}</td>
+            <td>{{ $vhcle->status_pesanan }}</td>
+            <td class="d-flex">
+                <a href="{{ route('vehicle.edit', $vhcle->id) }}" class="btn btn-primary">Edit</a>
+                <form action="{{ route('vehicle.destroy', $vhcle->id)}}"method="POST">
+                    @csrf
+                    @method('delete')
+                    <button type="submit" class="btn btn-danger">Delete</button>
+                </form>
+            </td>
+        </tr>
+        @endforeach
+        @endif
+    </tbody>
+  </table>
+</html>
+
     </div>
 </x-app-layout>
+

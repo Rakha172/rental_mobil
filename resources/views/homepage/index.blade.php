@@ -75,6 +75,7 @@
                         </ul>
                     </div>
                     <a href="{{ route('order.create') }}?vehicle={{ $vhcl->id }}" data-id-vhcl="{{ $vhcl->id }}" id="booking" class="btn">Order</a>
+                    <a href="{{ route('order.create') }}?vehicle={{ $vhcl->id }}" data-id-vhcl="{{ $vhcl->id }}" id="booking" class="btn">Status</a>
                 </div>
                 @endforeach
             </div>
