@@ -29,6 +29,7 @@
                 <th scope="col">Brand</th>
                 <th scope="col">Color</th>
                 <th scope="col">Passenger Capacity</th>
+                <th scope="col">Status Pesanan</th>
                 <th scope="col">Option</th>
             </tr>
     </thead>
@@ -42,6 +43,7 @@
             <td>{{ $vhcle->brand }}</td>
             <td>{{ $vhcle->color }}</td>
             <td>{{ $vhcle->passenger_capacity }}</td>
+            <td>{{ $vhcle->status_pesanan }}</td>
             <td class="d-flex">
                 <a href="{{ route('vehicle.edit', $vhcle->id) }}" class="btn btn-primary">Edit</a>
                 <form action="{{ route('vehicle.destroy', $vhcle->id)}}"method="POST">
