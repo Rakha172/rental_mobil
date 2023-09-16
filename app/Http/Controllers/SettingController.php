@@ -47,7 +47,7 @@ class SettingController extends Controller
 public function edit($id)
 {
     $settings = Setting::findOrFail($id);
-    return view('setting.edit', compact('setting'));
+    return view('setting.edit', compact('settings'));
 }
 
 
