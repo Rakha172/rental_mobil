@@ -41,7 +41,7 @@ class SettingController extends Controller
     $settings->visi_misi = $request->visi_misi;
     $settings->save();
 
-    return redirect('setting.index')->with('succes', 'data ditambah');
+    return redirect('/setting')->with('succes', 'data ditambah');
 }
 
 public function edit($id)
