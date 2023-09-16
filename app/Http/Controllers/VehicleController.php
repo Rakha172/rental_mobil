@@ -26,6 +26,11 @@ class VehicleController extends Controller
         ]);
     }
 
+    public function show()
+    {
+        return view('vehicle.index');
+    }
+
 
     public function create()
     {
@@ -65,7 +70,7 @@ class VehicleController extends Controller
         $vehicle->status_pesanan = $request->status_pesanan;
         $vehicle->save();
 
-        return redirect('vehicle.index')->with('succes', 'data ditambah');
+        return redirect('/vehicle')->with('succes', 'data ditambah');
     }
 
 
