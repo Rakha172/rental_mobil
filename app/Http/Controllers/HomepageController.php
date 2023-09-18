@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Vehicle;
+use App\Models\Vehicle_Package;
 use Illuminate\Http\Request;
 class HomepageController extends Controller
 {
@@ -13,7 +14,10 @@ class HomepageController extends Controller
     {
 
         $vehicle =  Vehicle::all();
-        return view('homepage.index', compact('vehicle'));
+        $vehicle_package =  Vehicle_Package::all();
+        return view('homepage.index', compact('vehicle'))->with([
+            'vehicle_package' => Vehicle_Package::all()
+        ]);
 
 
         // return view('homepage.index')->with([

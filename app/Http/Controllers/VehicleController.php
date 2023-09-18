@@ -13,12 +13,13 @@ class VehicleController extends Controller
         $search = $request->query('search');
         if(!empty($search)){
             $dataVehicle = Vehicle::where('vehicle.name', 'like', '%' . $search . '%')
-            ->orWhere('vehicle.package_name', 'like', '%' . $search . '%')
-            ->orWhere('vehicle.rental_date', 'like', '%' . $search . '%')
-            ->orWhere('vehicle.return_date', 'like', '%' . $search . '%')
-            ->paginate(5)->fragment('ord');
+            ->orWhere('vehicle.vehicle_type', 'like', '%' . $search . '%')
+            ->orWhere('vehicle.brand', 'like', '%' . $search . '%')
+            ->orWhere('vehicle.color', 'like', '%' . $search . '%')
+            ->orWhere('vehicle.passenger_capacity', 'like', '%' . $search . '%')
+            ->paginate(5)->fragment('vhc');
         }else {
-            $dataVehicle = Vehicle::paginate(5)->fragment('ord');
+            $dataVehicle = Vehicle::paginate(5)->fragment('vhc');
         }
         return view('vehicle.index')->with([
             'vehicle' => $dataVehicle,
@@ -36,6 +37,7 @@ class VehicleController extends Controller
     {
         $request->validate([
             'image' => 'required|image|mimes:png,jpg|max:2040',
+            'name' => 'required',
             'vehicle_type' => 'required',
             'brand' => 'required',
             'color' => 'required',
@@ -49,6 +51,7 @@ class VehicleController extends Controller
 
         $vehicle = new Vehicle;
         $vehicle->image = 'upload/vehicle/' . $new_image;
+        $vehicle->name = $request->name;
         $vehicle->vehicle_type = $request->vehicle_type;
         $vehicle->brand = $request->brand;
         $vehicle->color = $request->color;

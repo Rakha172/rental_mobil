@@ -17,7 +17,8 @@ class VehicleFactory extends Factory
     public function definition(): array
     {
         return [
-            'image' => 'upload\vehicle\1694594782_car3jpg',
+            'image' => 'upload\vehicle\1694768914_car3jpg',
+            'name' => 'Civic',
             'vehicle_type' => 'Sport',
             'brand' => 'Honda',
             'color' => 'Black',

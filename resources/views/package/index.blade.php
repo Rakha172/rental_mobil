@@ -1,47 +1,52 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" type="text/css" href="{{asset('/css/package.css')}}">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-</head>
-<body>
-    <header>
-        <h1>Vehicle Package</h1>
-        <a href="" class="logo"><img src="{{asset("images/jeep.png")}}" alt=""></a>
-        <div class="bx bx-menu" id="menu-icon"></div>
-        <ul class="navbar">
-            <li><a href="{{ route("homepage.index") }}">Vehicle</a></li>
-            <li><a href="{{ route('package.index') }}">Vehicle Package</a></li>
-            <li><a href="{{ route('homepage.index') }}"> Detail Order</a></li>
-        </ul>
-        <div class="header-btn">
-            <a href="#" class="sign-up"></a>
-            <a href="#" class="sign-in">Profil</a>
+<x-app-layout>
+    @extends('components.main')
+    <div class="container mt-3">
+        <div class="shadow p-3 mb-5 bg-body rounded  mb-3">
+            <h3 class="text-center">SPECIAL PACKAGE</h3>
+            @if ($vehicle_package->count() > 0)
+                @foreach ($vehicle_package as $vhpk)
+                    <div class="card mb-3" style="height: 300px;">
+                        <div class="card-header">
+                            Package
+                        </div>
+                        <img src="{{ asset($vhpk->vehicle->image) }}" class="card-img-top" alt="..."
+                            style="width:30%; height:100%;">
+                        <div class="card-body" style=" position: absolute; margin-left:350px; margin-top: 50px;">
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">
+                                    Duration date:
+                                    {{ $vhpk->duration_date }}
+                                </li>
+                                <li class="list-group-item">
+                                    Price:
+                                    {{ $vhpk->price }}
+                                </li>
+                            </ul>
+                            <h5 class="card-title">{{ $vhpk->package_name }}</h5>
+                            <p class="card-text">{{ $vhpk->description }}
+                            </p>
+                            <a href=" {{ route('order.create') }}?vehicle={{ $vhpk->id }}"
+                                data-id-vhpk="{{ $vhpk->id }} " class="btn btn-primary "
+                                style="width:300px;
+                                                    ">Booking
+                                Now</a>
+                            <div style="position: absolute; margin-left:330px; margin-top:-40px;">
+                                <input type="text" value="Available" readonly style="border-radius: 10px;">
+                            </div>
+                        </div>
+                    </div>
         </div>
-    </header>
-    @if (isset($vehicle_package))
-        </div>
-        <div class="container">
-            @foreach ($vehicle_package as $vhclpck)
-            <div class="card">
-                <img src="{{asset($vhclpck->vehicle->image)}}" width="80">
-                <ul>
-                    <li>{{ $vhclpck->package_name }}</li>
-                </ul>
-                <ul>
-                    <li>{{ $vhclpck->description }}</li>
-                </ul>
-                <ul>
-                    <li>{{ $vhclpck->price }}</li>
-                </ul>
-            </div>
-            @endforeach
-        </div>
-    @endif
-    <script src="main.js"></script>
-</body>
-</html>
+        @endforeach
+        @endif
+    </div>
+    </div>
+    <script>
+        document.querySelectorAll('#booking').forEach(function(link) {
+            link.addEventListener('click', function(event) {
+                const idvehicle_package = link.getAttribute('data-id-vhcl');
+
+                window.location.href = 'homepage/' + idVehicle;
+            });
+        });
+    </script>
+</x-app-layout>

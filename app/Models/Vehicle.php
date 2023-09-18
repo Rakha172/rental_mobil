@@ -10,6 +10,7 @@ class Vehicle extends Model
     protected $table = 'vehicle';
     protected $fillabel = [
         'image',
+        'name',
         'vehicle_type',
         'brand',
         'color',

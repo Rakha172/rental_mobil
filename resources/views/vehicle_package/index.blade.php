@@ -42,7 +42,7 @@
                                     <td>{{ $vhcpck->description }}</td>
                                     <td>{{ $vhcpck->duration_date }}</td>
                                     <td>{{ $vhcpck->price }}</td>
-                                    <td>
+                                    <td class="d-flex" style="width: 100px;">
                                         <form
                                             action="{{ route('vehicle_package.destroy', $vhcpck->id) }}"method="POST">
                                             @csrf
@@ -56,7 +56,7 @@
                                                 class="btn btn-xs btn-flat show-alert-delete-box btn-sm  "
                                                 data-toggle="tooltip" title='Delete'><ion-icon name="trash-outline"
                                                     style="font-size: 20px; position: absolute;
-                                       margin-left:50px; margin-top:-13px"
+                                                     margin-left:50px; margin-top:-13px"
                                                     class="shadow p-3 mb-5 bg-body rounded "></ion-icon></button>
                                         </form>
                                     </td>
