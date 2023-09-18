@@ -12,20 +12,29 @@
         <form action="{{ route("payment.store") }}" method="post">
             @csrf
             @method('post')
-             <div class="form-group">
-                <label class="form-label">Name</label>
-                <input name="name" type="text" class="form-control @error('name') is-invalid @enderror" value="{{ auth()->user()->name }}" readonly>
-                @error('name')
-                  <div class="invalid-feedback">{{ $message }}</div>
-              @enderror
-              </div>
             <div class="mb-3">
-              <label class="form-label">Total Price</label>
-              <input value="{{ old('total_price')}}" name="total_price" type="text" class="form-control @error('total_price') is-invalid @enderror">
-                @error('total_price')
-                    <div class="invalid-feedback">{{ $message }}</div>
-                @enderror
+                <label class="form-label">Name</label>
+                <select name="user_id" class="form-control @error('users') is-invalid @enderror">
+                    @foreach ($users as $user)
+                    <option value="{{ $user->id}}" {{ old('user_id') == $user->id ? 'selected' : ''}}>
+                        {{ $user->name }}
+                    </option>
+                    @endforeach
+                </select>
             </div>
+        <div class="mb-3">
+            <label class="form-label">Price</label>
+            <select name="vehicle_package_id" class="form-control @error('vehicle_package_id') is-invalid @enderror">
+                @foreach ($vehicle_packages as $vehicle_package)
+                    <option value="{{ $vehicle_package->id }}">
+                        {{ $vehicle_package->price }} 
+                    </option>
+                @endforeach
+            </select>
+            @error('vehicle_package_id')
+                <div class="invalid-feedback">{{ $message }}</div>
+            @enderror
+        </div>
 
             <div class="mb-3">
                 <label class="form-label">Payment Method</label>

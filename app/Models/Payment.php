@@ -10,13 +10,18 @@ class Payment extends Model
    protected $table = 'payment';
 
    protected $fillabel = [
-    'total_price',
-    'payment_method',
-    'proof_of_transaction'
+     'user_id',
+     'vehicle_package_id',
+     'payment_method',
+     'proof_of_transaction',
    ];
 
-//    public function Order()
-//    {
-//     return $this->belongsTo(Order::class);
-//    }
+   public function user()
+{
+    return $this->belongsTo(User::class);
+}
+public function vehicle_package()
+{
+    return $this->belongsTo(Vehicle_Package::class);
+}
 }

@@ -11,9 +11,8 @@ class Order extends Model
 
     protected $fillable = [
         'user_id',
-        'rental_date',
-        'return_date',
         'vehicle_package_id',
+        'rental_date',
     ];
 
     public function user()

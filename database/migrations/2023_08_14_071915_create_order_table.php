@@ -14,7 +14,6 @@ return new class extends Migration {
             $table->foreignId('vehicle_package_id');
             $table->foreign('vehicle_package_id')->references('id')->on('vehicle_packages');
             $table->date('rental_date');
-            $table->date('return_date');
             $table->timestamps();
         });
     }

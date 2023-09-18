@@ -22,7 +22,6 @@
                                 <th scope="col">Name</th>
                                 <th scope="col">Package Name</th>
                                 <th scope="col">Rental Date</th>
-                                <th scope="col">Return Date</th>
                                 <th scope="col">Action</th>
                             </tr>
                         </thead>
@@ -36,7 +35,6 @@
                                     <td>{{ $ordr->user?->name }}</td>
                                     <td>{{ $ordr->vehicle_package?->package_name }}</td>
                                     <td>{{ $ordr->rental_date }}</td>
-                                    <td>{{ $ordr->return_date }}</td>
                                     <td>
                                         <form action="{{ route('order.destroy', $ordr->id) }}"method="POST">
                                             @csrf
