@@ -26,7 +26,11 @@
                                 <th scope="col">Name</th>
                                 <th scope="col">History</th>
                                 <th scope="col">Image</th>
-                                <th scope="col">Visi Misi</th>
+                                <th scope="col">Location</th>
+                                <th scope="col">No Telp</th>
+                                <th scope="col">Email</th>
+                                <th scope="col">About Me</th>
+                                <th scope="col">Slogan</th>
                                 <th scope="col">Option</th>
                             </tr>
                         </thead>
@@ -39,7 +43,11 @@
                                         <td>{{ $sett->name }}</td>
                                         <td>{{ $sett->history }}</td>
                                         <td><img src="{{ asset($sett->image) }}" width="100"></td>
-                                        <td>{{ $sett->visi_misi }}</td>
+                                        <td>{{ $sett->location }}</td>
+                                        <td>{{ $sett->no_telp }}</td>
+                                        <td>{{ $sett->email }}</td>
+                                        <td>{{ $sett->about_me }}</td>
+                                        <td>{{ $sett->slogan }}</td>
                                         <td class="d-flex" style="width: 100px;">
                                             <form action="{{ route('setting.destroy', $sett->id) }}"method="POST">
                                                 @csrf

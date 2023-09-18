@@ -27,7 +27,11 @@
 
 <body>
     <header>
+        @if (isset($settings))
+        @foreach ($settings as $sett)
+        <td>
         <a href="" class="logo"><img src="{{ asset('images/jeep.png') }}" alt=""></a>
+        {{-- <a href="" class="logo"><img src="{{ asset('upload/vehicle' . $sett->image) }}" alt="Logo"> --}}
 
         <div class="bx bx-menu" id="menu-icon"></div>
         <ul class="navbar">
@@ -35,6 +39,9 @@
             <li><a href="{{ route('homepage.index') }}">Booking</a></li>
 
         </ul>
+        </td>
+        @endforeach
+        @endif
         @if (Route::has('login'))
             @auth
                 <div class="header-btn" style="margin-left: 350px; position:absolute;">

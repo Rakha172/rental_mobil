@@ -26,7 +26,11 @@ class SettingController extends Controller
             'name' => 'required',
             'history' => 'required',
             'image' => 'required|image|mimes:png,jpg|max:2040',
-            'visi_misi' => 'required',
+            'location' => 'required',
+            'no_telp' => 'required',
+            'email' => 'required',
+            'about_me' => 'required',
+            'slogan' => 'required',
         ]);
 
     $image = $request->image;
@@ -38,7 +42,11 @@ class SettingController extends Controller
     $settings->image = 'upload/vehicle/' . $new_image;
     $settings->name = $request->name;
     $settings->history = $request->history;
-    $settings->visi_misi = $request->visi_misi;
+    $settings->location = $request->location;
+    $settings->no_telp = $request->no_telp;
+    $settings->email = $request->email;
+    $settings->about_me = $request->about_me;
+    $settings->slogan = $request->slogan;
     $settings->save();
 
     return redirect('/setting')->with('succes', 'data ditambah');
@@ -57,7 +65,11 @@ $request->validate([
     'name' => 'required',
     'history' => 'required',
     'image' => 'required|image|mimes:png,jpg|max:2040',
-    'visi_misi' => 'required',
+    'location' => 'required',
+    'no_telp' => 'required',
+    'email' => 'required',
+    'about_me' => 'required',
+    'slogan' => 'required',
 ]);
 
 $image = $request->image;
@@ -69,7 +81,11 @@ $settings = Setting::find($id);
 $settings->image = 'upload/vehicle/' . $new_image;
 $settings->name = $request->name;
 $settings->history = $request->history;
-$settings->visi_misi = $request->visi_misi;
+$settings->location = $request->location;
+$settings->no_telp = $request->no_telp;
+$settings->email = $request->email;
+$settings->about_me = $request->about_me;
+$settings->slogan = $request->slogan;
 $settings->save();
 return to_route('setting.index')->with('succes', 'data ditambah');
 }

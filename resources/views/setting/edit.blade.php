@@ -48,9 +48,37 @@
                 </div>
 
                   <div class="form-floating">
-                    <input type="text" style="background-color:rgb(167, 166, 166)" name="visi_misi" class="form-control @error('visi_misi') is-invalid @enderror" value="{{$settings->visi_misi}}">
-                        <label class="form-label">Visi Misi</label>
-                    @error('visi_misi')
+                    <input type="text" style="background-color:rgb(167, 166, 166)" name="location" class="form-control @error('location') is-invalid @enderror" value="{{$settings->location}}">
+                        <label class="form-label">Location</label>
+                    @error('location')
+                        <div class="invalid-feedback">{{ $message }}</div>
+                    @enderror
+                  </div>
+                  <div class="form-floating">
+                    <input type="text" style="background-color:rgb(167, 166, 166)" name="no_telp" class="form-control @error('no_telp') is-invalid @enderror" value="{{$settings->no_telp}}">
+                        <label class="form-label">No Telp</label>
+                    @error('no_telp')
+                        <div class="invalid-feedback">{{ $message }}</div>
+                    @enderror
+                  </div>
+                  <div class="form-floating">
+                    <input type="text" style="background-color:rgb(167, 166, 166)" name="email" class="form-control @error('email') is-invalid @enderror" value="{{$settings->email}}">
+                        <label class="form-label">Email</label>
+                    @error('email')
+                        <div class="invalid-feedback">{{ $message }}</div>
+                    @enderror
+                  </div>
+                  <div class="form-floating">
+                    <input type="text" style="background-color:rgb(167, 166, 166)" name="about_me" class="form-control @error('about_me') is-invalid @enderror" value="{{$settings->about_me}}">
+                        <label class="form-label">About Me</label>
+                    @error('about_me')
+                        <div class="invalid-feedback">{{ $message }}</div>
+                    @enderror
+                  </div>
+                  <div class="form-floating">
+                    <input type="text" style="background-color:rgb(167, 166, 166)" name="slogan" class="form-control @error('slogan') is-invalid @enderror" value="{{$settings->slogan}}">
+                        <label class="form-label">Slogan</label>
+                    @error('slogan')
                         <div class="invalid-feedback">{{ $message }}</div>
                     @enderror
                   </div>
