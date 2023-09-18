@@ -12,7 +12,11 @@ class Setting extends Model
         'name',
         'history',
         'image',
-        'visi_misi',
+        'location',
+        'no_telp',
+        'social_media',
+        'about_me',
+        'slogan',
         'created_at',
         'updated_at'
     ];
