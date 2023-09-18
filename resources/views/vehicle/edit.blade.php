@@ -67,6 +67,9 @@
                     <option @selected(old('status_pesanan', $vehicle->status_pesanan) == 'Tersedia') value="Tersedia">Tersedia</option>
                     <option @selected(old('status_pesanan', $vehicle->status_pesanan) == 'Dipesan') value="Dipesan">Dipesan</option>
                 </select>
+                @error('status_pesanan')
+                    <div class="invalid-feedback">{{ $message }}</div>
+                @enderror
             <button type="submit" class="btn btn-primary">Submit</button>
           </form>
     </div>

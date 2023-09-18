@@ -20,7 +20,7 @@
                     <input style="margin-bottom: 5px;" type="text" name="name"
                         class="form-control @error('name') is-invalid @enderror" placeholder="name"
                         value="{{ old('name') }}">
-                    <label for="name">Name</label>
+                    <label for="name">Mobile Name</label>
                     @error('name')
                         <div class="invalid-feedback">{{ $message }}</div>
                     @enderror
@@ -29,7 +29,7 @@
                     <input style="margin-bottom: 5px;" type="text" name="brand"
                         class="form-control @error('brand') is-invalid @enderror" placeholder="Brand"
                         value="{{ old('brand') }}">
-                    <label for="brand">Brand</label>
+                    <label for="brand">Mobile Brand</label>
                     @error('brand')
                         <div class="invalid-feedback">{{ $message }}</div>
                     @enderror
