@@ -4,19 +4,24 @@
         <a href="{{ route('homepage.index') }}"><ion-icon name="arrow-back-circle-outline"
             class="shadow mb-3 p-3 bg-body rounded" style="font-size: 30px; position: relative; margin-top:-30px;
             color:black"></ion-icon></a>
+            <img src="{{ asset($vehicle->image)}}" id="image">
         <form action="{{ route("order.store") }}" method="post">
             @csrf
             @method('post')
-            <img src="{{ asset($vehicle->image)}}" id="image">
             <div class=" shadow p-3 mb-5 bg-body rounded " id="box">
-            <div class="form-group">
-                <label class="form-label">Username</label>
-                <input name="user_id" type="name" class="form-control" value="{{ auth()->user()->name }}" readonly>
-            </div>
+                <div class="mb-3">
+                    <label class="form-label">Name</label>
+                    <select name="user_id" class="form-control @error('users') is-invalid @enderror">
+                        @foreach ($users as $user)
+                        <option value="{{ $user->id}}" {{ old('user_id') == $user->id ? 'selected' : ''}}>
+                            {{ $user->name }}
+                        </option>
+                        @endforeach
+                    </select>
+                </div>
             <div class="mb-3">
                 <label class="form-label">Vehicle Package</label>
                 <select name="vehicle_package_id" class="form-control @error('vehicle_package_id') is-invalid @enderror">
-                    <option value="" selected>Pilih</option>
                     @foreach ($vehicle_packages as $vehicle_package)
                         <option value="{{ $vehicle_package->id }}">
                             {{ $vehicle_package->package_name }} ||
@@ -35,15 +40,8 @@
                     @error('rental_date')
                     <div class="invalid-feedback">{{ $message }}</div>
                     @enderror
-                </div>
-                <div class="mb-3">
-                    <label class="form-label">Return Date</label>
-                    <input value="{{ old('return_date')}}" name="return_date" type="date" class="form-control @error('return_date') is-invalid @enderror">
-                  @error('return_date')
-                      <div class="invalid-feedback">{{ $message }}</div>
-                  @enderror
-              </div>
-              <button onclick="window.location.href='{{ route('payment.create') }}'" class="btn btn-dark">Booking dan Lakukan Pembayaran</button>
+                  </div>
+              <button class="btn btn-dark">Booking dan Lakukan Pembayaran</button>
             </div>
           </form>
     </div>

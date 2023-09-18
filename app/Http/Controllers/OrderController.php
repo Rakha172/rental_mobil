@@ -44,16 +44,21 @@ class OrderController extends Controller
 
     public function store(Request $request)
     {
-        $validated = $request->validate([
-            'rental_date' => 'required',
-            'return_date' => 'required',
+         $request->validate([
             'user_id' => 'required|exists:users,id',
-            'vehicle_package_id' => 'required|exists:vehicle_packages,id'
+            'vehicle_package_id' => 'required|exists:vehicle_packages,id',
+            'rental_date' => 'required'
         ]);
 
-        Order::create($validated);
-
-        return redirect('/order')->with('berhasil', "$request->rental_date Berhasil ditambahkan!");
+        $order = new Order;
+        $order->user_id = $request->user_id;
+        $order->vehicle_package_id = $request->vehicle_package_id;
+        $order->rental_date = $request->rental_date;
+        $order->save();
+        return view('payment.create')->with([
+            'users' => User::all(),
+            'vehicle_packages' => Vehicle_Package::all()
+        ]);
     }
 
 
@@ -61,6 +66,7 @@ class OrderController extends Controller
     {
         $users = User::all();
         $vehicle_packages = Vehicle_Package::all();
+        $vehicle_packages->package_name;
 
         return view('order.edit', compact('order', 'users', 'vehicle_packages'));
     }

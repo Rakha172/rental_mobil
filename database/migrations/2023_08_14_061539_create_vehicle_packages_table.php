@@ -16,7 +16,7 @@ return new class extends Migration
             $table->foreignId('vehicle_id')->constrained('vehicle')->cascadeOnDelete();
             $table->string('package_name');
             $table->string('description');
-            $table->string('duration_date');
+            $table->string('duration_date');    
             $table->string('price');
             $table->timestamps();
         });

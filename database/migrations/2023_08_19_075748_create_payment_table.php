@@ -13,9 +13,10 @@ return new class extends Migration
     {
         Schema::create('payment', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('order_id');
-            $table->foreign('order_id')->references('id')->on('order');
-            $table->string('total_price');
+            $table->foreignId('user_id');
+            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreignId('vehicle_package_id');
+            $table->foreign('vehicle_package_id')->references('id')->on('vehicle_packages');
             $table->enum('payment_method', ['cash','gopay','dana']);
             $table->string('proof_of_transaction');
             $table->timestamps();
