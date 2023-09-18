@@ -11,15 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('vehicle', function (Blueprint $table) {
+        Schema::create('settings', function (Blueprint $table) {
             $table->id();
-            $table->string('image');
             $table->string('name');
-            $table->string('vehicle_type');
-            $table->string('brand');
-            $table->string('color');
-            $table->string('passenger_capacity');
-            $table->enum('status_pesanan', ['tersedia', 'dipesan'])->default('tersedia');;
+            $table->string('history');
+            $table->string('image');
+            $table->string('visi_misi');
             $table->timestamps();
         });
     }
@@ -29,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('vehicle');
+        Schema::dropIfExists('settings');
     }
 };

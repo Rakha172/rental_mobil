@@ -27,6 +27,11 @@ class VehicleController extends Controller
         ]);
     }
 
+    public function show()
+    {
+        return view('vehicle.index');
+    }
+
 
     public function create()
     {
@@ -42,7 +47,16 @@ class VehicleController extends Controller
             'brand' => 'required',
             'color' => 'required',
             'passenger_capacity' => 'required',
+            'status_pesanan' => 'required',
         ]);
+
+        // Cek apakah mobil dengan status pesanan 'dipesan' sudah ada
+        $existingOrderedVehicle = Vehicle::where('status_pesanan', 'dipesan')->first();
+
+        if ($existingOrderedVehicle) {
+        // Mobil dengan status 'dipesan' sudah ada
+        return redirect()->route('vehicle.create')->with('error', 'Maaf, mobil sudah dipesan.');
+    }
 
         $image = $request->image;
         $slug = Str::slug($image->getClientOriginalName());
@@ -56,9 +70,10 @@ class VehicleController extends Controller
         $vehicle->brand = $request->brand;
         $vehicle->color = $request->color;
         $vehicle->passenger_capacity = $request->passenger_capacity;
+        $vehicle->status_pesanan = $request->status_pesanan;
         $vehicle->save();
 
-        return to_route('vehicle.index')->with('succes', 'data ditambah');
+        return redirect('/vehicle')->with('succes', 'data ditambah');
     }
 
 
@@ -77,6 +92,7 @@ class VehicleController extends Controller
             'brand' => 'required',
             'color' => 'required',
             'passenger_capacity' => 'required',
+            'status_pesanan' => 'required',
         ]);
 
         $image = $request->image;
@@ -90,6 +106,7 @@ class VehicleController extends Controller
         $vehicle->brand = $request->brand;
         $vehicle->color = $request->color;
         $vehicle->passenger_capacity = $request->passenger_capacity;
+        $vehicle->status_pesanan = $request->status_pesanan;
         $vehicle->save();
         return to_route('vehicle.index')->with('succes', 'data ditambah');
     }

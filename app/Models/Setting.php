@@ -5,17 +5,14 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Vehicle extends Model
+class Setting extends Model
 {
-    protected $table = 'vehicle';
+    protected $table = 'settings';
     protected $fillabel = [
-        'image',
         'name',
-        'vehicle_type',
-        'brand',
-        'color',
-        'passenger_capacity',
-        'status_pesanan',
+        'history',
+        'image',
+        'visi_misi',
         'created_at',
         'updated_at'
     ];

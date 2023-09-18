@@ -61,7 +61,20 @@
                         <div class="invalid-feedback">{{ $message }}</div>
                     @enderror
                 </div>
-                    <button type="submit" class="btn btn-primary w-100">Submit</button>
+                <div class="mb-3">
+                    <label class="form-label">Status Pesanan</label>
+                    <select name="status_pesanan" class="form-control @error('status_pesanan') is-invalid @enderror">
+                        <option value="">Pilih</option>
+                        <option @selected(old('status_pesanan') == 'Tersedia') value="Tersedia">Tersedia</option>
+                        <option @selected(old('status_pesanan') == 'Dipesan') value="Dipesan">Dipesan</option>
+                    </select>
+                    @error('status_pesanan')
+                        <div class="invalid-feedback">{{ $message }}</div>
+                    @enderror
+                  </div>
+
+                <div class="btn">
+                    <button type="submit" class="btn btn-primary">Submit</button>
                 </div>
             </form>
             </div>

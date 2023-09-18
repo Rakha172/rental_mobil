@@ -38,6 +38,7 @@
                             <input type="text" value="Available" readonly style="border-radius: 10px;">
                         </div>
                     </div>
+                </div>
                 @endforeach
             @endif
         </div>
