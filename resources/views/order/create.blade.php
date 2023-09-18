@@ -1,23 +1,17 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <title>Tambah Order</title>
-  </head>
-  <body>
-
+@extends('components.main')
+<x-app-layout>
     <div class="container mt-5">
+        <a href="{{ route('homepage.index') }}"><ion-icon name="arrow-back-circle-outline"
+            class="shadow mb-3 p-3 bg-body rounded" style="font-size: 30px; position: relative; margin-top:-30px;
+            color:black"></ion-icon></a>
         <form action="{{ route("order.store") }}" method="post">
             @csrf
             @method('post')
+            <img src="{{ asset($vehicle->image)}}" id="image">
+            <div class=" shadow p-3 mb-5 bg-body rounded " id="box">
             <div class="form-group">
-                    <img src="{{ asset($vehicle->image)}}" style="width: 250px;">
-            </div>
-            <div class="form-group">
-                <label class="form-label">User ID</label>
-                <input name="user_id" type="name" class="form-control" value="{{ auth()->user()->id }}" readonly>
+                <label class="form-label">Username</label>
+                <input name="user_id" type="name" class="form-control" value="{{ auth()->user()->name }}" readonly>
             </div>
             <div class="mb-3">
                 <label class="form-label">Vehicle Package</label>
@@ -25,9 +19,9 @@
                     <option value="" selected>Pilih</option>
                     @foreach ($vehicle_packages as $vehicle_package)
                         <option value="{{ $vehicle_package->id }}">
-                            {{ $vehicle_package->package_name }}
-                            {{ $vehicle_package->description }}
-                            {{ $vehicle_package->price }}
+                            {{ $vehicle_package->package_name }} ||
+                            {{ $vehicle_package->description }} ||
+                            {{ $vehicle_package->price }} ||
                         </option>
                     @endforeach
                 </select>
@@ -49,12 +43,24 @@
                       <div class="invalid-feedback">{{ $message }}</div>
                   @enderror
               </div>
-              <button style="width: 1120px;" onclick="window.location.href='{{ route('payment.create') }}'" class="btn btn-primary">Booking dan Lakukan Pembayaran</button>
+              <button onclick="window.location.href='{{ route('payment.create') }}'" class="btn btn-dark">Booking dan Lakukan Pembayaran</button>
+            </div>
           </form>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-
-  </body>
-</html>
-
+    <style>
+        #box{
+            width: 40%;
+            position: relative;
+            float:right;
+        }
+        button{
+            width: 100%;
+        }
+        #image {
+            width: 40%;
+            position: absolute;
+            border-radius: 10px;
+        }
+    </style>
+</x-app-layout>

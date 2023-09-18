@@ -24,6 +24,7 @@
                             <tr class="table-dark">
                                 <th scope="col">No</th>
                                 <th scope="col">Image</th>
+                                <th scope="col">Name</th>
                                 <th scope="col">Vehicle Type</th>
                                 <th scope="col">Brand</th>
                                 <th scope="col">Color</th>
@@ -38,6 +39,7 @@
                                     <tr>
                                         <th scope="row">{{ $index + 1 }}</th>
                                         <td><img src="{{ asset($vhcle->image) }}" width="100"></td>
+                                        <td>{{ $vhcle->name }}</td>
                                         <td>{{ $vhcle->vehicle_type }}</td>
                                         <td>{{ $vhcle->brand }}</td>
                                         <td>{{ $vhcle->color }}</td>

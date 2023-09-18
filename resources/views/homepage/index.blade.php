@@ -1,93 +1,93 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet"  type="text/css" href="{{asset('/css/homepage.css')}}">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="icon" href="{{ asset('images/jeep.png')}}">
-    <title>Rental Mobil</title>
-</head>
-<body>
-    <header>
-        <h1 style="font-size: 24px">Vehicle</h1>
-        <a href="" class="logo"><img src="{{asset('images/jeep.png')}}" alt=""></a>
-    <nav class="navbar navbar-light bg-light">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="{{ route('homepage.index') }}">Vehicle</a>
-        </div>
-    </nav>
-    <nav class="navbar navbar-light bg-light">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="{{ route('package.index') }}">Vehicle Package</a>
-        </div>
-    </nav>
-    <nav class="navbar navbar-light bg-light">
-        <div class="container-fluid">
-            {{-- <a class="navbar-brand" href="#">Order Detail</a> --}}
-        </div>
-    </nav>
-    <nav class="navbar navbar-light bg-light">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="{{ route('profile.edit')}}">Profile</a>
-                @if (Auth::user()->role == 'admin')
-                    <a href="{{ route('admin.index') }}">Page admin</a>
-                @endif
-        </div>
-    </nav>
-    <nav class="navbar navbar-light bg-light">
-        <div class="container-fluid">
-            <form method="POST" action="{{ route('logout') }}">
-                @csrf
-                <x-responsive-nav-link :href="route('logout')"
-                        onclick="event.preventDefault();
-                                    this.closest('form').submit();">
-                    {{ __('Log Out') }}
-                </x-responsive-nav-link>
-            </form>
-        </div>
-    </nav>
-    </header>
-        @if(isset($vehicle))
-            <div class="container">
-                @foreach ( $vehicle as $vhcl )
-                <div class="card">
-                    <div class="card-body">
-                        <img src="{{ asset($vhcl->image)}}" style="width: 250px;">
-                        <ul>
-                            <li>
-                                Brand:
-                                {{ $vhcl->brand }}
-                            </li>
-                        </ul>
-                        <ul>
-                            <li>
-                                Type:
-                                {{ $vhcl->vehicle_type }}
-                            </li>
-                        </ul>
-                        <ul>
-                            <li>
-                                Color:
-                                {{ $vhcl->color }}
-                            </li>
-                        </ul>
+<x-app-layout>
+    @extends('components.main')
+    <div class="container mt-3">
+        <div class="shadow p-3 mb-5 bg-body rounded  mb-3">
+            <h3 class="text-center">VEHICLE AVAILABLE</h3>
+            @if ($vehicle->count() > 0)
+                @foreach ($vehicle as $vhcl)
+                    <div class="card mb-3">
+                        <div class="card-header">
+                            Car
+                        </div>
+                        <img src="{{ asset($vhcl->image) }}" class="card-img-top" alt="..."
+                            style="width:25%; height:100%;">
+                        <div class="card-body"
+                            style=" position: absolute; margin-left:250px; margin-top: 50px; margin-left:290px;">
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">
+                                    Brand:
+                                    {{ $vhcl->brand }}
+                                </li>
+                                <li class="list-group-item">
+                                    Type:
+                                    {{ $vhcl->vehicle_type }}
+                                </li>
+                                <li class="list-group-item">
+                                    Color:
+                                    {{ $vhcl->color }}
+                                </li>
+                            </ul>
+                        </div>
+                        <div style="position: absolute; margin-top:100px; margin-left:500px;">
+                            <h3 class="card-title" style="text-align:center;">{{ $vhcl->name }}</h3>
+                            <a href=" {{ route('order.create') }}?vehicle={{ $vhcl->id }}"
+                                data-id-vhcl="{{ $vhcl->id }} " class="btn btn-primary "
+                                style="width:300px;">Booking Now</a>
+                        </div>
+                        <div style="position: absolute; margin-top:140px; margin-left:850px;">
+                            <input type="text" value="Available" readonly style="border-radius: 10px;">
+                        </div>
                     </div>
-                    <a href="{{ route('order.create') }}?vehicle={{ $vhcl->id }}" data-id-vhcl="{{ $vhcl->id }}" id="booking" class="btn">Order</a>
-                    <a href="" id="booking" class="btn">Status</a>
                 </div>
                 @endforeach
-            </div>
+            @endif
+        </div>
+        <div class="shadow p-3 mb-5 bg-body rounded  mb-3">
+            <h3 class="text-center">SPECIAL PACKAGE</h3>
+            @if ($vehicle_package->count() > 0)
+                @foreach ($vehicle_package as $vhpk)
+                    <div class="card mb-3" style="height: 300px;">
+                        <div class="card-header">
+                            Package
+                        </div>
+                        <img src="{{ asset($vhpk->vehicle->image) }}" class="card-img-top" alt="..."
+                            style="width:30%; height:100%;">
+                        <div class="card-body" style=" position: absolute; margin-left:350px; margin-top: 50px;">
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">
+                                    Duration date:
+                                    {{ $vhpk->duration_date }}
+                                </li>
+                                <li class="list-group-item">
+                                    Price:
+                                    {{ $vhpk->price }}
+                                </li>
+                            </ul>
+                            <h5 class="card-title">{{ $vhpk->package_name }}</h5>
+                            <p class="card-text">{{ $vhpk->description }}
+                            </p>
+                            <a href=" {{ route('order.create') }}?vehicle={{ $vhpk->id }}"
+                                data-id-vhpk="{{ $vhpk->id }} " class="btn btn-primary "
+                                style="width:300px;
+                                                    ">Booking
+                                Now</a>
+                            <div style="position: absolute; margin-left:330px; margin-top:-40px;">
+                                <input type="text" value="Available" readonly style="border-radius: 10px;">
+                            </div>
+                        </div>
+                    </div>
+        </div>
+        @endforeach
         @endif
+    </div>
+    </div>
     <script>
         document.querySelectorAll('#booking').forEach(function(link) {
             link.addEventListener('click', function(event) {
-                const idVehicle = link.getAttribute('data-id-vhcl');
+                const idVehicle = link.getAttribute('data-id-vhpk');
 
                 window.location.href = 'homepage/' + idVehicle;
             });
         });
     </script>
-</body>
-</html>
+</x-app-layout>

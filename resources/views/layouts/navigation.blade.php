@@ -8,6 +8,7 @@
                         <img src="{{asset('images/jeep.png')}}" width="40" alt="">
                 </div>
 
+                @if (Auth::user()->role == 'admin')
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-nav-link :href="route('homepage.index')" :active="request()->routeIs('home')">
                         {{ __('Home') }}
@@ -33,7 +34,30 @@
                         {{ __('Vehicle package') }}
                     </x-nav-link>
                 </div>
+                @else
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-nav-link :href="route('homepage.index')" :active="request()->routeIs('homepage')">
+                        {{ __('Homepage') }}
+                    </x-nav-link>
+                </div>
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-nav-link :href="route('homepage.index')" :active="request()->routeIs('homepage')">
+                        {{ __('Vehicle') }}
+                    </x-nav-link>
+                    <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                        <x-nav-link :href="route('package.index')" :active="request()->routeIs('homepage')">
+                            {{ __('Vehicle Package') }}
+                        </x-nav-link>
+                    </div>
+                    <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                        <x-nav-link :href="route('homepage.index')" :active="request()->routeIs('homepage')">
+                            {{ __('Order') }}
+                        </x-nav-link>
+                    </div>
+                </div>
+                @endif
             </div>
+
 
             <!-- Settings Dropdown -->
             <div class="hidden sm:flex sm:items-center sm:ml-6">
