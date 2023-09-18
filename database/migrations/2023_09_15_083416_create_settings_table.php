@@ -16,7 +16,11 @@ return new class extends Migration
             $table->string('name');
             $table->string('history');
             $table->string('image');
-            $table->string('visi_misi');
+            $table->string('location');
+            $table->string('no_telp');
+            $table->string('email');
+            $table->string('about_me');
+            $table->string('slogan');
             $table->timestamps();
         });
     }
