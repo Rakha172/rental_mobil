@@ -49,6 +49,19 @@
                         </center>
                     </div>
                     <div class="form-floating">
+                        <input style="background-color: rgb(167, 166, 166)" type="file" name="images"
+                            @error('images') is-invalid @enderror id="images"
+                            value="{{ old('images') }}" accept="images/*"
+                            onchange="document.getElementById('output').src = window.URL.createObjectURL(this.files[0])">
+                        @error('images')
+                            <div class="invalid-feedback">{{ $message }}</div>
+                        @enderror
+                        <center>
+                            <div class="mt-3"><img src="{{ old('images') ? asset(old('images')) : '' }}" id="output"
+                                style="width: 400px;"></div>
+                        </center>
+                    </div>
+                    <div class="form-floating">
                         <input type="text" style="background-color: rgb(167, 166, 166)" name="location"
                             class="form-control @error('location') is-invalid @enderror" placeholder="Location"
                             value="{{ old('location') }}">
