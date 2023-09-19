@@ -26,6 +26,7 @@
                                 <th scope="col">Name</th>
                                 <th scope="col">History</th>
                                 <th scope="col">Image</th>
+                                <th scope="col">Images</th>
                                 <th scope="col">Location</th>
                                 <th scope="col">No Telp</th>
                                 <th scope="col">Email</th>
@@ -39,10 +40,10 @@
                                 @foreach ($settings as $index => $sett)
                                     <tr>
                                         <th scope="row">{{ $index + 1 }}</th>
-                                        {{-- <td><img src="{{ asset($sett->image) }}" width="100"></td> --}}
                                         <td>{{ $sett->name }}</td>
                                         <td>{{ $sett->history }}</td>
                                         <td><img src="{{ asset($sett->image) }}" width="100"></td>
+                                        <td><img src="{{ asset($sett->images) }}" width="100"></td>
                                         <td>{{ $sett->location }}</td>
                                         <td>{{ $sett->no_telp }}</td>
                                         <td>{{ $sett->email }}</td>

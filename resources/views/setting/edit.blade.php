@@ -46,6 +46,18 @@
                         <div class="invalid-feedback">{{ $message }}</div>
                     @enderror
                 </div>
+      <div class="form-floating">
+        <div class="">
+            <input type="file" name="images" value="{{$settings->images}}">
+            <center>
+                <img src="{{ asset($settings->images) }}" alt="{{ $settings->images }}" width="400">
+                <img src="{{ asset('upload/vehicle/' .  $settings->images)}}" alt="">
+            </center>
+        </div>
+        @error('images')
+            <div class="invalid-feedback">{{ $message }}</div>
+        @enderror
+    </div>
 
                   <div class="form-floating">
                     <input type="text" style="background-color:rgb(167, 166, 166)" name="location" class="form-control @error('location') is-invalid @enderror" value="{{$settings->location}}">

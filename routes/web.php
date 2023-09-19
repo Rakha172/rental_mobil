@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\BookingController;
 use App\Http\Controllers\SettingController;
+use App\Models\Setting;
 use App\Models\Vehicle;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PackageController;
@@ -64,4 +65,8 @@ Route::middleware('auth')->group(function () {
 
 require __DIR__.'/auth.php';
 
+// Route dari table setting buat landingpage
+Route::get('/', function () {
+    $settings = Setting::all();
+    return view('landingpage.index', compact('settings'));})->name('settings');
 

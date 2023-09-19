@@ -26,20 +26,28 @@ class SettingController extends Controller
             'name' => 'required',
             'history' => 'required',
             'image' => 'required|image|mimes:png,jpg|max:2040',
+            'images' => 'required|image|mimes:png,jpg|max:2040',
             'location' => 'required',
             'no_telp' => 'required',
             'email' => 'required',
             'about_me' => 'required',
             'slogan' => 'required',
         ]);
-
+    // Upload gambar untuk field 'image'
     $image = $request->image;
-    $slug = Str::slug($image->getClientOriginalName());
-    $new_image = time() . '_' . $slug;
+    $slugimage = Str::slug($image->getClientOriginalName());
+    $new_image = time() . '_' . $slugimage;
     $image->move('upload/vehicle/', $new_image);
+
+     // Upload gambar untuk field 'images'
+     $images = $request->images;
+     $slugimages = Str::slug($images->getClientOriginalName());
+     $new_images = time() . '_images_' . $slugimages;
+     $images->move('upload/vehicle/', $new_images);
 
     $settings = new Setting;
     $settings->image = 'upload/vehicle/' . $new_image;
+    $settings->images = 'upload/vehicle/' . $new_images;
     $settings->name = $request->name;
     $settings->history = $request->history;
     $settings->location = $request->location;
@@ -65,6 +73,7 @@ $request->validate([
     'name' => 'required',
     'history' => 'required',
     'image' => 'required|image|mimes:png,jpg|max:2040',
+    'images' => 'required|image|mimes:png,jpg|max:2040',
     'location' => 'required',
     'no_telp' => 'required',
     'email' => 'required',
@@ -72,13 +81,21 @@ $request->validate([
     'slogan' => 'required',
 ]);
 
+// edit gambar untuk field 'image'
 $image = $request->image;
-$slug = Str::slug($image->getClientOriginalName());
-$new_image = time() . '_' . $slug;
+$slugimage = Str::slug($image->getClientOriginalName());
+$new_image = time() . '_' . $slugimage;
 $image->move('upload/vehicle/', $new_image);
+
+ // edit gambar untuk field 'images'
+ $images = $request->images;
+ $slugimages = Str::slug($images->getClientOriginalName());
+ $new_images = time() . '_images_' . $slugimages;
+ $images->move('upload/vehicle/', $new_images);
 
 $settings = Setting::find($id);
 $settings->image = 'upload/vehicle/' . $new_image;
+$settings->images = 'upload/vehicle/' . $new_images;
 $settings->name = $request->name;
 $settings->history = $request->history;
 $settings->location = $request->location;
@@ -87,6 +104,7 @@ $settings->email = $request->email;
 $settings->about_me = $request->about_me;
 $settings->slogan = $request->slogan;
 $settings->save();
+
 return to_route('setting.index')->with('succes', 'data ditambah');
 }
 

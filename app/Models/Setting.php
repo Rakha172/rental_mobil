@@ -12,6 +12,7 @@ class Setting extends Model
         'name',
         'history',
         'image',
+        'images',
         'location',
         'no_telp',
         'social_media',
