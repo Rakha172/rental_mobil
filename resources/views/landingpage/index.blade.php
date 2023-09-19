@@ -23,16 +23,21 @@
             grid-template-columns: repeat(2, 1fr);
         }
     </style>
+
+@foreach ($settings as $setting)
+<style>
+        background-image: url('{{ asset($setting->images) }}');
+</style>
+@endforeach
 </head>
 
 <body>
     <header>
-        @if (isset($settings))
-        @foreach ($settings as $sett)
         <td>
-        <a href="" class="logo"><img src="{{ asset('images/jeep.png') }}" alt=""></a>
-        {{-- <a href="" class="logo"><img src="{{ asset('upload/vehicle' . $sett->image) }}" alt="Logo"> --}}
-
+        <a href="" class="logo">
+            @foreach ($settings as $setting)
+            <li><img src="{{ asset($setting->image) }}" alt=""></li>
+        @endforeach
         <div class="bx bx-menu" id="menu-icon"></div>
         <ul class="navbar">
             <li><a href="{{ route('homepage.index') }}">Vehicle</a></li>
@@ -40,8 +45,6 @@
 
         </ul>
         </td>
-        @endforeach
-        @endif
         @if (Route::has('login'))
             @auth
                 <div class="header-btn" style="margin-left: 350px; position:absolute;">
@@ -70,8 +73,11 @@
     <!-- home -->
     <section class="home" id="home">
         <div class="text">
-            <h1>Aplikasi <span>Rental</span><br>Mobil</h1>
-            <p>Rental mobil merupakan salah satu usaha yang bergerak <br> di bidang jasa tranportasi.</p>
+            @foreach ($settings as $item)
+            <p>{{ $item['name'] }}</p>
+            <p>{{ $item['slogan'] }}</p>
+        @endforeach
+
         </div>
         {{-- <div class="form-container">
             <form action="">
@@ -94,27 +100,15 @@
     <!-- Ride -->
     <section class="ride" id="ride">
         <div class="heading">
-            <span>How Its Work</span>
-            <h1>Rent With 3 Easy Steps</h1>
-        </div>
-        <div class="ride-container">
-            <div class="box">
-                <i class="bx bxs-map"></i>
-                <h2>Location</h2>
-                <p>Indonesia,Jawa Barat,cimahi,cidahu</p>
+            @foreach ($settings as $item)
+            <div>
+                <i class="fa fa-car"></i>
+                <p class="footer-about">
+                    {{ $item['history'] }}
+                </p>
             </div>
+        @endforeach
 
-            <div class="box">
-                <i class="bx bxs-calendar-check"></i>
-                <h2>Pick-Up Date</h2>
-                <p>Tanggal Awal Pemesanan</p>
-            </div>
-
-            <div class="box">
-                <i class="bx bxs-calendar-star"></i>
-                <h2>Book A Car</h2>
-                <p>Tanggal Pengembalian</p>
-            </div>
         </div>
     </section>
     <section class="services" id="services">
@@ -214,39 +208,44 @@
                     <img src="{{ asset('') }}" alt="">
                     <img src="{{ asset('') }}" alt="">
                 </div>
-                <p class="footer-copyright">Rental Mobil</p>
+                {{-- <p class="footer-copyright">Rental Mobil</p> --}}
             </div>
 
             <div class="footer-center">
                 <div>
+                    @foreach ($settings as $item)
                     <i class="fa fa-map-marker"></i>
-                    <p> Indonesia,Jawa Barat,Bandung</p>
+                    <p>{{ $item['location'] }}</p>
                 </div>
+                @endforeach
                 <div>
+                    @foreach ($settings as $item)
                     <i class="fa fa-phone"></i>
-                    <p>+62 000 000 00</p>
+                    <p>{{ $item['no_telp'] }}</p>
                 </div>
+                @endforeach
                 <div>
+                    @foreach ($settings as $item)
                     <i class="fa fa-envelope"></i>
-                    <p><a href="#">Support@gmail.com</a></p>
-
+                    <p><a href="#">{{ $item['email'] }}</a></p>
                 </div>
+                @endforeach
             </div>
             <div class="footer-right">
+                @foreach ($settings as $item)
                 <div>
                     <i class="fa fa-car"></i>
                     <p class="footer-about">
-                        About <br> Menyediakan berbagai pilihan unit mobil
-                        mulai dari Avanza, Innova Reborn, Hiace, Alphard, Luxury Car
-                        dan berbagai pilihan lainnya
+                        {{ $item['about_me'] }}
                     </p>
-
                 </div>
-                <div class="footer-media">
+            @endforeach
+
+                {{-- <div class="footer-media">
 
                     <a href="#"><i class="fa fa-whatsapp"></i></a>
 
-                </div>
+                </div> --}}
             </div>
 
     </section>
