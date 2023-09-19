@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('history');
             $table->string('image');
+            $table->string('images');
             $table->string('location');
             $table->string('no_telp');
             $table->string('email');
