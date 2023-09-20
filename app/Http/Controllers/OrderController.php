@@ -63,7 +63,7 @@ class OrderController extends Controller
         $order->vehicle_package_id = $request->vehicle_package_id;
         $order->rental_date = $rentalDate;
 
-        //lanjut ke halaman pembuatan pemayaran
+        //lanjut ke halaman pembyaran
         $order->save();
         return view('payment.create')->with([
             'users' => User::all(),
