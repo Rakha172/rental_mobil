@@ -47,13 +47,23 @@ class OrderController extends Controller
          $request->validate([
             'user_id' => 'required|exists:users,id',
             'vehicle_package_id' => 'required|exists:vehicle_packages,id',
-            'rental_date' => 'required'
+            'rental_date' => 'required|date|after_or_equal:today', //validasi tanggal
         ]);
+
+        // Cek apakah tanggal pemesanan kurang dari hari ini atau tidak
+        $rentalDate = $request->input('rental_date');
+        $today = now(); // Mendapatkan tanggal hari ini
+        if ($rentalDate < $today) {
+        // Tanggal pemesanan tidak valid
+        return redirect()->back()->with('error', 'Tanggal pemesanan harus setidaknya hari ini atau lebih besar.');
+    }
 
         $order = new Order;
         $order->user_id = $request->user_id;
         $order->vehicle_package_id = $request->vehicle_package_id;
-        $order->rental_date = $request->rental_date;
+        $order->rental_date = $rentalDate;
+
+        //lanjut ke halaman pembuatan pemayaran
         $order->save();
         return view('payment.create')->with([
             'users' => User::all(),
