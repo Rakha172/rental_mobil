@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Setting;
 use Illuminate\Http\Request;
 
 class LandingpageController extends Controller
@@ -11,7 +12,8 @@ class LandingpageController extends Controller
      */
     public function index()
     {
-        return view('landingpage.index');
+        $settings = Setting::all();
+        return view('landingpage.index', compact('settings'));
     }
 
     /**
