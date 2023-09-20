@@ -9,16 +9,10 @@
             @csrf
             @method('post')
             <div class=" shadow p-3 mb-5 bg-body rounded " id="box">
-                <div class="mb-3">
-                    <label class="form-label">Name</label>
-                    <select name="user_id" class="form-control @error('users') is-invalid @enderror">
-                        @foreach ($users as $user)
-                        <option value="{{ $user->id}}" {{ old('user_id') == $user->id ? 'selected' : ''}}>
-                            {{ $user->name }}
-                        </option>
-                        @endforeach
-                    </select>
-                </div>
+                <div class="form-group">
+                <label class="form-label">User ID</label>
+                <input name="user_id" type="number" class="form-control" value="{{ auth()->user()->id }}" readonly>
+            </div>
             <div class="mb-3">
                 <label class="form-label">Vehicle Package</label>
                 <select name="vehicle_package_id" class="form-control @error('vehicle_package_id') is-invalid @enderror">
