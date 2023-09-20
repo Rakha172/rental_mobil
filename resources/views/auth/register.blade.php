@@ -21,14 +21,14 @@
         </div>
 
         <div class="mt-4">
-            <x-input-label for="phone_number" :value="__('phone_number')" />
+            <x-input-label for="phone_number" :value="__('Phone Number')" />
             <x-text-input id="phone_number" class="block mt-1 w-full" type="number" name="phone_number"
                 :value="old('phone_number')" required autocomplete="phone_number" />
             <x-input-error :messages="$errors->get('phone_number')" class="mt-2" />
         </div>
 
         <div>
-            <x-input-label for="address" :value="__('address')" />
+            <x-input-label for="address" :value="__('Address')" />
             <x-text-input id="address" class="block mt-1 w-full" type="text" name="address" :value="old('address')"
                 required autofocus autocomplete="address" />
             <x-input-error :messages="$errors->get('address')" class="mt-2" />
@@ -36,7 +36,7 @@
 
 
         <div class="form-floating">
-            <x-input-label for="id_card_photo" :value="__('id_card_photo')" />
+            <x-input-label for="id_card_photo" :value="__('Id Card Photo')" />
             <input style="border-radius: 5px; border: rgba(185, 184, 184, 0.637) 1px solid;" type="file"
                 name="id_card_photo" class="block mt-1 w-full"
                 id="id_card_photo" value="{{ old('id_card_photo') }}" accept="image/*"
@@ -46,7 +46,7 @@
         </div>
 
         <div class="form-floating">
-            <x-input-label for="driver_licence_photo" :value="__('driver_licence_photo')" />
+            <x-input-label for="driver_licence_photo" :value="__('Driver Licence Photo')" />
             <input style="border-radius: 5px; border: rgba(185, 184, 184, 0.637) 1px solid;" type="file"
                 name="driver_licence_photo"
                 class="block mt-1 w-full" id="driver_licence_photo"
