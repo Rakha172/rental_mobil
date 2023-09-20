@@ -13,7 +13,8 @@ class LandingpageController extends Controller
     public function index()
     {
         $settings = Setting::all();
-        return view('landingpage.index', compact('settings'));
+
+        return view('landingpage.index', ['settings' => $settings]);
     }
 
     /**
