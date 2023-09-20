@@ -3,13 +3,13 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Vehicle;
+use App\Models\Vehicle_Package;
 class BookingController extends Controller
 {
     public function index()
     {
-        $vehicle =  Vehicle::all();
-        return view('booking.index', compact('vehicle'));
+        $vehicle_package =  Vehicle_Package::all();
+        return view('booking.index', compact('vehicle_package'));
 
     }
 }
