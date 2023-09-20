@@ -57,7 +57,18 @@ class OrderController extends Controller
         // Tanggal pemesanan tidak valid
         return redirect()->back()->with('error', 'Tanggal pemesanan harus setidaknya hari ini atau lebih besar.');
     }
+    // Cek apakah ada pesanan yang sama yang sudah ada
+    $existingOrder = Order::where('user_id', $request->user_id)
+        ->where('vehicle_package_id', $request->vehicle_package_id)
+        ->where('rental_date', $rentalDate)
+        ->first();
 
+    if ($existingOrder) {
+        // Pesanan yang sama sudah ada
+        return redirect()->back()->with('error', 'Maaf, pesanan dengan detail yang sama sudah ada.');
+    }
+
+        // Lanjutkan dengan membuat pesanan baru
         $order = new Order;
         $order->user_id = $request->user_id;
         $order->vehicle_package_id = $request->vehicle_package_id;
