@@ -60,7 +60,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
     // route::resource('homepage', HomepageController::class)->middleware('auth');
     Route::get('homepage/', [HomepageController::class, 'index'])->name('homepage.index');
-    Route::get('homepage/{vehicleId}', [HomepageController::class, 'booking'])->name('hompage.booking');
+    Route::get('booking/', [BookingController::class, 'index'])->name('booking.index');
 });
 
 require __DIR__.'/auth.php';

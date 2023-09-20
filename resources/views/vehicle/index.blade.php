@@ -1,6 +1,6 @@
 @extends('components.main')
 <x-app-layout>
-    <div class="container mt-3">
+    <div class="container">
         <div class="card">
             <div class="card-body">
                 <div class="shadow p-3 mb-5 bg-body rounded">
