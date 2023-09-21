@@ -1,27 +1,23 @@
-@extends('components.main')
+@extends('components.mainadmin')
 <x-app-layout>
-    <div class="container">
+    <div class="container-fluid">
+        <h1 class="text-center">DATA VEHICLE</h1>
         <div class="card">
             <div class="card-body">
                 <div class="shadow p-3 mb-5 bg-body rounded">
-                    <h3 class="text-center">DATA VEHICLE</h3>
                     <form action="" method="GET">
                         <div class="row mb-2">
-                            <label for="search" class="col-sm-2 col-form-label">Search</label>
                             <div class="col-sm-10">
+                                <a href="{{ route('vehicle.create') }}" class="btn"><ion-icon name="add-circle-outline" style="font-size: 20px;"></ ion-icon></a>
                                 <input type="text" placeholder="Please input key for search data" name="search"
                                     autofocus style="border-radius:5px; width:80%;" value="{{ $search }}">
-                                <button class="btn btn-dark" style="height:42px;">Search</button>
+                                <button class="btn-s">Search</button>
                             </div>
                         </div>
                     </form>
-                    <a href="{{ route('vehicle.create') }}" class="btn btn-dark mb-2"
-                        style="width:50px;
-                    padding:10px; height:40px;"><ion-icon
-                            name="add-circle-outline" style="font-size: 20px;"></ ion-icon></a>
-                    <table class="table table-bordered">
+                    <table class="table table-bordered table-center">
                         <thead>
-                            <tr class="table-dark">
+                            <tr class="table-border" style="background-color : rgb(236, 128, 4); color:black;">
                                 <th scope="col">No</th>
                                 <th scope="col">Image</th>
                                 <th scope="col">Name</th>
