@@ -1,4 +1,4 @@
-<nav x-data="{ open: false }" class="bg-white border-b border-gray-100 fixed w-full top-0 z-10">
+<nav x-data="{ open: false }" class="border-b border-gray-100 fixed w-full top-0 z-10" style="background-color:rgb(236, 128, 4);">
     <!-- Primary Navigation Menu -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between h-16">
@@ -10,27 +10,27 @@
 
                 @if (Auth::user()->role == 'admin')
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link :href="route('homepage.index')" :active="request()->routeIs('home')">
+                    <x-nav-link :href="route('homepage.index')" :active="request()->routeIs('home')" style="text-decoration: none;  font-size:15px; color:black;">
                         {{ __('Home') }}
                     </x-nav-link>
                 </div>
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link :href="route('order.index')" :active="request()->routeIs('order')">
+                    <x-nav-link :href="route('order.index')" :active="request()->routeIs('order')" style="text-decoration: none;  font-size:15px; color:black;">
                         {{ __('Order') }}
                     </x-nav-link>
                 </div>
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link :href="route('admin.index')" :active="request()->routeIs('info user')">
+                    <x-nav-link :href="route('admin.index')" :active="request()->routeIs('info user')" style="text-decoration: none;  font-size:15px; color:black;">
                         {{ __('Info user') }}
                     </x-nav-link>
                 </div>
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link :href="route('vehicle.index')" :active="request()->routeIs('vehicle')">
+                    <x-nav-link :href="route('vehicle.index')" :active="request()->routeIs('vehicle')" style="text-decoration: none;  font-size:15px; color:black;">
                         {{ __('Vehicle') }}
                     </x-nav-link>
                 </div>
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link :href="route('vehicle_package.index')" :active="request()->routeIs('vehicle package')">
+                    <x-nav-link :href="route('vehicle_package.index')" :active="request()->routeIs('vehicle package')" style="text-decoration: none;  font-size:15px; color:black;">
                         {{ __('Vehicle package') }}
                     </x-nav-link>
                 </div>
@@ -41,16 +41,16 @@
                     </x-nav-link>
                 </div> --}}
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link :href="route('homepage.index')" :active="request()->routeIs('homepage')">
+                    <x-nav-link :href="route('homepage.index')" :active="request()->routeIs('homepage')" style="text-decoration: none;  font-size:15px; color:black;">
                         {{ __('Vehicle') }}
                     </x-nav-link>
                     <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                        <x-nav-link :href="route('package.index')" :active="request()->routeIs('homepage')">
+                        <x-nav-link :href="route('package.index')" :active="request()->routeIs('homepage')" style="text-decoration: none;  font-size:15px; color:black;">
                             {{ __('Vehicle Package') }}
                         </x-nav-link>
                     </div>
                     <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                        <x-nav-link :href="route('booking.index')" :active="request()->routeIs('homepage')">
+                        <x-nav-link :href="route('booking.index')" :active="request()->routeIs('homepage')" style="text-decoration: none; font-size:15px; color:black;">
                             {{ __('Order') }}
                         </x-nav-link>
                     </div>
@@ -108,28 +108,34 @@
     <!-- Responsive Navigation Menu -->
     <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
         <div class="pt-2 pb-3 space-y-1">
-            <x-responsive-nav-link :href="route('landingpage.index')" :active="request()->routeIs('dashboard')">
-                {{ __('Dashboard') }}
+            <x-responsive-nav-link :href="route('homepage.index')" :active="request()->routeIs('dashboard')" style="text-decoration: none;  font-size:15px; color:black;">
+                {{ __('Vehicle') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('package.index')" :active="request()->routeIs('dashboard')" style="text-decoration: none;  font-size:15px; color:black;">
+                {{ __('Vehicle Package') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('booking.index')" :active="request()->routeIs('dashboard')" style="text-decoration: none;  font-size:15px; color:black;">
+                {{ __('Order') }}
             </x-responsive-nav-link>
         </div>
 
         <!-- Responsive Settings Options -->
         <div class="pt-4 pb-1 border-t border-gray-200">
             <div class="px-4">
-                <div class="font-medium text-base text-gray-800">{{ Auth::user()->name }}</div>
+                <div class="font-medium text-base text-gray-800" style="font-size:10px; color:black;">{{ Auth::user()->name }}</div>
                 <div class="font-medium text-sm text-gray-500">{{ Auth::user()->email }}</div>
             </div>
 
             <div class="mt-3 space-y-1">
-                <x-responsive-nav-link :href="route('profile.edit')">
+                <x-responsive-nav-link :href="route('profile.edit')" style="text-decoration: none;  font-size:15px; color:black;">
                     {{ __('Profile') }}
                 </x-responsive-nav-link>
 
                 <!-- Authentication -->
-                <form method="POST" action="{{ route('logout') }}">
+                <form method="POST" action="{{ route('logout') }}" >
                     @csrf
 
-                    <x-responsive-nav-link :href="route('logout')"
+                    <x-responsive-nav-link :href="route('logout')" style="text-decoration: none;  font-size:15px; color:black;"
                             onclick="event.preventDefault();
                                         this.closest('form').submit();">
                         {{ __('Log Out') }}

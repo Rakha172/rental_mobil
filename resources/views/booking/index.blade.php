@@ -1,17 +1,15 @@
 <x-app-layout>
     @extends('components.main')
-    <h1 class="text-center">Order</h1>
-    <div class="container">
-        <div class="shadow p-3 mb-5 bg-body rounded  mb-3">
+    <div class="container-fluid">
+        <h1 class="text-center">Order</h1>
+        {{-- <div class="shadow p-3 mb-5 bg-body rounded  mb-3"> --}}
             @if ($vehicle_package->count() > 0)
                 @foreach ($vehicle_package as $vhpk)
-                    <div class="card mb-3" style="height: 300px;">
-                        {{-- <div class="card-header">
-                            Package
-                        </div> --}}
-                        <img src="{{ asset($vhpk->vehicle->image) }}" class="card-img-top" alt="..."
-                            style="width:300px; height:200px; margin-top: 20px; margin-left: 10px; margin-bottom: 20px;">
-                        <div class="card-body" style=" position: absolute; margin-left:350px; margin-top: 10px;">
+                    <div class="card">
+                        <div class="img">
+                            <img src="{{ asset($vhpk->vehicle->image) }}" class="card-img-top" alt="...">
+                        </div>
+                        <div class="card-body">
                             <ul class="list-group list-group-flush">
                                 <li class="list-group-item">
                                     Package Name :
