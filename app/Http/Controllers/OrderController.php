@@ -57,6 +57,7 @@ class OrderController extends Controller
         // Tanggal pemesanan tidak valid
         return redirect()->back()->with('error', 'Tanggal pemesanan harus setidaknya hari ini atau lebih besar.');
     }
+
     // Cek apakah ada pesanan yang sama yang sudah ada
     $existingOrder = Order::where('user_id', $request->user_id)
         ->where('vehicle_package_id', $request->vehicle_package_id)
@@ -66,6 +67,13 @@ class OrderController extends Controller
     if ($existingOrder) {
         // Pesanan yang sama sudah ada
         return redirect()->back()->with('error', 'Maaf, pesanan dengan detail yang sama sudah ada.');
+    }
+
+    // Validasi status pesanan kendaraan
+    $vehicle = Vehicle::find($request->vehicle_id);
+    if ($vehicle && $vehicle->status_pesanan === 'dipesan') {
+        // Kendaraan sudah dipesan, tolak pemesanan baru
+        return redirect()->back()->with('error', 'Maaf, kendaraan ini sudah dipesan.');
     }
 
         // Lanjutkan dengan membuat pesanan baru
