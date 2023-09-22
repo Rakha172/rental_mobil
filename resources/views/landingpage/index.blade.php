@@ -74,8 +74,8 @@
     <section class="home" id="home">
         <div class="text">
             @foreach ($settings as $item)
-            <p>{{ $item['name'] }}</p>
-            <p>{{ $item['slogan'] }}</p>
+            <h1>{{ $item['name'] }}</h1>
+            <h5>{{ $item['slogan'] }}</h5>
         @endforeach
 
         </div>
@@ -103,9 +103,9 @@
             @foreach ($settings as $item)
             <div>
                 <i class="fa fa-car"></i>
-                <p class="footer-about">
+                <h3 class="footer-about">
                     {{ $item['history'] }}
-                </p>
+                </h3>
             </div>
         @endforeach
 
