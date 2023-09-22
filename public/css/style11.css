@@ -89,6 +89,9 @@ header{
     background: var(--main-color);
 }
 
+.text {
+  margin-bottom: 15%;
+}
 .text h1{
     font-size: 3.5rem;
     letter-spacing: 2px;
