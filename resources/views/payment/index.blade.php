@@ -14,7 +14,7 @@
 
     <div class="container mt-5">
 
-        <a href="{{ route('payment.create')}}" class="btn btn-primary">Tambah</a>
+        {{-- <a href="{{ route('payment.create')}}" class="btn btn-primary">Tambah</a> --}}
 
         @if ($pesan = session('berhasil'))
         <div class="alert alert-primary" role="alert">
@@ -28,24 +28,30 @@
                 <th scope="col">Total Price</th>
                 <th scope="col">Payment Method</th>
                 <th scope="col">Proof Of Transaction</th>
-                <th scope="col">Aksi</th>
+                <th scope="col">Created at</th>
+                <th scope="col">Payment</th>
               </tr>
             </thead>
             <tbody>
-                @foreach ($payment as $index => $pm)
+                @foreach ($order as $index => $pm)
               <tr>
-                <th scope="row">{{ $index}}</th>
-                <td>{{ $pm->total_price }}</td>
-                <td>{{ $pm->payment_method }}</td>
-                <td><img src="{{ asset($pm->proof_of_transaction)}}" width="100"></td>
-                <td>
-                    <a href="{{ route('payment.edit', $pm->id) }}" class="btn btn-primary">Edit</a>
-                    <form action="{{ route('payment.destroy', $pm->id)}}"method="POST">
-                        @csrf
-                        @method('delete')
+                <th scope="row">{{ $index+1}}</th>
+                <td>{{ $pm->user_id }}</td>
+                <td>{{ $pm->vehicle_package_id   }}</td>
+                <td>{{ $pm->rental_date}}</td>
+                <td>{{ $pm->created_at}}
+                    {{-- <a href="{{ route('payment.edit', $pm->id) }}" class="btn btn-primary">Edit</a> --}}
+                    {{-- <form action="{{ route('payment.destroy', $pm->id)}}"method="POST"> --}}
+                        {{-- @csrf --}}
+                        {{-- @method('delete') --}}
 
-                        <button type="submit" class="btn btn-danger">Delete</button>
-                    </form>
+                        {{-- <button type="submit" class="btn btn-danger">Delete</button> --}}
+                    {{-- </form> --}}
+                </td>
+                <td>
+                  <form action="{{ route('payment.create', $pm->id)}}">
+                    <button class="btn btn-dark">Bayar</button>
+                  </form>
                 </td>
               </tr>
               @endforeach
@@ -54,7 +60,7 @@
     </div>
     <td colspan="n">
         <div style="text-align: center;">
-            <a href="{{ route('logout') }}" class="btn btn-outline-secondary btn-sm">Log Out</a>
+            {{-- <a href="{{ route('logout') }}" class="btn btn-outline-secondary btn-sm">Log Out</a> --}}
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 
   </body>

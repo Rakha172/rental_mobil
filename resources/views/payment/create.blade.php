@@ -9,12 +9,12 @@
   <body>
 
     <div class="container mt-5">
-        <form action="{{ route("payment.store") }}" method="post">
+        <form action="{{ route('payment.store') }}" method="post" enctype="multipart/form-data">
             @csrf
             @method('post')
             <div class="mb-3">
                 <label class="form-label">Name</label>
-                <select name="user_id" class="form-control @error('users') is-invalid @enderror">
+                <select name="user_id" class="form-control">
                     @foreach ($users as $user)
                     <option value="{{ $user->id}}" {{ old('user_id') == $user->id ? 'selected' : ''}}>
                         {{ $user->name }}
@@ -24,20 +24,17 @@
             </div>
         <div class="mb-3">
             <label class="form-label">Price</label>
-            <select name="vehicle_package_id" class="form-control @error('vehicle_package_id') is-invalid @enderror">
+            <select name="vehicle_package_id" class="form-control">
                 @foreach ($vehicle_packages as $vehicle_package)
                     <option value="{{ $vehicle_package->id }}">
                         {{ $vehicle_package->price }} 
                     </option>
                 @endforeach
-            </select>
-            @error('vehicle_package_id')
-                <div class="invalid-feedback">{{ $message }}</div>
-            @enderror
+                </select>
         </div>
 
             <div class="mb-3">
-                <label class="form-label">Payment Method</label>
+                <label class="form-label">payment Method</label>
                 <select name="payment_method" class="form-control @error('payment_method') is-invalid @enderror">
                     <option value="">Pilih</option>
                     <option @selected(old('payment_method') == 'Cash') value="Cash">Cash</option>

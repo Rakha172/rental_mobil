@@ -23,7 +23,7 @@
         @endif
         <table class="table">
             <thead>
-              <tr>
+              <tr>  
                 <th scope="col">NO</th>
                 <th scope="col">Rental Date</th>
                 <th scope="col">Return Date</th>

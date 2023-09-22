@@ -17,20 +17,27 @@ class PaymentController extends Controller
     {
         $payment = Payment::all();
 
-        return view('payment.index', ['payment' => $payment]);
+        return view('payment.index', ['payment' => $payment])->with([
+            'order' => Order::all(),
+            'user' => User::all(),
+        ]);
     }
 
-    public function create(Request $request)
+    public function create($id)
     {
+        $order = Order::find($id);
         $users = User::all();
         $vehicle_packages = Vehicle_Package::all();
-        return view('payment.create', ['users' => $users ,'vehicle_packages' => $vehicle_packages, ]);
+        return view('payment.create', ['users' => $users ,'vehicle_packages' => $vehicle_packages, ])->with([
+            'order' => Order::all()
+        ]);
     }
 
     public function store(Request $request)
     {
         $request->validate([
-            'user_id' => 'required|exists:users,id',
+            'user_id' => 'required',
+            'vehicle_package_id' => 'required',
             'payment_method' => 'required',
             'proof_of_transaction' => 'required|image|mimes:png,jpg|max:2040',
 
@@ -48,10 +55,10 @@ class PaymentController extends Controller
         // }
 
         // Upload gambar
-     $proof_of_transaction = $request->proof_of_transaction;
-     $slug = Str::slug($proof_of_transaction->getClientOriginalName());
-     $new_proof_of_transaction = time() . '_' . $slug;
-     $proof_of_transaction->move('upload/vehicle/', $new_proof_of_transaction);
+        $proof_of_transaction = $request->proof_of_transaction;
+        $slug = Str::slug($proof_of_transaction->getClientOriginalName());
+        $new_proof_of_transaction = time() . '_' . $slug;
+        $proof_of_transaction->move('upload/vehicle/', $new_proof_of_transaction);
 
         // Simpan data pembayaran
         $payment = new Payment;
@@ -64,7 +71,7 @@ class PaymentController extends Controller
         // Sisipkan relasi antara pembayaran dan paket kendaraan yang dipilih
         // $payment->vehiclePackages()->attach($vehicle_packages);
 
-        return redirect()->route('payment.index')->with('success', 'Data ditambah');
+        return redirect()->route('homepage.index')->with('success', 'Data ditambah');
     }
 
     public function edit(Payment $payment)

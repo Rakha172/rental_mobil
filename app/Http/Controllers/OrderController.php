@@ -30,7 +30,7 @@ class OrderController extends Controller
 
     public function show()
     {
-        return view('order.index');
+       
     }
 
     public function create(Request $request)
@@ -84,10 +84,7 @@ class OrderController extends Controller
 
         //lanjut ke halaman pembyaran
         $order->save();
-        return view('payment.create')->with([
-            'users' => User::all(),
-            'vehicle_packages' => Vehicle_Package::all()
-        ]);
+        return to_route('homepage.index');
     }
 
 
