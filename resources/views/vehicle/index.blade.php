@@ -6,7 +6,7 @@
             <div class="card-body">
                     <form action="" method="GET">
                         <div class="col-sm-10 d-flex">
-                            <a href="{{ route('vehicle_package.create') }}" class="btn btn-light" style="margin-right: 8px;">Add</a>
+                            <a href="{{ route('vehicle.create') }}" class="btn btn-light" style="margin-right: 8px;">Add</a>
                             <input type="text" placeholder="Please input key for search data" name="search" autofocus style="border-radius:5px; width:700px; margin-bottom:1rem;" value="{{ $search }}">
                             <button class="btn ml-2 btn-light" style="height:42px; color:black;">Search</button>
                         </div>

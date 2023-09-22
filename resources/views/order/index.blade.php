@@ -37,7 +37,7 @@
                                             <form action="{{ route('order.destroy', $ordr->id) }}"method="POST">
                                                 @csrf
                                                 @method('delete')
-                                                <a href="{{ route('order.edit', $ordr->id) }}"><ion-icon name="create-outline"></ion-icon></a>
+                                                <a href="{{ route('payment.index', $ordr->id)}}">Status</a>
                                                 <button type="submit" class="btn btn-danger">Delete</button>
                                             </form>
                                         </td>

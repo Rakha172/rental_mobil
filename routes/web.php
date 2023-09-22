@@ -27,6 +27,8 @@ route::resource('payment', PaymentController::class);
 route::resource('setting', SettingController::class);
 Route::get('/landing', [LandingpageController::class, 'index'])->name('landingpage.index');
 Route::get('/package',[PackageController::class,'index'])->name('package.index');
+Route::get('payment/create/{id}',[PaymentController::class,'create'])->name('payment.create');
+Route::get('payment',[PaymentController::class,'index'])->name('payment.index');
 // Route::get('/booking',[BookingController::class,'index'])->name('booking.index');
 
 

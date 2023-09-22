@@ -5,7 +5,7 @@
             class="shadow mb-3 p-3 bg-body rounded" style="font-size: 30px; position: relative; margin-top:-30px;
             color:black"></ion-icon></a>
             <img src="{{ asset($vehicle->image)}}" id="image">
-        <form action="{{ route("order.store") }}" method="post">
+        <form action="{{ route('order.store') }}" method="post">
             @csrf
             @method('post')
             <div class=" shadow p-3 mb-5 bg-body rounded " id="box">
