@@ -74,8 +74,8 @@
     <section class="home" id="home">
         <div class="text">
             @foreach ($settings as $item)
-            <h1>{{ $item['name'] }}</h1>
-            <h5>{{ $item['slogan'] }}</h5>
+            <h1>Apliaksi<span>{{ $item['name'] }}</span></h1>
+            <h4>{{ $item['slogan'] }}</h4>
         @endforeach
 
         </div>
@@ -99,17 +99,22 @@
     </section>
     <!-- Ride -->
     <section class="ride" id="ride">
-        <div class="heading">
-            @foreach ($settings as $item)
-            <div>
-                <i class="fa fa-car"></i>
-                <h3 class="footer-about">
-                    {{ $item['history'] }}
-                </h3>
+        <div class="history">
+            <div class="heading">
+                @foreach ($settings as $item)
+                <div>
+                    <h1>History</h1>
+                   
+                    <h3 class="footer-about">
+                        {{ $item['history'] }}
+                    </h3>
+                    <i class="fa fa-car"></i>
+                </div>
+            @endforeach
+    
             </div>
-        @endforeach
-
         </div>
+       
     </section>
     <section class="services" id="services">
         {{-- <div class="heading">
