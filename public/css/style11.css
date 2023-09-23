@@ -154,6 +154,28 @@ header{
 .heading h1{
     font-size: 2rem;
 }
+.ride .history{
+    margin-bottom: 3%;
+    width:100%; 
+    height: 30%; 
+    padding: 20px;
+    background-color: #f0f0f0; 
+    border: 1px solid #ccc;
+    border-radius: 5px; 
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    text-align: justify;
+    text-align: center;
+}
+.ride .history:hover{
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.6); 
+    
+}
+.ride .history .heading .footer-about{
+    text-align: justify;
+    margin: 20px;
+    padding: 10px;
+    
+}
 .ride-container{
     display: grid;
     align-items: center;
