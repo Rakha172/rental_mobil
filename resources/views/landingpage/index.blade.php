@@ -74,7 +74,7 @@
     <section class="home" id="home">
         <div class="text">
             @foreach ($settings as $item)
-            <h1>Apliaksi<span>{{ $item['name'] }}</span></h1>
+            <h1>Apliaksi <span>{{ $item['name'] }}</span></h1>
             <h4>{{ $item['slogan'] }}</h4>
         @endforeach
 
