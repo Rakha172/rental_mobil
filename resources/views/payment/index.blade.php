@@ -25,28 +25,23 @@
             <thead>
               <tr>
                 <th scope="col">NO</th>
-                <th scope="col">Total Price</th>
-                <th scope="col">Payment Method</th>
-                <th scope="col">Proof Of Transaction</th>
-                <th scope="col">Created at</th>
-                <th scope="col">Payment</th>
+                <th scope="col">Nama Penyewa</th>
+                <th scope="col">Harga Total</th>
+                <th scope="col">Tanggal Booking</th>
+                <th scope="col">Dibuat Tanggal</th>
+                <th scope="col">Status</th>
+                <th scope="col">Bayar</th>
               </tr>
             </thead>
             <tbody>
                 @foreach ($order as $index => $pm)
               <tr>
                 <th scope="row">{{ $index+1}}</th>
-                <td>{{ $pm->user_id }}</td>
-                <td>{{ $pm->vehicle_package_id   }}</td>
+                <td>{{ $pm->user->name }}</td>
+                <td>{{ $pm->vehicle_package->price  }}</td>
                 <td>{{ $pm->rental_date}}</td>
                 <td>{{ $pm->created_at}}
-                    {{-- <a href="{{ route('payment.edit', $pm->id) }}" class="btn btn-primary">Edit</a> --}}
-                    {{-- <form action="{{ route('payment.destroy', $pm->id)}}"method="POST"> --}}
-                        {{-- @csrf --}}
-                        {{-- @method('delete') --}}
-
-                        {{-- <button type="submit" class="btn btn-danger">Delete</button> --}}
-                    {{-- </form> --}}
+                <td>Belum Dibayar<td>
                 </td>
                 <td>
                   <form action="{{ route('payment.create', $pm->id)}}">

@@ -2,16 +2,18 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Order;
 use App\Models\User;
+use App\Models\Order;
 use App\Models\Vehicle;
-use App\Models\Vehicle_Package;
 use Illuminate\Http\Request;
+use App\Models\Vehicle_Package;
+use Illuminate\Support\Facades\Auth;
 
 class OrderController extends Controller
 {
 
     public function index(Request $request){
+        $ordercount = Order::count();
         $search = $request->query('search');
         if(!empty($search)){
             $dataOrder = Order::where('order.name', 'like', '%' . $search . '%')
@@ -24,6 +26,7 @@ class OrderController extends Controller
         }
         return view('order.index')->with([
             'order' => $dataOrder,
+            'ordercount' => $ordercount,
             'search' => $search
         ]);
     }
