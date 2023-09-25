@@ -13,7 +13,6 @@
                 </form>
                 <div class="table-responsive">
 
-                </div>
                     <table class="table table-bordered table-center">
                         <thead>
                             <tr class="table-border" style="background-color : rgb(236, 128, 4); color:black;">
@@ -54,6 +53,7 @@
                             @endif
                         </tbody>
                     </table>
+                </div>
                     {!! $vehicle->appends(Request::except('page'))->render() !!}
                 </div>
             </div>
