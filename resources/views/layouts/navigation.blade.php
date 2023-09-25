@@ -17,18 +17,6 @@
                         </x-nav-link>
                     </div>
                     <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                        <x-nav-link :href="route('order.index')" :active="request()->routeIs('order')"
-                            style="text-decoration: none;  font-size:15px; color:black;">
-                            {{ __('Order') }}
-                        </x-nav-link>
-                    </div>
-                    <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                        <x-nav-link :href="route('admin.index')" :active="request()->routeIs('info user')"
-                            style="text-decoration: none;  font-size:15px; color:black;">
-                            {{ __('Info user') }}
-                        </x-nav-link>
-                    </div>
-                    <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                         <x-nav-link :href="route('vehicle.index')" :active="request()->routeIs('vehicle')"
                             style="text-decoration: none;  font-size:15px; color:black;">
                             {{ __('Vehicle') }}
@@ -38,6 +26,18 @@
                         <x-nav-link :href="route('vehicle_package.index')" :active="request()->routeIs('vehicle package')"
                             style="text-decoration: none;  font-size:15px; color:black;">
                             {{ __('Vehicle package') }}
+                        </x-nav-link>
+                    </div>
+                    <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                        <x-nav-link :href="route('order.index')" :active="request()->routeIs('order')"
+                            style="text-decoration: none;  font-size:15px; color:black;">
+                            {{ __('Order') }}
+                        </x-nav-link>
+                    </div>
+                    <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                        <x-nav-link :href="route('admin.index')" :active="request()->routeIs('order')"
+                            style="text-decoration: none;  font-size:15px; color:black;">
+                            {{ __('Info User') }}
                         </x-nav-link>
                     </div>
                 @else
@@ -145,21 +145,48 @@
     </div>
 
     <!-- Responsive Navigation Menu -->
+    @if (Auth::user()->role == 'admin')
     <div :class="{ 'block': open, 'hidden': !open }" class="hidden sm:hidden">
         <div class="pt-2 pb-3 space-y-1">
             <x-responsive-nav-link :href="route('homepage.index')" :active="request()->routeIs('dashboard')"
                 style="text-decoration: none;  font-size:15px; color:black;">
+                {{ __('Home') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('vehicle.index')" :active="request()->routeIs('dashboard')"
+                style="text-decoration: none;  font-size:15px; color:black;">
                 {{ __('Vehicle') }}
             </x-responsive-nav-link>
-            <x-responsive-nav-link :href="route('package.index')" :active="request()->routeIs('dashboard')"
+            <x-responsive-nav-link :href="route('vehicle_package.index')" :active="request()->routeIs('dashboard')"
                 style="text-decoration: none;  font-size:15px; color:black;">
                 {{ __('Vehicle Package') }}
             </x-responsive-nav-link>
-            <x-responsive-nav-link :href="route('booking.index')" :active="request()->routeIs('dashboard')"
+            <x-responsive-nav-link :href="route('order.index')" :active="request()->routeIs('dashboard')"
                 style="text-decoration: none;  font-size:15px; color:black;">
                 {{ __('Order') }}
             </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('admin.index')" :active="request()->routeIs('dashboard')"
+                style="text-decoration: none;  font-size:15px; color:black;">
+                {{ __('Info User') }}
+            </x-responsive-nav-link>
         </div>
+
+    @else
+        <div :class="{ 'block': open, 'hidden': !open }" class="hidden sm:hidden">
+            <div class="pt-2 pb-3 space-y-1">
+                <x-responsive-nav-link :href="route('homepage.index')" :active="request()->routeIs('dashboard')"
+                    style="text-decoration: none;  font-size:15px; color:black;">
+                    {{ __('Vehicle') }}
+                </x-responsive-nav-link>
+                <x-responsive-nav-link :href="route('package.index')" :active="request()->routeIs('dashboard')"
+                    style="text-decoration: none;  font-size:15px; color:black;">
+                    {{ __('Vehicle Package') }}
+                </x-responsive-nav-link>
+                <x-responsive-nav-link :href="route('booking.index')" :active="request()->routeIs('dashboard')"
+                    style="text-decoration: none;  font-size:15px; color:black;">
+                    {{ __('Order') }}
+                </x-responsive-nav-link>
+            </div>
+        @endif
 
         <!-- Responsive Settings Options -->
         <div class="pt-4 pb-1 border-t border-gray-200">
@@ -170,29 +197,6 @@
             </div>
 
             <div class="mt-3 space-y-1">
-
-                <x-responsive-nav-link :href="route('profile.edit')"
-                    style="text-decoration: none;
-                font-size:15px; color:black;">
-                    {{ __('Profile') }}
-                </x-responsive-nav-link>
-
-
-
-
-
-                <!-- Authentication -->
-                <form method="POST" action="{{ route('logout') }}">
-                    @csrf
-                    <x-responsive-nav-link :href="route('logout')"
-                        style="text-decoration: none;  font-size:15px;
-                color:black;"
-                        onclick="event.preventDefault();
-                                        this.closest('form').submit();">
-                        {{ __('Log Out') }}
-                    </x-responsive-nav-link>
-                </form>
-
                 <x-responsive-nav-link :href="route('profile.edit')" style="text-decoration: none;  font-size:15px; color:black;">
                     {{ __('Profile') }}
                 </x-responsive-nav-link>
