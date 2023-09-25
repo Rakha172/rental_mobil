@@ -70,7 +70,9 @@ class OrderController extends Controller
     }
 
     // Validasi status pesanan kendaraan
-    $vehicle = Vehicle::find($request->vehicle_id);
+    $vehicleId = $request->input('vehicle');
+    $vehicle = Vehicle::find($vehicleId);
+
     if ($vehicle && $vehicle->status_pesanan === 'dipesan') {
         // Kendaraan sudah dipesan, tolak pemesanan baru
         return redirect()->back()->with('error', 'Maaf, kendaraan ini sudah dipesan.');
@@ -86,7 +88,6 @@ class OrderController extends Controller
         $order->save();
         return to_route('homepage.index');
     }
-
 
     public function edit(Order $order)
     {
