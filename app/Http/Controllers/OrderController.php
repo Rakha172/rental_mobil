@@ -30,7 +30,7 @@ class OrderController extends Controller
 
     public function show()
     {
-       
+
     }
 
     public function create(Request $request)
@@ -70,9 +70,7 @@ class OrderController extends Controller
     }
 
     // Validasi status pesanan kendaraan
-    $vehicleId = $request->input('vehicle');
-    $vehicle = Vehicle::find($vehicleId);
-
+    $vehicle = Vehicle::find($request->vehicle_id);
     if ($vehicle && $vehicle->status_pesanan === 'dipesan') {
         // Kendaraan sudah dipesan, tolak pemesanan baru
         return redirect()->back()->with('error', 'Maaf, kendaraan ini sudah dipesan.');
