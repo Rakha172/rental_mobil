@@ -16,9 +16,8 @@ class PaymentController extends Controller
     public function index()
     {
         $payment = Payment::all();
-
-        return view('payment.index', ['payment' => $payment])->with([
-            'order' => Order::all(),
+        $order = Order::all();
+        return view('payment.index', ['payment' => $payment, 'order' => $order])->with([
             'user' => User::all(),
         ]);
     }
@@ -26,10 +25,10 @@ class PaymentController extends Controller
     public function create($id)
     {
         $order = Order::find($id);
-        $users = User::all();
-        $vehicle_packages = Vehicle_Package::all();
-        return view('payment.create', ['users' => $users ,'vehicle_packages' => $vehicle_packages, ])->with([
-            'order' => Order::all()
+        $vehicle_packages = Vehicle_Package::find($id);
+        return view('payment.create')->with([
+            'order' => Order::all(),
+            'vehicle_packages' => Vehicle_Package::all()
         ]);
     }
 

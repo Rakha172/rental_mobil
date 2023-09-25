@@ -15,13 +15,13 @@
             <div class="mb-3">
                 <label class="form-label">Name</label>
                 <select name="user_id" class="form-control">
-                    @foreach ($users as $user)
-                    <option value="{{ $user->id}}" {{ old('user_id') == $user->id ? 'selected' : ''}}>
-                        {{ $user->name }}
-                    </option>
-                    @endforeach
+                 @foreach ($order as $usr) 
+                    <option value="{{$usr->id}}">{{$usr->user->name}}</option>
+                 @endforeach
                 </select>
+                
             </div>
+
         <div class="mb-3">
             <label class="form-label">Price</label>
             <select name="vehicle_package_id" class="form-control">

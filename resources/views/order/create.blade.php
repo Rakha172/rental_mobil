@@ -11,7 +11,11 @@
             <div class=" shadow p-3 mb-5 bg-body rounded " id="box">
                 <div class="form-group">
                 <label class="form-label">User ID</label>
-                <input name="user_id" type="number" class="form-control" value="{{ auth()->user()->id }}" readonly>
+                <select name="user_id" id="user_id">
+                    @foreach ($users as $usr )
+                    <option value="{{$usr->id}}">{{Auth::user()->name}}</option>              
+                    @endforeach
+                </select>  
             </div>
             <div class="mb-3">
                 <label class="form-label">Vehicle Package</label>
