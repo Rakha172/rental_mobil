@@ -13,9 +13,9 @@
                 <label class="form-label">User ID</label>
                 <select name="user_id" id="user_id">
                     @foreach ($users as $usr )
-                    <option value="{{$usr->id}}">{{Auth::user()->name}}</option>              
+                    <option value="{{$usr->id}}">{{Auth::user()->name}}</option>
                     @endforeach
-                </select>  
+                </select>
             </div>
             <div class="mb-3">
                 <label class="form-label">Vehicle Package</label>
