@@ -59,14 +59,14 @@ class OrderController extends Controller
     }
 
     // Cek apakah ada pesanan yang sama yang sudah ada
-    $existingOrder = Order::where('user_id', $request->user_id)
-        ->where('vehicle_package_id', $request->vehicle_package_id)
+    $existingOrder = Order::where('vehicle_package_id', $request->vehicle_package_id)
         ->where('rental_date', $rentalDate)
+        ->where('user_id', $request->user_id)
         ->first();
 
     if ($existingOrder) {
         // Pesanan yang sama sudah ada
-        return redirect()->back()->with('error', 'Maaf, pesanan dengan detail yang sama sudah ada.');
+        return redirect()->back()->with('error', 'Maaf, Anda sudah memesan mobil ini pada tanggal yang sama.');
     }
 
     // Validasi status pesanan kendaraan

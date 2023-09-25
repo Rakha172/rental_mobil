@@ -73,7 +73,7 @@ class VehicleController extends Controller
         $vehicle->status_pesanan = $request->status_pesanan;
         $vehicle->save();
 
-        return redirect('/vehicle')->with('succes', 'data ditambah');
+        return redirect('/vehicle')->with('succes', "$request->name data ditambah");
     }
 
 
@@ -108,14 +108,15 @@ class VehicleController extends Controller
         $vehicle->passenger_capacity = $request->passenger_capacity;
         $vehicle->status_pesanan = $request->status_pesanan;
         $vehicle->save();
-        return to_route('vehicle.index')->with('succes', 'data ditambah');
+
+        return redirect('vehicle.index')->with('succes', "$request->name data diubah!");
     }
     public function destroy($id)
     {
         $vehicle = Vehicle::find($id);
         $vehicle->delete();
 
-        return back()->with('succes', 'data dihapus');
+        return redirect()->route('vehicle.index')->with('succes', "$vehicle->name data dihapus");
     }
 
 
