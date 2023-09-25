@@ -85,12 +85,6 @@ class OrderController extends Controller
         $order->vehicle_package_id = $request->vehicle_package_id;
         $order->rental_date = $rentalDate;
 
-        // Set package_name dari Vehicle_Package jika ditemukan
-    $vehiclePackage = Vehicle_Package::find($request->vehicle_package_id);
-    if ($vehiclePackage) {
-        $order->package_name = $vehiclePackage->package_name;
-    }
-
         //lanjut ke halaman pembyaran
         $order->save();
         return to_route('homepage.index');
