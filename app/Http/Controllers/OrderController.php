@@ -64,6 +64,16 @@ class OrderController extends Controller
         return redirect()->back()->with('error', 'Maaf, Anda sudah memesan kendaraan ini pada tanggal yang sama.');
     }
 
+//     $existingOrder = Order::where('vehicle_id', $request->vehicle_id)
+//     ->where('rental_date', $request->rental_date)
+//     ->where('status', 'dipesan')
+//     ->first();
+
+// if ($existingOrder) {
+//     // Mobil sudah dipesan pada tanggal yang sama
+//     return redirect()->back()->with('error', 'Maaf, mobil ini sudah dipesan pada tanggal yang sama.');
+// }
+
     // Validasi status pesanan kendaraan
     $vehicle = Vehicle::find($request->vehicle_id);
 

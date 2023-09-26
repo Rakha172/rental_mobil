@@ -109,7 +109,7 @@ class VehicleController extends Controller
         $vehicle->status_pesanan = $request->status_pesanan;
         $vehicle->save();
 
-        return redirect('vehicle.index')->with('succes', "$request->name data diubah!");
+        return redirect()->route('vehicle.index')->with('succes', "$request->name data diubah!");
     }
     public function destroy($id)
     {

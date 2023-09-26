@@ -40,10 +40,10 @@
                                         <td>{{ $vhcle->passenger_capacity }}</td>
                                         <td>{{ $vhcle->status_pesanan }}</td>
                                         <td class="d-flex">
-                                            <form action="{{ route('vehicle_package.destroy', $vhcle->id) }}" method="POST">
+                                            <form action="{{ route('vehicle.destroy', $vhcle->id) }}" method="POST">
                                               @csrf
                                               @method('delete')
-                                              <a href="{{ route('vehicle_package.edit', $vhcle->id) }}" class="btn btn-light" >Edit</a>
+                                              <a href="{{ route('vehicle.edit', $vhcle->id) }}" class="btn btn-light" >Edit</a>
                                               <input name="_method" type="hidden" value="DELETE">
                                               <button type="submit" class="btn btn-light">Delete</button>
                                             </form>
