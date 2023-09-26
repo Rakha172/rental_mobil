@@ -28,7 +28,7 @@
                                     {{ $vhpk->description }}
                                 </li>
                             </ul>
-                            @if ($payment->count()<1)
+                            @if ($payment->count()>1)
                             <a href=" {{ route('order.create') }}?vehicle={{ $vhpk->id }}"
                                 data-id-vhpk="{{ $vhpk->id }} " class="btn btn-primary "
                                 style="width:300px;">Order Now</a>
