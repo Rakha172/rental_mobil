@@ -28,16 +28,20 @@
                                     {{ $vhpk->description }}
                                 </li>
                             </ul>
-                            @if ($payment->count()<1)
-                            <a href=" {{ route('order.create') }}?vehicle={{ $vhpk->id }}"
+                          
+                          @if($vhpk->vehicle->status_pesanan != 'dipesan')
+                            <a href=" {{ route('order.create', $vhpk->id) }}?vehicle={{ $vhpk->id }}"
                                 data-id-vhpk="{{ $vhpk->id }} " class="btn btn-primary "
                                 style="width:300px;">Order Now</a>
                                 <div style="position: absolute; margin-left:330px; margin-top:-40px;">
                                     <input type="text" value="{{$vhpk->vehicle->status_pesanan}}" readonly style="border-radius: 10px;">
                                 </div>
-                            @else
-                            <button class="btn btn-danger">Sudah di pesan </button>
-                            @endif
+                        @else
+                        <button class="btn btn-danger">Di pesan</button>
+                        <div style="position: absolute; margin-left:330px; margin-top:-40px;">
+                            <input type="text" value="{{$vhpk->vehicle->status_pesanan}}" readonly style="border-radius: 10px;">
+                        </div>
+                        @endif
                         </div>
                     </div>
                     @endforeach

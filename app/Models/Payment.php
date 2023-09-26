@@ -20,8 +20,8 @@ class Payment extends Model
 {
     return $this->belongsTo(User::class);
 }
-public function vehicle_package()
+public function order()
 {
-    return $this->belongsTo(Vehicle_Package::class);
+    return $this->belongsTo(Order::class);
 }
 }

@@ -37,17 +37,17 @@ class SettingController extends Controller
     $image = $request->image;
     $slugimage = Str::slug($image->getClientOriginalName());
     $new_image = time() . '_' . $slugimage;
-    $image->move('upload/vehicle/', $new_image);
+    $image->move('upload/setting-app/', $new_image);
 
      // Upload gambar untuk field 'images'
      $images = $request->images;
      $slugimages = Str::slug($images->getClientOriginalName());
      $new_images = time() . '_images_' . $slugimages;
-     $images->move('upload/vehicle/', $new_images);
+     $images->move('upload/setting-app/', $new_images);
 
     $settings = new Setting;
-    $settings->image = 'upload/vehicle/' . $new_image;
-    $settings->images = 'upload/vehicle/' . $new_images;
+    $settings->image = 'upload/setting-app/' . $new_image;
+    $settings->images = 'upload/setting-app/' . $new_images;
     $settings->name = $request->name;
     $settings->history = $request->history;
     $settings->location = $request->location;
@@ -85,17 +85,17 @@ $request->validate([
 $image = $request->image;
 $slugimage = Str::slug($image->getClientOriginalName());
 $new_image = time() . '_' . $slugimage;
-$image->move('upload/vehicle/', $new_image);
+$image->move('upload/setting-app/', $new_image);
 
  // edit gambar untuk field 'images'
  $images = $request->images;
  $slugimages = Str::slug($images->getClientOriginalName());
  $new_images = time() . '_images_' . $slugimages;
- $images->move('upload/vehicle/', $new_images);
+ $images->move('upload/setting-app/', $new_images);
 
 $settings = Setting::find($id);
-$settings->image = 'upload/vehicle/' . $new_image;
-$settings->images = 'upload/vehicle/' . $new_images;
+$settings->image = 'upload/setting-app/' . $new_image;
+$settings->images = 'upload/setting-app/' . $new_images;
 $settings->name = $request->name;
 $settings->history = $request->history;
 $settings->location = $request->location;
