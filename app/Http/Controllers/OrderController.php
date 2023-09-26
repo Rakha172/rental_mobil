@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Payment;
 use App\Models\User;
 use App\Models\Order;
 use App\Models\Vehicle;
@@ -14,6 +15,7 @@ class OrderController extends Controller
 
     public function index(Request $request){
         $ordercount = Order::count();
+        $payment = Payment::all();
         $search = $request->query('search');
         if(!empty($search)){
             $dataOrder = Order::where('order.name', 'like', '%' . $search . '%')
@@ -24,7 +26,7 @@ class OrderController extends Controller
         }else {
             $dataOrder = Order::paginate(5)->fragment('ord');
         }
-        return view('order.index')->with([
+        return view('order.index', compact('payment'))->with([
             'order' => $dataOrder,
             'ordercount' => $ordercount,
             'search' => $search
