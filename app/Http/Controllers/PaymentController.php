@@ -7,6 +7,7 @@ use App\Models\Vehicle_Package;
 use App\Models\Payment;
 use App\Models\Order;
 use App\Models\User;
+use Auth;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\File;
 use Illuminate\Http\Request;
@@ -16,7 +17,7 @@ class PaymentController extends Controller
     public function index()
     {
         $payment = Payment::all();
-        $order = Order::all();
+        $order = Order::where('user_id', Auth::user()->id)->get();
         return view('payment.index', ['payment' => $payment, 'order' => $order])->with([
             'user' => User::all(),
         ]);
@@ -24,12 +25,9 @@ class PaymentController extends Controller
 
     public function create($id)
     {
-        $order = Order::find($id);
-        $vehicle_packages = Vehicle_Package::find($id);
-        return view('payment.create')->with([
-            'order' => Order::all(),
-            'vehicle_packages' => Vehicle_Package::all()
-        ]);
+        $vehicle_package = Vehicle_Package::all();
+        $order = Order::where('user_id', Auth::user()->id)->get();
+        return view('payment.create', ['vehicle_package' => $vehicle_package, 'order' => $order]);
     }
 
     public function store(Request $request)

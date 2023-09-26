@@ -32,7 +32,7 @@
                                 data-id-vhpk="{{ $vhpk->id }} " class="btn btn-primary "
                                 style="width:300px;">Order Now</a>
                             <div style="position: absolute; margin-left:330px; margin-top:-40px;">
-                                <input type="text" value="Available" readonly style="border-radius: 10px;">
+                                <input type="text" value="{{$vhpk->vehicle->status_pesanan}}" readonly style="border-radius: 10px;">
                             </div>
                         </div>
                     </div>
