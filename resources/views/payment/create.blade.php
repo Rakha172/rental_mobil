@@ -15,8 +15,8 @@
             <div class="mb-3">
                 <label class="form-label">Name</label>
                 <select name="user_id" class="form-control">
-                 @foreach ($order as $usr) 
-                    <option value="{{$usr->id}}">{{$usr->user->name}}</option>
+                 @foreach ($user as $usr) 
+                    <option value="{{$usr->id}}">{{$usr->name}}</option>
                  @endforeach
                 </select>
                 
@@ -25,9 +25,9 @@
         <div class="mb-3">
             <label class="form-label">Price</label>
             <select name="vehicle_package_id" class="form-control">
-                @foreach ($vehicle_package as $vehicle_package)
-                    <option value="{{ $vehicle_package->id }}">
-                        {{ $vehicle_package->price }} 
+                @foreach ($vehicle_package as $ord)
+                    <option value="{{ $ord->id }}">
+                        {{ $ord->price }} 
                     </option>
                 @endforeach
                 </select>
