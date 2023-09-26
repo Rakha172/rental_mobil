@@ -1,7 +1,7 @@
 @extends('components.mainadmin_')
 <x-app-layout>
     <div class="container-fluid">
-        <h1 class="text-center">DATA ORDER {{$ordercount}}</h1>
+        <h1 class="text-center">DATA ORDER {{$ordercount}}</h1> 
         <div class="card">
             <div class="card-body">
                     <form action="" method="GET">

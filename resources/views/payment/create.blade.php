@@ -25,7 +25,7 @@
         <div class="mb-3">
             <label class="form-label">Price</label>
             <select name="vehicle_package_id" class="form-control">
-                @foreach ($vehicle_packages as $vehicle_package)
+                @foreach ($vehicle_package as $vehicle_package)
                     <option value="{{ $vehicle_package->id }}">
                         {{ $vehicle_package->price }} 
                     </option>

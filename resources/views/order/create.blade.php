@@ -1,6 +1,6 @@
 @extends('components.main')
 <x-app-layout>
-    <div class="container mt-5">
+    <div class="container " style="margin-top: 100px;">
         <a href="{{ route('homepage.index') }}"><ion-icon name="arrow-back-circle-outline"
             class="shadow mb-3 p-3 bg-body rounded" style="font-size: 30px; position: relative; margin-top:-30px;
             color:black"></ion-icon></a>
@@ -10,10 +10,11 @@
             @method('post')
             <div class=" shadow p-3 mb-5 bg-body rounded " id="box">
                 <div class="form-group">
-                <label class="form-label">User ID</label>
-                <select name="user_id" id="user_id">
-                    @foreach ($users as $usr )
-                    <option value="{{$usr->id}}">{{Auth::user()->name}}</option>
+
+                <label class="form-label">Nama penyewa</label>
+                <select name="user_id" id="user_id" class="form-control">
+                    @foreach ($users as $usr)
+                    <option value="{{$usr->id}}">{{$usr->name}}</option>              
                     @endforeach
                 </select>
             </div>

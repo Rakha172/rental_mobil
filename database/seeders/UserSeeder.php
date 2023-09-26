@@ -16,14 +16,14 @@ class UserSeeder extends Seeder
     {
         // User::factory()->count(50)->create();
         User::create([
-            'name' => 'admin',
-            'role' => 'admin',
+            'name' => 'ahmad',
+            'role' => 'customer',
             'gender' => 'admin',
-            'phone_number' => '123',
+            'phone_number' => '089',
             'address' => 'admin address',
             'id_card_photo' => 'admin',
             'driver_licence_photo' => 'admin',
-            'email' => 'admin@gmail.com',
+            'email' => 'ahmad@gmail.com',
             'password' => '12345678',
         ]);
     }
