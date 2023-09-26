@@ -20,6 +20,7 @@
                                     <th scope="col">Name</th>
                                     <th scope="col">Package Name</th>
                                     <th scope="col">Rental Date</th>
+                                    <th scope="col">Tanggal Dipesan</th>
                                     <th scope="col">Action</th>
                                 </tr>
                             </thead>
@@ -33,11 +34,14 @@
                                         <td>{{ $ordr->user?->name }}</td>
                                         <td>{{ $ordr->vehicle_package?->package_name }}</td>
                                         <td>{{ $ordr->rental_date }}</td>
+                                        <td>{{ $ordr->created_at }}</td>
                                         <td>
                                             <form action="{{ route('order.destroy', $ordr->id) }}"method="POST">
                                                 @csrf
                                                 @method('delete')
-                                                <a href="{{ route('payment.index', $ordr->id)}}">Status</a>
+                                                @if ($payment->count()>0)
+                                                <a href="{{ route('payment.show', $ordr->id)}}">Pembayaran Dilakukan</a>
+                                                @endif
                                                 <button type="submit" class="btn btn-danger">Delete</button>
                                             </form>
                                         </td>

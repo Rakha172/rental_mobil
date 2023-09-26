@@ -23,11 +23,16 @@ class PaymentController extends Controller
         ]);
     }
 
+    public function show(string $id){
+        $payment = Payment::find($id);
+        return view('payment.show', compact('payment'));
+    }
     public function create($id)
     {
         $vehicle_package = Vehicle_Package::all();
+        $user = User::all();
         $order = Order::where('user_id', Auth::user()->id)->get();
-        return view('payment.create', ['vehicle_package' => $vehicle_package, 'order' => $order]);
+        return view('payment.create', ['vehicle_package' => $vehicle_package, 'order' => $order, 'user' => $user]);
     }
 
     public function store(Request $request)
@@ -55,14 +60,14 @@ class PaymentController extends Controller
         $proof_of_transaction = $request->proof_of_transaction;
         $slug = Str::slug($proof_of_transaction->getClientOriginalName());
         $new_proof_of_transaction = time() . '_' . $slug;
-        $proof_of_transaction->move('upload/vehicle/', $new_proof_of_transaction);
+        $proof_of_transaction->move('upload/transaction/', $new_proof_of_transaction);
 
         // Simpan data pembayaran
         $payment = new Payment;
         $payment->user_id = $request->user_id;
         $payment->vehicle_package_id = $request->vehicle_package_id;
         $payment->payment_method = $request->payment_method;
-        $payment->proof_of_transaction = 'upload/vehicle/' . $new_proof_of_transaction;
+        $payment->proof_of_transaction = 'upload/transaction/' . $new_proof_of_transaction;
         $payment->save();
 
         // Sisipkan relasi antara pembayaran dan paket kendaraan yang dipilih
