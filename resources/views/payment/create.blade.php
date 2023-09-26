@@ -16,10 +16,10 @@
 
         <div class="mb-3">
             <label class="form-label">Price</label>
-            <select name="vehicle_package_id" class="form-control">
-                @foreach ($vehicle_package as $ord)
+            <select name="order_id" class="form-control">
+                @foreach ($order as $ord)
                     <option value="{{ $ord->id }}">
-                        {{ $ord->price }} 
+                        {{ $ord->vehicle_package->price }} 
                     </option>
                 @endforeach
                 </select>

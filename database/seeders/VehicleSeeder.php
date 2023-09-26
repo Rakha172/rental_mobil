@@ -13,6 +13,14 @@ class VehicleSeeder extends Seeder
      */
     public function run(): void
     {
-        Vehicle::factory()->count(4)->create();
+        Vehicle::create([
+            'image' => 'public/images/car3',
+            'name' => 'Civic',
+            'vehicle_type' => 'Sport',
+            'brand' => 'Honda',
+            'color' => 'Black',
+            'passenger_capacity' => '4',
+            'status_pesanan' => 'tersedia',
+        ]);
     }
 }

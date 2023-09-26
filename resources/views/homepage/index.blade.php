@@ -1,6 +1,14 @@
 <x-app-layout>
     @extends('components.main')
     <div class="container-fluid">
+        @if ($message = Session::get('sukses'))
+        <div class="alert alert-success alert-block">
+            <button type="button" class="close" data-dismiss="alert">x</button> 
+            <strong>{{ $message }}</strong>
+            
+            <a href="{{route('payment.index')}}">Bayar</a>
+        </div>
+        @endif
         <h1 class="text-center"> About Vehicle</h1>
             @if ($vehicle->count() > 0)
                 @foreach ($vehicle as $vhpk)
