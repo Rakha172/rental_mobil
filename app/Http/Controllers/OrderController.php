@@ -88,8 +88,6 @@ class OrderController extends Controller
 
     return redirect()->route('homepage.index');
 }
-
-
     public function edit(Order $order)
     {
         $users = User::all();
