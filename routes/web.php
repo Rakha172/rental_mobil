@@ -22,9 +22,7 @@ Route::get('/', function () {
 });
 
 route::resource('register', RegisteredUserController::class);
-route::resource('order', OrderController::class);
 route::resource('payment', PaymentController::class);
-route::resource('setting', SettingController::class);
 Route::get('/landing', [LandingpageController::class, 'index'])->name('landingpage.index');
 Route::get('payment/create/{id}',[PaymentController::class,'create'])->name('payment.create');
 Route::get('payment/show/{id}',[PaymentController::class,'show'])->name('payment.show');
@@ -36,6 +34,8 @@ Route::get('payment',[PaymentController::class,'index'])->name('payment.index');
 route::middleware(['auth', 'must-admin'])->group(function(){
     route::resource('admin', AdminController::class);
     route::resource('order_detail', Order_DetailController::class);
+    route::resource('setting', SettingController::class);
+    route::resource('order', OrderController::class);
 });
 
 route::middleware(['auth', 'must-admin'])->group(function(){
