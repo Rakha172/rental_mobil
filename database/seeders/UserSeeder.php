@@ -36,6 +36,7 @@ class UserSeeder extends Seeder
             'driver_licence_photo' => 'ahmad',
             'email' => 'ahmad@gmail.com',
             'password' => '12345678',
+        ]);
         User::create([
             'name' => 'user',
             'role' => 'customer',
