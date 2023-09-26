@@ -10,12 +10,13 @@
             @method('post')
             <div class=" shadow p-3 mb-5 bg-body rounded " id="box">
                 <div class="form-group">
+
                 <label class="form-label">Nama penyewa</label>
                 <select name="user_id" id="user_id" class="form-control">
                     @foreach ($users as $usr)
                     <option value="{{$usr->id}}">{{$usr->name}}</option>              
                     @endforeach
-                </select>  
+                </select>
             </div>
             <div class="mb-3">
                 <label class="form-label">Vehicle Package</label>
