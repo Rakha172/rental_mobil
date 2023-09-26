@@ -16,9 +16,9 @@ class PaymentController extends Controller
 {
     public function index()
     {
-        $payment = Payment::all();
-        $order = Order::where('user_id', Auth::user()->id)->get();
-        return view('payment.index', ['payment' => $payment, 'order' => $order])->with([
+        $payment = Payment::where('user_id', Auth::user()->id)->get();
+        $order = Order::all();
+        return view('payment.index', compact('payment', 'order'), [ 'order' => $order])->with([
             'user' => User::all(),
         ]);
     }
@@ -29,17 +29,17 @@ class PaymentController extends Controller
     }
     public function create($id)
     {
-        $vehicle_package = Vehicle_Package::all();
+        
         $user = User::all();
         $order = Order::where('user_id', Auth::user()->id)->get();
-        return view('payment.create', ['vehicle_package' => $vehicle_package, 'order' => $order, 'user' => $user]);
+        return view('payment.create', [ 'order' => $order, 'user' => $user]);
     }
 
     public function store(Request $request)
     {
         $request->validate([
             'user_id' => 'required',
-            'vehicle_package_id' => 'required',
+            'order_id' => 'required',
             'payment_method' => 'required',
             'proof_of_transaction' => 'required|image|mimes:png,jpg|max:2040',
 
@@ -65,7 +65,7 @@ class PaymentController extends Controller
         // Simpan data pembayaran
         $payment = new Payment;
         $payment->user_id = $request->user_id;
-        $payment->vehicle_package_id = $request->vehicle_package_id;
+        $payment->order_id = $request->order_id;
         $payment->payment_method = $request->payment_method;
         $payment->proof_of_transaction = 'upload/transaction/' . $new_proof_of_transaction;
         $payment->save();

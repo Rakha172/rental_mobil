@@ -25,9 +25,12 @@ route::resource('register', RegisteredUserController::class);
 route::resource('payment', PaymentController::class);
 Route::get('/landing', [LandingpageController::class, 'index'])->name('landingpage.index');
 Route::get('payment/create/{id}',[PaymentController::class,'create'])->name('payment.create');
+Route::get('order/create/{id}',[OrderController::class,'create'])->name('order.create');
+Route::post('order/store',[OrderController::class,'store'])->name('order.store');
 Route::get('payment/show/{id}',[PaymentController::class,'show'])->name('payment.show');
 Route::get('/package',[PackageController::class,'index'])->name('package.index');
 Route::get('payment',[PaymentController::class,'index'])->name('payment.index');
+
 // Route::get('/booking',[BookingController::class,'index'])->name('booking.index');
 
 
@@ -35,7 +38,8 @@ route::middleware(['auth', 'must-admin'])->group(function(){
     route::resource('admin', AdminController::class);
     route::resource('order_detail', Order_DetailController::class);
     route::resource('setting', SettingController::class);
-    route::resource('order', OrderController::class);
+    route::get('order', [OrderController::class, 'index'])->name('order.index');
+    route::delete('order/destroy/{id}', [OrderController::class, 'destroy'])->name('order.destroy');
 });
 
 route::middleware(['auth', 'must-admin'])->group(function(){

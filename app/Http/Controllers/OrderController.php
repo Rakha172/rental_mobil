@@ -6,6 +6,7 @@ use App\Models\Payment;
 use App\Models\User;
 use App\Models\Order;
 use App\Models\Vehicle;
+use Session;
 use Illuminate\Http\Request;
 use App\Models\Vehicle_Package;
 use Illuminate\Support\Facades\Auth;
@@ -41,7 +42,7 @@ class OrderController extends Controller
     public function create(Request $request)
     {
         $vehicle = Vehicle::find($request->vehicle);
-        $users = User::all();
+        $users = User::where('id', '!=', 1)->get();
         $vehicle_packages = Vehicle_Package::all();
 
         return view('order.create', ['users' => $users ,'vehicle_packages' => $vehicle_packages, 'vehicle' => $vehicle]);
@@ -98,7 +99,11 @@ class OrderController extends Controller
     $order->rental_date = $request->rental_date;
     $order->save();
 
-    return redirect()->route('homepage.index');
+    $user = User::where('id', '!=', 1)->get();
+    $order = Order::all();
+    // Session::flash('sukses','checkout berhasil dilakukan, segera lakukan pembayaran untuk mengyelesaikan order');
+    return view('payment.create', compact('user', 'order'));
+
 }
     public function edit(Order $order)
     {
