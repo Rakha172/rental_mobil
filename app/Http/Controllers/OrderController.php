@@ -26,12 +26,21 @@ class OrderController extends Controller
         }else {
             $dataOrder = Order::paginate(5)->fragment('ord');
         }
+
+
+          // Ambil daftar kendaraan yang tersedia
+          $availableVehicles = Vehicle::where('status_pesanan', 'tersedia')->get();
+
+          return view('order.index')->with([
+
         return view('order.index', compact('payment'))->with([
+
             'order' => $dataOrder,
             'ordercount' => $ordercount,
-            'search' => $search
+            'search' => $search,
+            'availableVehicles' => $availableVehicles, //Tambahkan variabel ini ke tampilan Anda
         ]);
-    }
+}
 
     public function show()
     {
@@ -61,34 +70,15 @@ class OrderController extends Controller
         ->where('user_id', $request->user_id)
         ->first();
 
+    // Validasi status pesanan kendaraan
+    $vehicle = Vehicle::find($request->vehicle_package_id);
+
     if ($existingOrder) {
         // Pesanan yang sama sudah ada
         return redirect()->back()->with('error', 'Maaf, Anda sudah memesan kendaraan ini pada tanggal yang sama.');
-    }
-
-//     $existingOrder = Order::where('vehicle_id', $request->vehicle_id)
-//     ->where('rental_date', $request->rental_date)
-//     ->where('status', 'dipesan')
-//     ->first();
-
-// if ($existingOrder) {
-//     // Mobil sudah dipesan pada tanggal yang sama
-//     return redirect()->back()->with('error', 'Maaf, mobil ini sudah dipesan pada tanggal yang sama.');
-// }
-
-    // Validasi status pesanan kendaraan
-    $vehicle = Vehicle::find($request->vehicle_id);
-
-    if ($vehicle) {
-        if ($vehicle->status_pesanan === 'dipesan' && $vehicle->selesai_pemesanan >= $request->rental_date) {
-            // Kendaraan sudah dipesan untuk tanggal tersebut
-            return redirect()->back()->with('error', 'Maaf, kendaraan ini sudah dipesan pada tanggal tersebut.');
-        }
-
-        // Ubah status pesanan kendaraan
-        $vehicle->status_pesanan = 'dipesan';
-        $vehicle->selesai_pemesanan = $request->rental_date; // Tanggal pengembalian
-        $vehicle->save();
+    } elseif ($vehicle && $vehicle->status_pesanan === 'dipesan' && $vehicle->selesai_pemesanan >= $request->rental_date) {
+        // Kendaraan sudah dipesan untuk tanggal tersebut
+        return redirect()->back()->with('error', 'Maaf, kendaraan ini sudah dipesan pada tanggal tersebut.');
     }
 
     // Lanjutkan dengan membuat pesanan baru
@@ -97,6 +87,11 @@ class OrderController extends Controller
     $order->vehicle_package_id = $request->vehicle_package_id;
     $order->rental_date = $request->rental_date;
     $order->save();
+
+    // // Ubah status pesanan kendaraan
+    // $vehicle->status_pesanan = 'dipesan';
+    // $vehicle->selesai_pemesanan = $request->rental_date;
+    // $vehicle->save();
 
     return redirect()->route('homepage.index');
 }
