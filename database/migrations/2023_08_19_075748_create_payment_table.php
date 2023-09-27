@@ -17,6 +17,8 @@ return new class extends Migration
             $table->foreign('user_id')->references('id')->on('users');
             $table->foreignId('order_id');
             $table->foreign('order_id')->references('id')->on('order');
+            $table->foreignId('order_detail_id')->nullable();
+            $table->foreign('order_detail_id')->references('id')->on('order_detail')->nullable();
             $table->enum('payment_method', ['cash','gopay','dana']);
             $table->string('proof_of_transaction');
             $table->timestamps();

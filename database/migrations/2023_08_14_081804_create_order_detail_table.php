@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('order_id');
             $table->foreign('order_id')->references('id')->on('order');
-            $table->string('vehicle_status');
+            $table->enum('payment_approved', ['setujui', 'tolak'])->default('setujui');
             $table->timestamps();
         });
     }

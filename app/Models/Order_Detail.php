@@ -10,7 +10,8 @@ class Order_Detail extends Model
     protected $table = 'order_detail';
 
     protected $fillabel = [
-        'vehicle_status',
+        'payment_approved',
+        'user_id',
         'created_at',
         'updated_at',
     ];
