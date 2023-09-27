@@ -18,17 +18,13 @@
     <p>{{$payment->proof_of_transaction}}</p>
     <img src="{{asset($payment->proof_of_transaction)}}" alt="" style="width: 500px">
     <h1>Approve transaksi</h1>
-    <form action="{{route('order_detail.store')}}" method="POST">
+    <label class="form-label">Payment_approved</label>
+    <h1>{{$payment->payment_approved}}</h1>
+    <form action="{{route('order_detail.update', $payment->id)}}" method="POST">
         @method('post')
         @csrf
-        <label for="order_id">Orderan atas nama</label>
-        <input type="text" name="order_id" id="order_id" value="{{$order->id}}">
-        <label class="form-label">Payment_approved</label>
-        <select name="payment_approved" class="form-control @error('payment_approved') is-invalid @enderror">
-            <option value="">Pilih</option>
-            <option @selected(old('payment_approved') == 'setujui') value="setujui">disetujui</option>
-            <option @selected(old('payment_approved') == 'tolak') value="tolak">tolak</option>
-        </select>
+        <label for="payment_approved">ubah kondisi</label>
+        <input type="text" name="payment_approved" id="payment_approved">
         @error('payment_approved')
             <div class="invalid-feedback">{{ $message }}</div>
         @enderror
