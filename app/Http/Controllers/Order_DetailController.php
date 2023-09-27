@@ -41,13 +41,16 @@ class Order_DetailController extends Controller
      public function store(Request $request)
      {
         $validated = $request->validate([
-            'vehicle_status' => 'required',
-            'order_id' => 'required|exists:order,id',
+            'order_id' => 'required',
+            'payment_approved' => 'required',
         ]);
 
-        Order_Detail::create($validated);
+        $order_detail = new Order_Detail;
+        $order_detail->order_id = $request->order_id;
+        $order_detail->payment_approved = $request->payment_approved;
+        $order_detail->save();
 
-        return redirect('/order_detail')->with('berhasil', "$request->vehicle_status Berhasil ditambahkan!");
+        return to_route('order.index');
      }
 
      public function edit(Order_Detail $order_detail)
