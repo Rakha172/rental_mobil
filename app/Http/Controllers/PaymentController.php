@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 // use App\Models\Order;
+use App\Models\Order_Detail;
 use App\Models\Vehicle_Package;
 use App\Models\Payment;
 use App\Models\Order;
@@ -17,19 +18,22 @@ class PaymentController extends Controller
     public function index()
     {
         $payment = Payment::where('user_id', Auth::user()->id)->get();
+        $order_detail = Order_Detail::all();
         $order = Order::all();
-        return view('payment.index', compact('payment', 'order'), [ 'order' => $order])->with([
+        return view('payment.index', compact('payment', 'order', 'order_detail'), [ 'order' => $order, 'order_detail' => $order_detail])->with([
             'user' => User::all(),
         ]);
     }
 
     public function show(string $id){
         $payment = Payment::find($id);
-        return view('payment.show', compact('payment'));
+        $user = User::find($id);
+        $order = Order::find($id);
+        return view('payment.show', compact('payment', 'user', 'order'));
     }
     public function create($id)
     {
-        
+
         $user = User::all();
         $order = Order::where('user_id', Auth::user()->id)->get();
         return view('payment.create', [ 'order' => $order, 'user' => $user]);
@@ -40,6 +44,7 @@ class PaymentController extends Controller
         $request->validate([
             'user_id' => 'required',
             'order_id' => 'required',
+            // 'order_detail_id' => 'nullable',
             'payment_method' => 'required',
             'proof_of_transaction' => 'required|image|mimes:png,jpg|max:2040',
 

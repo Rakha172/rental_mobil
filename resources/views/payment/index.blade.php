@@ -5,9 +5,9 @@
            {{ $pesan }}
         </div>
         @endif
-        
+
         <div class="container" style="margin-top: 150px; position: absolute; margin-left:100px;">
-          <h1 class="text-center">Histori transaksi anda</h1> 
+          <h1 class="text-center">Histori transaksi anda</h1>
         <table class="table">
             <thead>
               <tr>
@@ -29,6 +29,7 @@
                 <td>{{ $pm->order->rental_date }}</td>
                 <td>{{ $pm->payment_method }}</td>
                 <td>{{ $pm->created_at }}</td>
+                <td>{{ $pm->order_detail->payment_approved}}</td>
                 <td><img src="{{ $pm->proof_of_transaction }}" style="width: 100px;"></td>
                 </td>
                 <td>
@@ -44,12 +45,12 @@
               @endforeach
             </tbody>
           </table>
-          
+
     </div>
-    
+
             {{-- <a href="{{ route('logout') }}" class="btn btn-outline-secondary btn-sm">Log Out</a> --}}
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-</x-app-layout>   
+</x-app-layout>
 
 
 

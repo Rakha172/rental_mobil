@@ -24,4 +24,9 @@ public function order()
 {
     return $this->belongsTo(Order::class);
 }
+public function order_detail()
+{
+    return $this->belongsTo(Order_detail::class);
+}
+
 }
