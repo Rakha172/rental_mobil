@@ -26,17 +26,17 @@ class UserSeeder extends Seeder
             'email' => 'admin@gmail.com',
             'password' => '12345678',
         ]);
-        User::create([
-            'name' => 'ahmad',
-            'role' => 'customer',
-            'gender' => 'ahmad',
-            'phone_number' => '123',
-            'address' => 'ahmad address',
-            'id_card_photo' => 'ahmad',
-            'driver_licence_photo' => 'ahmad',
-            'email' => 'ahmad@gmail.com',
-            'password' => '12345678',
-        ]);
+        // User::create([
+        //     'name' => 'ahmad',
+        //     'role' => 'customer',
+        //     'gender' => 'ahmad',
+        //     'phone_number' => '123',
+        //     'address' => 'ahmad address',
+        //     'id_card_photo' => 'ahmad',
+        //     'driver_licence_photo' => 'ahmad',
+        //     'email' => 'ahmad@gmail.com',
+        //     'password' => '12345678',
+        // ]);
         User::create([
             'name' => 'user',
             'role' => 'customer',
