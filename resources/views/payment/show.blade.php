@@ -1,4 +1,4 @@
-@extends('components.main')
+{{-- @extends('components.main')
 <x-app-layout>
 
     <div class="container" style="margin-top: 100px; position: absolute;">
@@ -34,5 +34,67 @@
         @enderror
         <button class="btn btn-dark">Submit</button>
     </form>
+    </div>
+</x-app-layout> --}}
+
+<x-app-layout>
+    @extends('components.main')
+    <div class="container-fluid">
+        <h1 class="text-center">Status Pembayaran</h1>
+        <a href="{{ route('order.index') }}"><ion-icon name="arrow-back-circle-outline"
+            class="shadow mb-3 p-3 bg-body rounded" style="font-size: 30px; position: relative; margin-top:-30px;
+            color:black"></ion-icon></a>
+            <div class="card">
+                <div class="card-body">
+                    <form action="{{route('order_detail.store')}}" method="POST">
+                        @method('post')
+                        @csrf
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item text-center">
+                                Nama Penyewa :
+                                {{ $payment->user->name }}
+                            </li>
+                            <li class="list-group-item text-center">
+                                Paket:
+                                {{$payment->order->vehicle_package_id}}
+                            </li>
+                            <li class="list-group-item text-center">
+                                Durasi Paket :
+                                {{$payment->order->vehicle_package->duration_date}}
+                            </li>
+                            <li class="list-group-item text-center">
+                                Metode Pembayaran :
+                                {{ $payment->payment_method }}
+                            </li>
+                            <li class="list-group-item text-center">
+                                Bukti transaksi :
+                                {{ $payment->proof_of_transaction }}
+                                <div class="imgs" style="display: flex; justify-content: center; align-items: center;">
+                                    <img src="{{ asset($payment->proof_of_transaction) }}" alt="" style="width: 200px">
+                                </div>
+                            </li>
+                            <li class="list-group-item text-center">
+                                Order Atas Nama :
+                                {{$order->id}}
+                            </li>
+                    <form action="{{route('order_detail.store')}}" method="POST">
+                        @method('post')
+                        @csrf
+                            <label class="text-center">Orderan atas nama</label>
+                            <input class="text-center" type="text" name="order_id" id="order_id" value="{{$order->id}}">
+                            <label class="text-center">Payment_approved</label>
+                            <select name="payment_approved" class="form-control @error('payment_approved') is-invalid @enderror text-center">
+                                <option value="">Pilih</option>
+                                <option @selected(old('payment_approved') == 'setujui') value="setujui">disetujui</option>
+                                <option @selected(old('payment_approved') == 'tolak') value="tolak">tolak</option>
+                            </select>
+                            @error('payment_approved')
+                                <div class="invalid-feedback">{{ $message }}</div>
+                            @enderror
+                            <button class="btn btn-dark">Submit</button>
+                    </form>
+                </div>
+
+            </div>
     </div>
 </x-app-layout>
