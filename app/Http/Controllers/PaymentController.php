@@ -18,14 +18,14 @@ class PaymentController extends Controller
     public function index()
     {
         $payment = Payment::where('user_id', Auth::user()->id)->get();
-        $order_detail = Order_Detail::all();
         $order = Order::all();
-        return view('payment.index', compact('payment', 'order', 'order_detail'), [ 'order' => $order, 'order_detail' => $order_detail])->with([
+        return view('payment.index', compact('payment', 'order'), ['order' => $order])->with([
             'user' => User::all(),
         ]);
     }
 
-    public function show(string $id){
+    public function show(string $id)
+    {
         $payment = Payment::find($id);
         $user = User::find($id);
         $order = Order::find($id);
@@ -36,7 +36,7 @@ class PaymentController extends Controller
 
         $user = User::all();
         $order = Order::where('user_id', Auth::user()->id)->get();
-        return view('payment.create', [ 'order' => $order, 'user' => $user]);
+        return view('payment.create', ['order' => $order, 'user' => $user]);
     }
 
     public function store(Request $request)
@@ -50,15 +50,15 @@ class PaymentController extends Controller
 
         ]);
 
-       // Hitung total harga dari paket kendaraan yang dipilih
+        // Hitung total harga dari paket kendaraan yang dipilih
         // $vehicle_packages = $request->input('vehicle_packages');
         // $total_price = 0;
 
         // foreach ($vehicle_packages as $packageId) {
-            // $package = Vehicle_Package::find($packageId);
-            // if ($package) {
-                // $total_price += $package->price;
-            // }
+        // $package = Vehicle_Package::find($packageId);
+        // if ($package) {
+        // $total_price += $package->price;
+        // }
         // }
 
         // Upload gambar
@@ -108,8 +108,8 @@ class PaymentController extends Controller
         $payment->proof_of_transaction = 'upload/vehicle/' . $new_image;
         $payment->save();
 
-       return to_route('payment.index')->with('succes', 'data ditambah');
-}
+        return to_route('payment.index')->with('succes', 'data ditambah');
+    }
 
 
     public function destroy($id)

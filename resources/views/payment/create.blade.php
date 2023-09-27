@@ -7,11 +7,11 @@
             <div class="mb-3">
                 <label class="form-label">Name</label>
                 <select name="user_id" class="form-control">
-                 @foreach ($user as $usr) 
+                 @foreach ($user as $usr)
                     <option value="{{$usr->id}}">{{$usr->name}}</option>
                  @endforeach
                 </select>
-                
+
             </div>
 
         <div class="mb-3">
@@ -19,7 +19,7 @@
             <select name="order_id" class="form-control">
                 @foreach ($order as $ord)
                     <option value="{{ $ord->id }}">
-                        {{ $ord->vehicle_package->price }} 
+                        {{ $ord->vehicle_package->price }}
                     </option>
                 @endforeach
                 </select>

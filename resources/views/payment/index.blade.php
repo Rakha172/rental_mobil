@@ -29,7 +29,7 @@
                 <td>{{ $pm->order->rental_date }}</td>
                 <td>{{ $pm->payment_method }}</td>
                 <td>{{ $pm->created_at }}</td>
-                <td>{{ $pm->order_detail->payment_approved}}</td>
+                <td>{{ $pm->payment_approved}}</td>
                 <td><img src="{{ $pm->proof_of_transaction }}" style="width: 100px;"></td>
                 </td>
                 <td>

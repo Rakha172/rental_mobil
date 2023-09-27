@@ -7,26 +7,23 @@ use Illuminate\Database\Eloquent\Model;
 
 class Payment extends Model
 {
-   protected $table = 'payment';
+    protected $table = 'payment';
 
-   protected $fillabel = [
-     'user_id',
-     'vehicle_package_id',
-     'payment_method',
-     'proof_of_transaction',
-   ];
+    protected $fillabel = [
+        'user_id',
+        'vehicle_package_id',
+        'payment_method',
+        'proof_of_transaction',
+    ];
 
-   public function user()
-{
-    return $this->belongsTo(User::class);
-}
-public function order()
-{
-    return $this->belongsTo(Order::class);
-}
-public function order_detail()
-{
-    return $this->belongsTo(Order_detail::class);
-}
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+    public function order()
+    {
+        return $this->belongsTo(Order::class);
+    }
+
 
 }
