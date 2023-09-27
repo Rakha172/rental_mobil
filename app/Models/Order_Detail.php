@@ -9,12 +9,12 @@ class Order_Detail extends Model
 {
     protected $table = 'order_detail';
 
-    protected $fillabel = [
-        'payment_approved',
-        'user_id',
-        'created_at',
-        'updated_at',
-    ];
+    // protected $fillabel = [
+    //     'payment_approved',
+    //     'user_id',
+    //     'created_at',
+    //     'updated_at',
+    // ];
 
     protected $guarded = [];
 
