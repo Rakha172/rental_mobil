@@ -24,25 +24,26 @@ Route::get('/', function () {
 route::resource('register', RegisteredUserController::class);
 route::resource('payment', PaymentController::class);
 Route::get('/landing', [LandingpageController::class, 'index'])->name('landingpage.index');
-Route::get('payment/create/{id}',[PaymentController::class,'create'])->name('payment.create');
-Route::get('order/create/{id}',[OrderController::class,'create'])->name('order.create');
-Route::post('order/store',[OrderController::class,'store'])->name('order.store');
-Route::get('/package',[PackageController::class,'index'])->name('package.index');
-Route::get('payment',[PaymentController::class,'index'])->name('payment.index');
+Route::get('payment/create/{id}', [PaymentController::class, 'create'])->name('payment.create');
+Route::get('order/create/{id}', [OrderController::class, 'create'])->name('order.create');
+Route::post('order/store', [OrderController::class, 'store'])->name('order.store');
+Route::get('/package', [PackageController::class, 'index'])->name('package.index');
+Route::get('payment', [PaymentController::class, 'index'])->name('payment.index');
 
 // Route::get('/booking',[BookingController::class,'index'])->name('booking.index');
 
 
-route::middleware(['auth', 'must-admin'])->group(function(){
+route::middleware(['auth', 'must-admin'])->group(function () {
     route::resource('admin', AdminController::class);
     route::resource('order_detail', Order_DetailController::class);
     route::resource('setting', SettingController::class);
     route::get('order', [OrderController::class, 'index'])->name('order.index');
     route::delete('order/destroy/{id}', [OrderController::class, 'destroy'])->name('order.destroy');
-    Route::get('payment/show/{id}',[PaymentController::class,'show'])->name('payment.show');
+    Route::get('payment/show/{id}', [PaymentController::class, 'show'])->name('payment.show');
+    Route::post('order_detail/update{id}', [Order_DetailController::class, 'store'])->name('order_detail.update');
 });
 
-route::middleware(['auth', 'must-admin'])->group(function(){
+route::middleware(['auth', 'must-admin'])->group(function () {
     Route::get('vehicle', [VehicleController::class, 'index'])->name('vehicle.index');
     Route::get('vehicle/create', [VehicleController::class, 'create'])->name('vehicle.create');
     Route::post('vehicle/store', [VehicleController::class, 'store'])->name('vehicle.store');
@@ -52,7 +53,7 @@ route::middleware(['auth', 'must-admin'])->group(function(){
     Route::put('/vehicle/{id}', 'App\Http\Controllers\VehicleController@update')->name('vehicle.update');
 });
 
-route::middleware(['auth', 'must-admin'])->group(function(){
+route::middleware(['auth', 'must-admin'])->group(function () {
     Route::get('vehicle_package', [Vehicle_PackageController::class, 'index'])->name('vehicle_package.index');
     Route::get('vehicle_package/create', [Vehicle_PackageController::class, 'create'])->name('vehicle_package.create');
     Route::post('vehicle_package', [Vehicle_PackageController::class, 'store'])->name('vehicle_package.store');
@@ -70,10 +71,10 @@ Route::middleware('auth')->group(function () {
     Route::get('booking/', [BookingController::class, 'index'])->name('booking.index');
 });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
 
 // Route dari table setting buat landingpage
 Route::get('/', function () {
     $settings = Setting::all();
-    return view('landingpage.index', compact('settings'));})->name('settings');
-
+    return view('landingpage.index', compact('settings'));
+})->name('settings');
