@@ -6,10 +6,10 @@
             <div class="card-body">
                     <form action="" method="GET">
                     </form>
-                    <a href="{{ route('setting.create') }}" class="btn btn-dark mb-2"
+                    {{-- <a href="{{ route('setting.create') }}" class="btn btn-dark mb-2"
                         style="width:50px;
                     padding:10px; height:40px;"><ion-icon
-                            name="add-circle-outline" style="font-size: 20px;"></ ion-icon></a>
+                            name="add-circle-outline" style="font-size: 20px;"></ ion-icon></a> --}}
                             <div class="table-responsive">
                                 <table class="table table-bordered">
                                     <thead>
