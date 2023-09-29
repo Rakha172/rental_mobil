@@ -14,7 +14,7 @@
                 <label class="form-label">Nama penyewa</label>
                 <select name="user_id" id="user_id" class="form-control">
                     @foreach ($users as $usr)
-                    <option value="{{$usr->id}}">{{$usr->name}}</option>              
+                    <option value="{{$usr->id}}">{{$usr->name}}</option>
                     @endforeach
                 </select>
             </div>
@@ -41,7 +41,7 @@
                     @enderror
                   </div>
               <button class="btn btn-dark mb-3">Booking</button>
-              
+
               <x-input-label for="email" :value="__('Lanjut ke halaman pembayaran')" />
             </div>
           </form>
