@@ -27,8 +27,7 @@ class PaymentController extends Controller
    
     public function create($id)
     {
-
-        $user = User::where('name', Auth::user()->name)->get();
+        $user = User::where('id', Auth::user()->id)->get();
         return view('payment.create', compact('user'));
     }
 

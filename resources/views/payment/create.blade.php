@@ -1,13 +1,15 @@
 @extends('components.main')
 <x-app-layout>
     <div class="container " style="margin-top: 100px;">
-        <form action="{{ route('payment.store') }}" method="post" enctype="multipart/form-data">
+        <form action="{{ route('payment.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
             @method('post')
             <div class=" shadow p-3 mb-5 bg-body rounded " id="box">
                 <div class="form-group">
                     <label class="form-label">Id penyewa :</label>
-                    <input type="text" class="form-control" name="user_id" id="user_id" readonly value="{{$user[1]->id}}">
+                    @foreach ($user as $usr)
+                        <input type="text" class="form-control" value="{{$usr->id}}" readonly>
+                    @endforeach
                 <label class="form-label"  style="margin-top: 5px; margin-bottom:5px;" >Nama penyewa : <strong>{{Auth::user()->name}}</strong></label>
             </div>
         <div class="mb-3">
