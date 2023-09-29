@@ -39,9 +39,7 @@ route::middleware(['auth', 'must-admin'])->group(function () {
     route::resource('setting', SettingController::class);
     route::get('order', [OrderController::class, 'index'])->name('order.index');
     route::delete('order/destroy/{id}', [OrderController::class, 'destroy'])->name('order.destroy');
-    Route::get('payment/show/{id}', [PaymentController::class, 'show'])->name('payment.show');
-    Route::post('order_detail/update{id}', [Order_DetailController::class, 'store'])->name('order_detail.update');
-});
+  });
 
 route::middleware(['auth', 'must-admin'])->group(function () {
     Route::get('vehicle', [VehicleController::class, 'index'])->name('vehicle.index');

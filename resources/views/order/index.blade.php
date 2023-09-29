@@ -40,7 +40,7 @@
                                                 @csrf
                                                 @method('delete')
                                                 @if ($payment->count()>0)
-                                                <a href="{{ route('payment.show', $ordr->id)}}">Pembayaran Dilakukan</a>
+                                                <a href="{{ route('payment.edit', $ordr->id)}}">Payment</a>
                                                 @endif
                                                 <button type="submit" class="btn btn-danger">Delete</button>
                                             </form>
