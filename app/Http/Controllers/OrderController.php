@@ -42,10 +42,10 @@ class OrderController extends Controller
     public function create(Request $request)
     {
         $vehicle = Vehicle::find($request->vehicle);
-        $users = User::where('id', '!=', 1)->get();
+        $user = User::where('name', Auth::user()->name)->get();
         $vehicle_packages = Vehicle_Package::all();
-
-        return view('order.create', ['users' => $users ,'vehicle_packages' => $vehicle_packages, 'vehicle' => $vehicle]);
+        $order = Order::all();
+        return view('order.create', compact('user', 'order'), ['vehicle_packages' => $vehicle_packages, 'vehicle' => $vehicle]);
     }
 
     public function store(Request $request)
