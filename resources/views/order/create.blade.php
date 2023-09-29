@@ -40,7 +40,7 @@
                     @enderror
                   </div>
               <button class="btn btn-dark mb-3">Booking</button>
-              
+
               <x-input-label for="email" :value="__('Lanjut ke halaman pembayaran')" />
             </div>
           </form>
