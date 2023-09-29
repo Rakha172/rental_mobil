@@ -10,13 +10,9 @@
             @method('post')
             <div class=" shadow p-3 mb-5 bg-body rounded " id="box">
                 <div class="form-group">
-
-                <label class="form-label">Nama penyewa</label>
-                <select name="user_id" id="user_id" class="form-control">
-                    @foreach ($users as $usr)
-                    <option value="{{$usr->id}}">{{$usr->name}}</option>              
-                    @endforeach
-                </select>
+                    <label class="form-label">Id penyewa :</label>
+                    <input type="text" class="form-control" name="user_id" id="user_id" readonly value="{{$user[0]->id}}">
+                <label class="form-label"  style="margin-top: 5px; margin-bottom:5px;" >Nama penyewa : <strong>{{Auth::user()->name}}</strong></label>
             </div>
             <div class="mb-3">
                 <label class="form-label">Vehicle Package</label>
