@@ -24,13 +24,7 @@ class PaymentController extends Controller
         ]);
     }
 
-    public function show(string $id)
-    {
-        $payment = Payment::find($id);
-        $user = User::find($id);
-        $order = Order::find($id);
-        return view('payment.show', compact('payment', 'user', 'order'));
-    }
+   
     public function create($id)
     {
 
@@ -81,34 +75,25 @@ class PaymentController extends Controller
         return redirect()->route('homepage.index')->with('success', 'Data ditambah');
     }
 
-    public function edit(Payment $payment)
+    public function edit($id)
     {
-        // $order = Order::all();
-        return view('payment.edit', compact('payment'));
+        $payment = Payment::find($id);
+        $user = User::find($id);
+        $order = Order::find($id);
+        return view('payment.edit', compact('payment', 'user', 'order'));
     }
 
     public function update(Request $request, $id)
     {
         $request->validate([
-            'name' => 'required',
-            'total_price' => 'required',
-            'payment_method' => 'required',
-            'proof_of_transaction' => 'required|image|mimes:png,jpg|max:2040',
-            // 'order_id' => 'required|exists:orders,id'
+            'payment_approved' => 'required',
         ]);
 
-        $image = $request->file('proof_of_transaction');
-        $slug = Str::slug($image->getClientOriginalName());
-        $new_image = time() . '_' . $slug;
-        $image->move('upload/vehicle/', $new_image);
-
-        $payment = new Payment;
-        $payment->total_price = $request->total_price;
-        $payment->payment_method = $request->payment_method;
-        $payment->proof_of_transaction = 'upload/vehicle/' . $new_image;
+        $payment = Payment::find($id);
+        $payment->payment_approved = $request->payment_approved;
         $payment->save();
 
-        return to_route('payment.index')->with('succes', 'data ditambah');
+        return redirect()->route('order.index');
     }
 
 
