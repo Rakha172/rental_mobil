@@ -10,7 +10,7 @@
                             <input type="text" placeholder="Please input key for search data" name="search" autofocus style="border-radius:5px; width:700px; margin-bottom:1rem;" value="{{ $search }}">
                             <button class="btn ml-2 btn-light" style="height:42px; color:black;">Search</button>
                         </div>
-                </form>
+                    </form>
                 <div class="table-responsive">
 
                     <table class="table table-bordered table-center">
