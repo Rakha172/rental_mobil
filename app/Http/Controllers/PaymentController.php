@@ -24,7 +24,7 @@ class PaymentController extends Controller
         ]);
     }
 
-   
+
     public function create($id)
     {
         $user = User::where('id', Auth::user()->id)->get();
@@ -61,7 +61,7 @@ class PaymentController extends Controller
 
         // Simpan data pembayaran
         $payment = new Payment;
-        $payment->user_id = $request->user_id;
+        $payment->user_id = Auth::user()->id;
         $payment->order_id = $request->order_id;
         $payment->payment_method = $request->payment_method;
         $payment->proof_of_transaction = 'upload/transaction/' . $new_proof_of_transaction;
