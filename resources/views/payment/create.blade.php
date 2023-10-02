@@ -6,12 +6,8 @@
             @method('post')
             <div class=" shadow p-3 mb-5 bg-body rounded " id="box">
                 <div class="form-group">
-                    <label class="form-label">Id penyewa :</label>
-                    @foreach ($user as $usr)
-                        <input type="text" class="form-control" value="{{$usr->id}}" readonly>
-                    @endforeach
-                <label class="form-label"  style="margin-top: 5px; margin-bottom:5px;" >Nama penyewa : <strong>{{Auth::user()->name}}</strong></label>
-            </div>
+                    <input type="hidden" class="form-control" name="user_id" value="{{ $user->first()->name }}" readonly>
+                </div>
         <div class="mb-3">
             <label class="form-label">Price</label>
             <select name="order_id" class="form-control">
