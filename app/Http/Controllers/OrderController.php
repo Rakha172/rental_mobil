@@ -14,17 +14,18 @@ use Illuminate\Support\Facades\Auth;
 class OrderController extends Controller
 {
 
-    public function index(Request $request){
+    public function index(Request $request)
+    {
         $ordercount = Order::count();
         $payment = Payment::all();
         $search = $request->query('search');
-        if(!empty($search)){
+        if (!empty($search)) {
             $dataOrder = Order::where('order.name', 'like', '%' . $search . '%')
-            ->orWhere('order.package_name', 'like', '%' . $search . '%')
-            ->orWhere('order.rental_date', 'like', '%' . $search . '%')
-            ->orWhere('order.return_date', 'like', '%' . $search . '%')
-            ->paginate(5)->fragment('ord');
-        }else {
+                ->orWhere('order.package_name', 'like', '%' . $search . '%')
+                ->orWhere('order.rental_date', 'like', '%' . $search . '%')
+                ->orWhere('order.return_date', 'like', '%' . $search . '%')
+                ->paginate(5)->fragment('ord');
+        } else {
             $dataOrder = Order::paginate(5)->fragment('ord');
         }
         return view('order.index', compact('payment'))->with([
@@ -49,62 +50,26 @@ class OrderController extends Controller
     }
 
     public function store(Request $request)
-{
-    $request->validate([
-        'user_id' => 'required|exists:users,id',
-        'vehicle_package_id' => 'required|exists:vehicle_packages,id',
-        'rental_date' => 'required|date|after_or_equal:today',
-    ]);
+    {
+        $request->validate([
+            'user_id' => 'required|exists:users,id',
+            'vehicle_package_id' => 'required|exists:vehicle_packages,id',
+            'rental_date' => 'required|date|after_or_equal:today',
+        ]);
 
-    // Cek apakah ada pesanan yang sama yang sudah ada
-    $existingOrder = Order::where('vehicle_package_id', $request->vehicle_package_id)
-        ->where('rental_date', $request->rental_date)
-        ->where('user_id', $request->user_id)
-        ->first();
+        // Lanjutkan dengan membuat pesanan baru
+        $order = new Order;
+        $order->user_id = $request->user_id;
+        $order->vehicle_package_id = $request->vehicle_package_id;
+        $order->rental_date = $request->rental_date;
+        $order->save();
 
-    if ($existingOrder) {
-        // Pesanan yang sama sudah ada
-        return redirect()->back()->with('error', 'Maaf, Anda sudah memesan kendaraan ini pada tanggal yang sama.');
+        $user = User::where('id', '!=', 1)->get();
+        $order = Order::all();
+        // Session::flash('sukses','checkout berhasil dilakukan, segera lakukan pembayaran untuk mengyelesaikan order');
+        return view('payment.create')->with(['user' => $user, 'order' => $order]);
+
     }
-
-//     $existingOrder = Order::where('vehicle_id', $request->vehicle_id)
-//     ->where('rental_date', $request->rental_date)
-//     ->where('status', 'dipesan')
-//     ->first();
-
-// if ($existingOrder) {
-//     // Mobil sudah dipesan pada tanggal yang sama
-//     return redirect()->back()->with('error', 'Maaf, mobil ini sudah dipesan pada tanggal yang sama.');
-// }
-
-    // Validasi status pesanan kendaraan
-    $vehicle = Vehicle::find($request->vehicle_id);
-
-    if ($vehicle) {
-        if ($vehicle->status_pesanan === 'dipesan' && $vehicle->selesai_pemesanan >= $request->rental_date) {
-            // Kendaraan sudah dipesan untuk tanggal tersebut
-            return redirect()->back()->with('error', 'Maaf, kendaraan ini sudah dipesan pada tanggal tersebut.');
-        }
-
-        // Ubah status pesanan kendaraan
-        $vehicle->status_pesanan = 'dipesan';
-        $vehicle->selesai_pemesanan = $request->rental_date; // Tanggal pengembalian
-        $vehicle->save();
-    }
-
-    // Lanjutkan dengan membuat pesanan baru
-    $order = new Order;
-    $order->user_id = $request->user_id;
-    $order->vehicle_package_id = $request->vehicle_package_id;
-    $order->rental_date = $request->rental_date;
-    $order->save();
-
-    $user = User::where('id', '!=', 1)->get();
-    $order = Order::all();
-    // Session::flash('sukses','checkout berhasil dilakukan, segera lakukan pembayaran untuk mengyelesaikan order');
-    return view('payment.create', compact('user', 'order'));
-
-}
     public function edit(Order $order)
     {
         $users = User::all();
