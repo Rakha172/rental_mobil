@@ -67,25 +67,25 @@
         </div>
     </form>
 
-    <form method="post" action="{{ route('register.update', $user->id) }}" class="mt-6 space-y-6"  enctype="multipart/form-data">
+    {{-- <form method="post" action="{{ route('register.update', $user->id) }}" class="mt-6 space-y-6"  enctype="multipart/form-data">
         @csrf
         @method('patch')
         <div>
-            <x-input-label for="name" :value="__('Id Card')" />
+            <x-input-label for="name" :value="__('Id Card')" /> --}}
             {{-- <x-text-input id="id_card_photo" name="id_card_photo" type="file" class="mt-1 block w-full" :value="old('id_card_photo', $user->id_card_photo)"accept="image/*" --}}
             {{-- onchange="document.getElementById('output').src = window.URL.createObjectURL(this.files[0])"/> --}}
-            <div class="block mt-1 w-full"><img src="{{asset($user->id_card_photo)}}" id="output" height="30"></div>
+            {{-- <div class="block mt-1 w-full"><img src="{{asset($user->id_card_photo)}}" id="output" height="30"></div>
             <x-input-error :messages="$errors->get('id_card_photo')" class="mt-2" />
         </div>
         <div>
-            <x-input-label for="email" :value="__('Driver Licence')" />
+            <x-input-label for="email" :value="__('Driver Licence')" /> --}}
             {{-- <input style="border-radius: 5px; border: rgba(185, 184, 184, 0.637) 1px solid;" type="file" --}}
                 {{-- name="driver_licence_photo" class="block mt-1 w-full" id="driver_licence_photo" --}}
                 {{-- value="{{ old('driver_licence_photo') }}" accept="image/*" --}}
                 {{-- onchange="document.getElementById('output2').src = window.URL.createObjectURL(this.files[0])"> --}}
-            <div class="block mt-1 w-full"><img src="{{ asset($user->driver_licence_photo)}}" id="output2" height="30""></div>
+            {{-- <div class="block mt-1 w-full"><img src="{{ asset($user->driver_licence_photo)}}" id="output2" height="30""></div>
             <x-input-error class="mt-2" :messages="$errors->get('driver_licence_photo')" />
-        </div>
+        </div> --}}
         {{-- <div class="flex items-center gap-4"> --}}
             {{-- <x-primary-button>{{ __('Save') }}</x-primary-button> --}}
             {{-- @if (session('status') === 'profile-updated') --}}
