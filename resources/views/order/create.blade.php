@@ -5,18 +5,22 @@
             class="shadow mb-3 p-3 bg-body rounded" style="font-size: 30px; position: relative; margin-top:-30px;
             color:black"></ion-icon></a>
             <img src="{{ asset($vehicle->image)}}" id="image">
-            <form action="{{ route('order.store') }}" method="post">
+        <form action="{{ route('order.store') }}" method="post">
+            {{-- @if ($messages = session('error'))
+                @dd($messages)
+            @endif --}}
             @csrf
             @method('post')
-            <div class=" shadow p-3 mb-5 bg-body rounded " id="box">
+            <div class=" shadow p-3 mb-5 bg-body rounded" id="box">
                 <div class="form-group">
-                    <label class="form-label">Id penyewa :</label>
-                    @foreach ($user as $usr)
-                    <input type="text" class="form-control" name="user_id" id="user_id" readonly value="{{$usr->id}}">
-                    @endforeach
+                    @if(Auth::check())
+                    <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
+                    @endif
+                </div>
 
-                <label class="form-label"  style="margin-top: 5px; margin-bottom:5px;" >Nama penyewa : <strong>{{Auth::user()->name}}</strong></label>
-            </div>
+                {{-- <div class="form-group">
+                    <label class="form-label" style="margin-top: 5px; margin-bottom: 5px;">Nama penyewa : <strong>{{ Auth::user()->name }}</strong></label>
+                </div> --}}
             <div class="mb-3">
                 <label class="form-label">Vehicle Package</label>
                 <select name="vehicle_package_id" class="form-control @error('vehicle_package_id') is-invalid @enderror">
@@ -43,7 +47,7 @@
 
               <x-input-label for="email" :value="__('Lanjut ke halaman pembayaran')" />
             </div>
-          </form>
+        </form>
     </div>
 
     <style>

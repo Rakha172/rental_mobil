@@ -49,12 +49,12 @@
                                                                     name="create-outline"
                                                                     style="font-size: 20px; position: absolute;color:black; "
                                                                     class="shadow p-3 mb-5 bg-body rounded "></ion-icon></a>
-                                                            <input name="_method" type="hidden" value="DELETE">
+                                                            {{-- <input name="_method" type="hidden" value="DELETE">
                                                             <button type="submit"
                                                                 class="btn btn-xs btn-flat show-alert-delete-box btn-sm  "
                                                                 data-toggle="tooltip" title='Delete'><ion-icon name="trash-outline"
                                                                     style="font-size: 20px; position: absolute; margin-left:50px; margin-top:-13px"
-                                                                    class="shadow p-3 mb-5 bg-body rounded "></ion-icon></button>
+                                                                    class="shadow p-3 mb-5 bg-body rounded "></ion-icon></button> --}}
                                                         </form>
                                                     </td>
                                                 </tr>

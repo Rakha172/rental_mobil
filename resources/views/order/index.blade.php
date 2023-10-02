@@ -1,25 +1,14 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/index.css">
-
-    <title>Rental Mobil</title>
-  </head>
-  <body style="background-color :rgb(243, 201, 111);">
-    <x-app-layout>
-        <div class="container-fluid">
-            <div class="card">
-                <h1 class="text-center fs-2 mt-4">DATA ORDER {{$ordercount}}</h1>
-                <div class="card-body">
-                        <form action="" method="GET">
-                            <div class="row mb-2">
-                                <div class="col-sm-10 d-flex">
-                                    <input type="text" placeholder="Please input key for search data" name="search" autofocus style="border-radius:5px; width:700px; margin-bottom:1rem;" value="{{ $search }}">
-                                    <button class="btn ml-2 btn-light" style="height:42px; color:black;">Search</button>
-                                </div>
+@extends('components.mainadmin_')
+<x-app-layout>
+    <div class="container-fluid">
+        <h1 class="text-center">DATA ORDER {{$ordercount}}</h1>
+        <div class="card">
+            <div class="card-body">
+                    <form action="" method="GET">
+                        <div class="row mb-2">
+                            <div class="col-sm-10 d-flex">
+                                <input type="text" placeholder="Please input key for search data" name="search" autofocus style="border-radius:5px; width:700px; margin-bottom:1rem;" value="{{ $search }}">
+                                <button class="btn ml-2 btn-light" style="height:42px; color:black;">Search</button>
                             </div>
                         </form>
                         <div class="table-responsive">
