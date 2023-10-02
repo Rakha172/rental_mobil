@@ -17,6 +17,7 @@
                 <th scope="col">Tanggal Booking</th>
                 <th scope="col">Metode pembayaran</th>
                 <th scope="col">Dibuat Tanggal</th>
+                <th scope="col">Status Pembayaran</th>
                 <th scope="col">Bukti pembayaran</th>
               </tr>
             </thead>
