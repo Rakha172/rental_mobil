@@ -57,6 +57,12 @@ class OrderController extends Controller
             'rental_date' => 'required|date|after_or_equal:today',
         ]);
 
+        // untuk otomatis ketika selesai order status langsung dipesan
+        // Perbarui status pesanan di tabel vehicle menjadi 'dipesan'
+        // $vehiclePackage = Vehicle_Package::find($request->vehicle_package_id);
+        // $vehiclePackage->vehicle->status_pesanan = 'dipesan';
+        // $vehiclePackage->vehicle->save();
+
         // Lanjutkan dengan membuat pesanan baru
         $order = new Order;
         $order->user_id = $request->user_id;
