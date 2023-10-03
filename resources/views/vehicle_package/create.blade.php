@@ -1,54 +1,80 @@
-@extends('components.main')
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/create.css">
+  </head>
+  <body>
 <x-app-layout>
-    <a href="{{ route('vehicle_package.index')}}" ><ion-icon name="arrow-back-circle-outline" class="shadow p-3 mb-5 bg-body rounded"  style="font-size: 30px; position: absolute; margin-left:30px; color:black;"></ion-icon></a>
-<div class="container mt-5 shadow p-3 mb-5 bg-body rounded">
-        <form action="{{ route("vehicle_package.store") }}" method="post">
-            @csrf
-            @method('post')
-            <div class="mb-3">
-                <label class="form-label">Vehicle</label>
-                <select name="vehicle_id" class="form-control @error('vehicle_id') is-invalid @enderror">
-                    <option value="">Pilih</option>
-                    @foreach ($vehicle as $vehicle)
-                        <option value="{{ $vehicle->id}}" {{ old('vehicle_id') == $vehicle->id ? 'selected' : ''}}>
-                            {{ $vehicle->image }}
-                        </option>
-                    @endforeach
-                </select>
-                @error('vehicle_id')
-                    <div class="invalid-feedback">{{ $message }}</div>
-                @enderror
-              </div>
-                  <div class="mb-3">
-                    <label class="form-label">Package Name</label>
-                    <input value="{{ old('package_name')}}" name="package_name" type="text" class="form-control @error('package_name') is-invalid @enderror">
-                    @error('package_name')
-                    <div class="invalid-feedback">{{ $message }}</div>
-                    @enderror
+    <div class="container-fluid">
+        <div class="card">
+            <h1 class="fs-2">ADD PACKAGE</h1>
+            <div class="card-body">
+                <form action="{{ route("vehicle_package.store") }}" method="post">
+              @csrf
+                    @method('post')
+                        <div class="mb-3">
+                            <select name="vehicle_id" class="form-control @error('vehicle_id') is-invalid @enderror">
+                                <option value="">Select Vehicle</option>
+                                @foreach ($vehicle as $vehicle)
+                                    <option value="{{ $vehicle->id}}" {{ old('vehicle_id') == $vehicle->id ? 'selected' : ''}}>
+                                        {{ $vehicle->image }}
+                                    </option>
+                                @endforeach
+                            </select>
+                        </div>
+                        @error('vehicle_id')
+                            <div class="invalid-feedback">{{ $message }}</div>
+                        @enderror
+                        <div class="form-floating">
+                            <input style="border-radius: 8px;" type="text" name="package_name"
+                                class="form-control @error('package_name') is-invalid @enderror" placeholder="package_name"
+                                value="{{ old('package_name') }}">
+                            <label for="package_name">Package Name</label>
+                            @error('name')
+                                <div class="invalid-feedback">{{ $message }}</div>
+                            @enderror
+                          </div>
+                        <div class="form-floating">
+                            <input style="border-radius: 8px;" type="text" name="description"
+                                class="form-control @error('description') is-invalid @enderror" placeholder="description"
+                                value="{{ old('description') }}">
+                            <label for="description">Description</label>
+                            @error('name')
+                                <div class="invalid-feedback">{{ $message }}</div>
+                            @enderror
+                          </div>
+                        <div class="form-floating">
+                            <input style="border-radius: 8px;" type="text" name="duration_date"
+                                class="form-control @error('duration_date') is-invalid @enderror" placeholder="duration_date"
+                                value="{{ old('duration_date') }}">
+                            <label for="duration_date">Duration Date</label>
+                            @error('name')
+                                <div class="invalid-feedback">{{ $message }}</div>
+                            @enderror
+                          </div>
+                        <div class="form-floating">
+                            <input style="border-radius: 8px;" type="text" name="price"
+                                class="form-control @error('price') is-invalid @enderror" placeholder="price"
+                                value="{{ old('price') }}">
+                            <label for="price">Price</label>
+                            @error('name')
+                                <div class="invalid-feedback">{{ $message }}</div>
+                            @enderror
+                          </div>
+                <div class="btn btn-secondary ">
+                    <button type="submit" style="color: black;">Submit</button>
                 </div>
-                <div class="mb-3">
-                    <label class="form-label">Description</label>
-                    <input value="{{ old('description')}}" name="description" type="text" class="form-control @error('description') is-invalid @enderror">
-                  @error('description')
-                      <div class="invalid-feedback">{{ $message }}</div>
-                  @enderror
-              </div>
-              <div class="mb-3">
-                <label class="form-label">Duration Date</label>
-                <input value="{{ old('duration_date')}}" name="duration_date" type="text" class="form-control @error('duration_date') is-invalid @enderror">
-                  @error('duration_date')
-                      <div class="invalid-feedback">{{ $message }}</div>
-                  @enderror
-              </div>
-              <div class="mb-3">
-                <label class="form-label">Price</label>
-                <input value="{{ old('price')}}" name="price" type="text" class="form-control @error('price') is-invalid @enderror">
-                  @error('price')
-                      <div class="invalid-feedback">{{ $message }}</div>
-                  @enderror
-              </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
-          </form>
+                <div class="btn btn-secondary">
+                    <a href="{{ route('vehicle_package.index') }}" style="margin-right: 8px;color:black;">Back</a>
+                </div>
+                </form>
+            </div>
+        </div>
     </div>
 </x-app-layout>
-
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA8pxMsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+  </body>
+</html>
