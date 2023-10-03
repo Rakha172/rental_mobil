@@ -5,7 +5,10 @@
         {{-- <div class="shadow p-3 mb-5 bg-body rounded  mb-3"> --}}
             @if ($vehicle_package->count() > 0)
                 @foreach ($vehicle_package as $vhpk)
-                    <div class="card">
+                <div class="card">
+                    <div class="card-header">
+                       Order
+                    </div>
                         <div class="img">
                             <img src="{{ asset($vhpk->vehicle->image) }}" class="card-img-top" alt="...">
                         </div>
