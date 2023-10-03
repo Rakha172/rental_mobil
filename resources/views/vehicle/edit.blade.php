@@ -15,7 +15,6 @@
                     @error('image')
                         <div class="invalid-feedback">{{ $message }}</div>
                     @enderror
-
                 </div>
                 <div class="d-flex flex-column mb-3 w-100" style="margin-top: 20px; margin-left:10px;">
                 <div class="form-floating">

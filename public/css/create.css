@@ -1,4 +1,22 @@
+  @import url('https://fonts.googleapis.com/css2?family=Karla&family=Open+Sans:wght@500&display=swap');
 .container-fluid{
+    text-align: center;
     margin-top: 3rem;
     padding-top: 2rem;
 }
+h1{
+    padding-top: 2rem;
+    margin-top: 2rem;
+}
+.btn{
+    background-color: rgb(255, 170, 0);
+    color: black;
+    width: 100px;
+}
+.centered-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 5px;
+}
+
