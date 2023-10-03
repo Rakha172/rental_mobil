@@ -9,7 +9,7 @@ body{
 .container-fluid{
     padding-top: 2rem;
     margin-top: 1rem;
-    background-color: rgb(243, 201, 111);
+    background-color: #eeeff1;
     padding-bottom: 2rem;
 }
 .card{
@@ -17,7 +17,17 @@ body{
     margin-right: 10rem;
     margin-top: 2rem;
     height: 320px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
 }
+.table{
+    background-color:rgb(236, 128, 4);
+    margin-top: 20px;
+}
+.card:hover{
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.5);
+}
+
+
 h1{
     margin-top: 2rem;
     padding-top: 1rem;
@@ -30,11 +40,10 @@ h1{
     margin-bottom: 50px;
 
 }
-.img{
+.card-img-top{
     width:300px;
-    height:200px; margin-top:
-    20px; margin-left:
-    10px; margin-bottom: 20px;
+    height:250px;
+
 }
 .list-group{
     font-size:20px;

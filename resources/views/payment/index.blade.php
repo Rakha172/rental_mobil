@@ -6,7 +6,7 @@
         </div>
         @endif
 
-        <div class="container" style="margin-top: 150px; position: absolute; margin-left:100px;">
+        <div class="container" style="margin-top: 50px; position: absolute; margin-left:100px;">
           <h1 class="text-center">Histori transaksi anda</h1>
         <table class="table">
             <thead>
