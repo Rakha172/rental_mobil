@@ -22,6 +22,14 @@ body{
 .table{
     background-color:rgb(236, 128, 4);
     margin-top: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+.table:hover{
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+}
+.table td {
+    background-color:white;
+    
 }
 .card:hover{
     box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.5);

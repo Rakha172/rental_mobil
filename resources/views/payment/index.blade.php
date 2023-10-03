@@ -24,7 +24,7 @@
             <tbody>
                 @foreach ($payment as $index => $pm)
               <tr>
-                <th scope="row">{{ $index+1}}</th>
+                <td>{{ $index+1}}</td>
                 <td>{{ $pm->user->name }}</td>
                 <td>{{ $pm->order->vehicle_package->price }}</td>
                 <td>{{ $pm->order->rental_date }}</td>
