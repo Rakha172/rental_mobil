@@ -33,7 +33,6 @@ Route::get('payment', [PaymentController::class, 'index'])->name('payment.index'
 
 Route::middleware(['auth', 'must-admin'])->group(function () {
     Route::resource('admin', AdminController::class);
-    // Route::resource('order_detail', Order_DetailController::class);
     Route::resource('setting', SettingController::class);
     Route::get('order', [OrderController::class, 'index'])->name('order.index');
     Route::delete('order/destroy/{id}', [OrderController::class, 'destroy'])->name('order.destroy');
