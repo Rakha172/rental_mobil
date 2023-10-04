@@ -21,8 +21,8 @@ Route::get('/', function () {
     return view('landingpage.index');
 });
 
-route::resource('register', RegisteredUserController::class);
-route::resource('payment', PaymentController::class);
+Route::resource('register', RegisteredUserController::class);
+Route::resource('payment', PaymentController::class);
 Route::get('/landing', [LandingpageController::class, 'index'])->name('landingpage.index');
 Route::get('payment/create/{id}', [PaymentController::class, 'create'])->name('payment.create');
 Route::get('order/create/{id}', [OrderController::class, 'create'])->name('order.create');
@@ -30,18 +30,16 @@ Route::post('order/store', [OrderController::class, 'store'])->name('order.store
 Route::get('/package', [PackageController::class, 'index'])->name('package.index');
 Route::get('payment', [PaymentController::class, 'index'])->name('payment.index');
 
-// Route::get('/booking',[BookingController::class,'index'])->name('booking.index');
 
-
-route::middleware(['auth', 'must-admin'])->group(function () {
-    route::resource('admin', AdminController::class);
-    route::resource('order_detail', Order_DetailController::class);
-    route::resource('setting', SettingController::class);
-    route::get('order', [OrderController::class, 'index'])->name('order.index');
-    route::delete('order/destroy/{id}', [OrderController::class, 'destroy'])->name('order.destroy');
+Route::middleware(['auth', 'must-admin'])->group(function () {
+    Route::resource('admin', AdminController::class);
+    // Route::resource('order_detail', Order_DetailController::class);
+    Route::resource('setting', SettingController::class);
+    Route::get('order', [OrderController::class, 'index'])->name('order.index');
+    Route::delete('order/destroy/{id}', [OrderController::class, 'destroy'])->name('order.destroy');
 });
 
-route::middleware(['auth', 'must-admin'])->group(function () {
+Route::middleware(['auth', 'must-admin'])->group(function () {
     Route::get('vehicle', [VehicleController::class, 'index'])->name('vehicle.index');
     Route::get('vehicle/create', [VehicleController::class, 'create'])->name('vehicle.create');
     Route::post('vehicle', [VehicleController::class, 'store'])->name('vehicle.store');
@@ -51,7 +49,7 @@ route::middleware(['auth', 'must-admin'])->group(function () {
     Route::put('/vehicle/{vehicle}', 'App\Http\Controllers\VehicleController@update')->name('vehicle.update');
 });
 
-route::middleware(['auth', 'must-admin'])->group(function () {
+Route::middleware(['auth', 'must-admin'])->group(function () {
     Route::get('vehicle_package', [Vehicle_PackageController::class, 'index'])->name('vehicle_package.index');
     Route::get('vehicle_package/create', [Vehicle_PackageController::class, 'create'])->name('vehicle_package.create');
     Route::post('vehicle_package', [Vehicle_PackageController::class, 'store'])->name('vehicle_package.store');
@@ -64,7 +62,6 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-    // route::resource('homepage', HomepageController::class)->middleware('auth');
     Route::get('homepage/', [HomepageController::class, 'index'])->name('homepage.index');
     Route::get('booking/', [BookingController::class, 'index'])->name('booking.index');
 });
