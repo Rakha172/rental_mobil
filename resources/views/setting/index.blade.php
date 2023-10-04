@@ -1,5 +1,6 @@
-@extends('components.mainadmin')
 <x-app-layout>
+{{-- @extends('components.mainadmin') --}}
+{{-- <x-app-layout> --}}
     <div class="container-fluid">
         <h1 class="text-center">DATA SETTING</h1>
         <div class="card">
