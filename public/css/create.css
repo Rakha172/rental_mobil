@@ -17,6 +17,8 @@ h1{
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 5px;
+}
+.form-floating{
+    margin-bottom: 5px;
 }
 

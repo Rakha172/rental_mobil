@@ -16,9 +16,9 @@
                 <div class="card-body">
                         <form action="" method="GET">
                             <div class="col-sm-10 d-flex">
-                                <a href="{{ route('vehicle.create') }}" class="btn btn-light" style="margin-right: 8px;">Add</a>
+                                <a href="{{ route('vehicle.create') }}" class="btn btn-secondary" style="margin-right: 8px; color:black;">Add</a>
                                 <input type="text" placeholder="Please input key for search data" name="search" autofocus style="border-radius:5px; width:700px; margin-bottom:1rem;" value="{{ $search }}">
-                                <button class="btn ml-2 btn-light" style="height:42px; color:black;">Search</button>
+                                <button class="btn ml-2 btn-secondary" style="height:40px; color:black;">Search</button>
                             </div>
                         </form>
                     <div class="table-responsive">
@@ -53,9 +53,9 @@
                                                 <form action="{{ route('vehicle.destroy', $vhcle->id) }}" method="POST">
                                                   @csrf
                                                   @method('delete')
-                                                  <a href="{{ route('vehicle.edit', $vhcle->id) }}" class="btn btn-light" >Edit</a>
+                                                  <a href="{{ route('vehicle.edit', $vhcle->id) }}" class="btn btn-secondary" style="height:40px; color:black;">Edit</a>
                                                   <input name="_method" type="hidden" value="DELETE">
-                                                  <button class="btn ml-2 btn-light" style="height:40px; color:black;">Delate</button>
+                                                  <button class="btn ml-2 btn-secondary" style="height:40px; color:black;">Delate</button>
                                                 </form>
                                             </td>
                                         </tr>

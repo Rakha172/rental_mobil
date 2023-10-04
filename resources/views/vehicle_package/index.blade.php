@@ -51,7 +51,7 @@
                                             <form action="{{ route('vehicle_package.destroy', $vhcpck->id) }}" method="POST">
                                               @csrf
                                               @method('delete')
-                                              <a href="{{ route('vehicle_package.edit', $vhcpck->id) }}" class="btn btn-secondary" >Edit</a>
+                                              <a href="{{ route('vehicle_package.edit', $vhcpck->id) }}" class="btn btn-secondary" style="height:40px; color:black;">Edit</a>
                                               <input name="_method" type="hidden" value="DELETE">
                                               <button class="btn ml-2 btn-secondary" style="height:40px; color:black;">Delate</button>
                                             </form>
