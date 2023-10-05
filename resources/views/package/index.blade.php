@@ -1,9 +1,10 @@
 <x-app-layout>
-    @extends('components.main')
     <div class="container-fluid">
-        <h1 class="text-center"> Special Package</h1>
+        <h1 class="text-center fs-2 mb-2"> Special Package</h1>
+        <div class="row">
             @if ($vehicle_package->count() > 0)
                 @foreach ($vehicle_package as $vhpk)
+                <div class="col-md-4 mb-4">
                     <div class="card">
                         <div class="card-header">
                             Package
@@ -32,7 +33,9 @@
                             </ul>
                         </div>
                     </div>
+                </div>
                 @endforeach
             @endif
+        </div>
     </div>
 </x-app-layout>
