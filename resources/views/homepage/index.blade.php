@@ -1,17 +1,17 @@
 <x-app-layout>
-    @extends('components.main')
     <div class="container-fluid">
         @if ($message = Session::get('sukses'))
         <div class="alert alert-success alert-block">
-            <button type="button" class="close" data-dismiss="alert">x</button> 
+            <button type="button" class="close" data-dismiss="alert">x</button>
             <strong>{{ $message }}</strong>
-            
             <a href="{{route('payment.index')}}">Bayar</a>
         </div>
         @endif
-        <h1 class="text-center"> About Vehicle</h1>
+        <h1 class="text-center fs-2 mb-2"> About Vehicle</h1>
+        <div class="row">
             @if ($vehicle->count() > 0)
                 @foreach ($vehicle as $vhpk)
+                <div class="col-md-4 mb-4">
                     <div class="card">
                         <div class="card-header">
                             About Vehicle
@@ -44,9 +44,9 @@
                             </ul>
                         </div>
                     </div>
-
+                </div>
                  @endforeach
-             @endif
+            @endif
         </div>
     </div>
 </x-app-layout>
