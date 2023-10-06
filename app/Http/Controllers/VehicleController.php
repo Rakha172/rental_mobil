@@ -7,18 +7,20 @@ use Illuminate\Support\Str;
 use Illuminate\Support\Facades\File;
 use Illuminate\Http\Request;
 use App\Models\Vehicle_Package;
+
 class VehicleController extends Controller
 {
-    public function index(Request $request){
+    public function index(Request $request)
+    {
         $search = $request->query('search');
-        if(!empty($search)){
+        if (!empty($search)) {
             $dataVehicle = Vehicle::where('vehicle.name', 'like', '%' . $search . '%')
-            ->orWhere('vehicle.vehicle_type', 'like', '%' . $search . '%')
-            ->orWhere('vehicle.brand', 'like', '%' . $search . '%')
-            ->orWhere('vehicle.color', 'like', '%' . $search . '%')
-            ->orWhere('vehicle.passenger_capacity', 'like', '%' . $search . '%')
-            ->paginate(5)->fragment('vhc');
-        }else {
+                ->orWhere('vehicle.vehicle_type', 'like', '%' . $search . '%')
+                ->orWhere('vehicle.brand', 'like', '%' . $search . '%')
+                ->orWhere('vehicle.color', 'like', '%' . $search . '%')
+                ->orWhere('vehicle.passenger_capacity', 'like', '%' . $search . '%')
+                ->paginate(5)->fragment('vhc');
+        } else {
             $dataVehicle = Vehicle::paginate(5)->fragment('vhc');
         }
         return view('vehicle.index')->with([
@@ -31,7 +33,6 @@ class VehicleController extends Controller
     {
         return view('vehicle.index');
     }
-
 
     public function create()
     {
@@ -54,9 +55,9 @@ class VehicleController extends Controller
         $existingOrderedVehicle = Vehicle::where('status_pesanan', 'dipesan')->first();
 
         if ($existingOrderedVehicle) {
-        // Mobil dengan status 'dipesan' sudah ada
-        return redirect()->route('vehicle.create')->with('error', 'Maaf, mobil sudah dipesan.');
-    }
+            // Mobil dengan status 'dipesan' sudah ada
+            return redirect()->route('vehicle.create')->with('error', 'Maaf, mobil sudah dipesan.');
+        }
 
         $image = $request->image;
         $slug = Str::slug($image->getClientOriginalName());
@@ -76,13 +77,11 @@ class VehicleController extends Controller
         return redirect('/vehicle')->with('succes', "$request->name data ditambah");
     }
 
-
-        public function edit($id)
-        {
-            $vehicle = Vehicle::findOrFail($id);
-            return view('vehicle.edit', compact('vehicle'));
-        }
-
+    public function edit($id)
+    {
+        $vehicle = Vehicle::findOrFail($id);
+        return view('vehicle.edit', compact('vehicle'));
+    }
 
     public function update(Request $request, $id)
     {
@@ -111,6 +110,7 @@ class VehicleController extends Controller
 
         return redirect()->route('vehicle.index')->with('succes', "$request->name data diubah!");
     }
+
     public function destroy($id)
     {
         $vehicle = Vehicle::find($id);
@@ -118,6 +118,4 @@ class VehicleController extends Controller
 
         return redirect()->route('vehicle.index')->with('succes', "$vehicle->name data dihapus");
     }
-
-
 }

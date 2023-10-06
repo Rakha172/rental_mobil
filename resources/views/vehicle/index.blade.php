@@ -39,12 +39,12 @@
                                             <td>{{ $vhcle->passenger_capacity }}</td>
                                             <td>{{ $vhcle->status_pesanan }}</td>
                                             <td class="d-flex">
-                                                <form action="{{ route('vehicle.destroy', $vhcle->id) }}" method="POST">
-                                                  @csrf
-                                                  @method('delete')
-                                                  <a href="{{ route('vehicle.edit', $vhcle->id) }}" class="btn btn-secondary" style="height:40px; color:black;">Edit</a>
-                                                  <input name="_method" type="hidden" value="DELETE">
-                                                  <button class="btn ml-2 btn-secondary" style="height:40px; color:black;">Delate</button>
+                                                <form action="{{ route('vehicle.destroy', $vhcle->id) }}" method="POST" onsubmit="return confirm('Apakah Anda yakin ingin menghapus data ini?');">
+                                                    @csrf
+                                                    @method('delete')
+                                                    <a href="{{ route('vehicle.edit', $vhcle->id) }}" class="btn btn-secondary" style="height: 40px; color: black;">Edit</a>
+                                                    <input name="_method" type="hidden" value="DELETE">
+                                                    <button class="btn ml-2 btn-secondary" style="height: 40px; color: black;">Delete</button>
                                                 </form>
                                             </td>
                                         </tr>

@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-// use App\Models\Order;
 use App\Models\Order_Detail;
 use App\Models\Vehicle_Package;
 use App\Models\Payment;
@@ -36,22 +35,10 @@ class PaymentController extends Controller
         $request->validate([
             'user_id' => 'required',
             'order_id' => 'required',
-            // 'order_detail_id' => 'nullable',
             'payment_method' => 'required',
             'proof_of_transaction' => 'required|image|mimes:png,jpg|max:2040',
 
         ]);
-
-        // Hitung total harga dari paket kendaraan yang dipilih
-        // $vehicle_packages = $request->input('vehicle_packages');
-        // $total_price = 0;
-
-        // foreach ($vehicle_packages as $packageId) {
-        // $package = Vehicle_Package::find($packageId);
-        // if ($package) {
-        // $total_price += $package->price;
-        // }
-        // }
 
         // Upload gambar
         $proof_of_transaction = $request->proof_of_transaction;
@@ -66,9 +53,6 @@ class PaymentController extends Controller
         $payment->payment_method = $request->payment_method;
         $payment->proof_of_transaction = 'upload/transaction/' . $new_proof_of_transaction;
         $payment->save();
-
-        // Sisipkan relasi antara pembayaran dan paket kendaraan yang dipilih
-        // $payment->vehiclePackages()->attach($vehicle_packages);
 
         return redirect()->route('homepage.index')->with('success', 'Data ditambah');
     }
@@ -93,7 +77,6 @@ class PaymentController extends Controller
 
         return redirect()->route('order.index');
     }
-
 
     public function destroy($id)
     {
