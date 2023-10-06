@@ -9,7 +9,7 @@
                             <div class="card-header">
                                 <h1>Order</h1>
                             </div>
-                            <img src="{{ asset($vhpk->vehicle->image) }}" alt="..." class="card-img-top">
+                            <img src="{{ asset($vhpk->vehicle->image) }}" alt="..." class="card-img-top" style="height: 200px;">
                             <div class="card-body">
                                 <ul class="list-group">
                                     <li class="list-group-item">
