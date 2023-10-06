@@ -185,6 +185,10 @@
                     style="text-decoration: none;  font-size:15px; color:black;">
                     {{ __('Order') }}
                 </x-responsive-nav-link>
+                <x-responsive-nav-link :href="route('payment.index')" :active="request()->routeIs('dashboard')"
+                    style="text-decoration: none;  font-size:15px; color:black;">
+                    {{ __('Order Payment') }}
+                </x-responsive-nav-link>
             </div>
         @endif
 

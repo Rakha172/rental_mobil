@@ -1,14 +1,9 @@
-@extends('components.main')
+
 <x-app-layout>
-    <div class="container " style="margin-top: 100px;">
-        <a href="{{ route('homepage.index') }}"><ion-icon name="arrow-back-circle-outline"
-            class="shadow mb-3 p-3 bg-body rounded" style="font-size: 30px; position: relative; margin-top:-30px;
-            color:black"></ion-icon></a>
+    <div class="container" style="padding-top: 100px;">
+        {{-- <a href="{{ route('homepage.index') }}"</a> --}}
             <img src="{{ asset($vehicle->image)}}" id="image">
         <form action="{{ route('order.store') }}" method="post">
-            {{-- @if ($messages = session('error'))
-                @dd($messages)
-            @endif --}}
             @csrf
             @method('post')
             <div class=" shadow p-3 mb-5 bg-body rounded" id="box">
@@ -17,10 +12,6 @@
                     <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
                     @endif
                 </div>
-
-                {{-- <div class="form-group">
-                    <label class="form-label" style="margin-top: 5px; margin-bottom: 5px;">Nama penyewa : <strong>{{ Auth::user()->name }}</strong></label>
-                </div> --}}
             <div class="mb-3">
                 <label class="form-label">Vehicle Package</label>
                 <select name="vehicle_package_id" class="form-control @error('vehicle_package_id') is-invalid @enderror">
