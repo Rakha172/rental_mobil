@@ -4,3 +4,8 @@
     text-align: center;
     padding-top: 5rem;
 }
+.btn{
+    color: black;
+    background-color: rgb(236, 128, 4);
+    height: 40px;
+}

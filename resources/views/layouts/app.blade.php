@@ -40,6 +40,27 @@
                 {{ $slot }}
             </main>
         </div>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA8pxMsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+        <script>
+            const exampleModal = document.getElementById('exampleModal')
+            exampleModal.addEventListener('show.bs.modal', event => {
+                const button = event.relatedTarget
+
+                const name = button.getAttribute('name')
+                const phone_number = button.getAttribute('phone_number')
+                const address = button.getAttribute('address')
+
+                const modalTitle = exampleModal.querySelector('.modal-title')
+                const modalNameInput = exampleModal.querySelector('.modal-name input')
+                const modalPhone_numberInput = exampleModal.querySelector('.modal-phone_number input')
+                const modalAddressInput = exampleModal.querySelector('.modal-address input')
+
+                modalTitle.textContent = `Detail ${name}`
+                modalNameInput.value = name
+                modalPhone_numberInput.value = phone_number
+                modalAddressInput.value = address
+
+            })
+        </script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     </body>
 </html>
