@@ -1,63 +1,15 @@
 body{
-    font-family: 'Open Sans', sans-serif;
+    background-color:#eeeff1 ;
 }
-.card-header{
-    text-align: center;
-    font-weight: 600;
-    font-size: 24px;
-}
-.container-fluid{
-    padding-top: 2rem;
-    margin-top: 1rem;
-    background-color: #eeeff1;
-    padding-bottom: 2rem;
+h1 {
+    margin-top:  10px;
 }
 .card{
-    margin-left: 10rem;
-    margin-right: 10rem;
-    margin-top: 2rem;
-    height: 320px;
+    background-color:white;
+    margin-left: 30px;
+    margin-top: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
 }
-.table{
-    background-color:rgb(236, 128, 4);
-    margin-top: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
-}
-.table:hover{
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
-}
-.table td {
-    background-color:white;
-    
-}
 .card:hover{
-    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.5);
-}
-
-
-h1{
-    margin-top: 2rem;
-    padding-top: 1rem;
-}
-.card-body{
-    position: absolute;
-    margin-left:300px;
-    margin-right: 100px;
-    margin-top: 50px;
-    margin-bottom: 50px;
-
-}
-.card-img-top{
-    width:300px;
-    height:250px;
-
-}
-.list-group{
-    font-size:20px;
-    text-align: center;
-}
-.img-center {
-    display: block;
-    margin: 0 auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
 }
