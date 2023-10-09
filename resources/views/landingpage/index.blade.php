@@ -16,7 +16,7 @@
             position: relative;
             background-image: url({{ asset('images/bg.png') }});
             background-repeat: no-repeat;
-            background-position: center right;
+            background-position: left;
             background-size: cover;
             display: grid;
             align-items: center;
@@ -104,17 +104,17 @@
                 @foreach ($settings as $item)
                 <div>
                     <h1>History</h1>
-                   
+
                     <h3 class="footer-about">
                         {{ $item['history'] }}
                     </h3>
                     <i class="fa fa-car"></i>
                 </div>
             @endforeach
-    
+
             </div>
         </div>
-       
+
     </section>
     <section class="services" id="services">
         {{-- <div class="heading">
