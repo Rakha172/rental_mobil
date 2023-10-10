@@ -24,18 +24,6 @@
                     <div class="invalid-feedback">{{ $message }}</div>
                 @enderror
             </div>
-            {{-- <div class="mb-3">
-                <label class="form-label">Return Date</label>
-                <select name="order_id" class="form-control @error('order_id') is-invalid @enderror">
-                    <option value="">Pilih</option>
-                    @foreach ($order as $orderItem)
-                        <option {{ old('order_id', $order_detail->order_id) == $orderItem->id ? 'selected' : '' }} value="{{ $orderItem->id }}">{{ $orderItem->return_date }}</option>
-                    @endforeach
-                </select>
-                @error('order_id')
-                    <div class="invalid-feedback">{{ $message }}</div>
-                @enderror
-            </div> --}}
                   <div class="mb-3">
                     <label class="form-label">Vehicle Status</label>
                     <select name="vehicle_status" class="form-control @error('vehicle_status') is-invalid @enderror">
