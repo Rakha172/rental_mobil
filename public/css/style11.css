@@ -461,79 +461,66 @@ header {
 
 
 @media (max-width:880px) {
-    .footer-left .footer-center .footer-right {
+    .footer-left
+    .footer-center
+    .footer-right{
         display: block;
         width: 100%;
         margin-bottom: 40px;
         text-align: left;
     }
 }
-
-.footer-left span {
+.footer-left span{
     font-weight: 500;
 }
 
-@media (max-width: 991px) {
-    header {
+@media (max-width: 991px)  {
+    header{
         padding: 18px 40px;
     }
-
-    section {
+    section{
         padding: 50px 40px;
     }
 }
-
-@media (max-width: 881px) {
-    .home {
-        background-position: left;
+@media (max-width: 881px)  {
+    .home{
+        background-position: left ;
     }
-
-    .form-container form {
+    .form-container form{
         bottom: 0.2rem;
         left: 40px;
     }
 }
-
-@media (max-width: 768px) {
-    header {
+@media (max-width: 768px)  {
+    header{
         padding: 11px 40px;
     }
-
-    #menu-icon {
+    #menu-icon{
         display: initial;
     }
-
-    .sign-up {
+    .sign-up{
         display: none;
     }
-
-    .text h1 {
+    .text h1{
         font-size: 2.5rem;
     }
-
-    .home {
+    .home{
         grid-template-columns: 1fr;
     }
-
-    .form-container form {
+    .form-container form{
         position: unset;
     }
-
-    header .navbar {
-        position: absolute;
-        top: -500px;
+   header .navbar {
+        position: fixed;
+        top: 0;
         left: 0;
         right: 0;
-        display: flex;
-        flex-direction: column;
-        background: #fff;
+        background-color: #ffffff;
         box-shadow: 0 4px 4px rgba(0, 0, 0, 0.1);
-        transition: 0.2 ease;
+        transition: 0.9s ease;
         text-align: left;
-    }
-
-    .navbar .active {
-        top: 100%;
+       
+        flex-direction: column;
     }
 
     .navbar a {
@@ -541,16 +528,43 @@ header {
         border-left: 2px solid var(--main-color);
         margin: 1rem;
         display: block;
+        text-decoration: none;
+        color: #000;
+        font-size: 12px;
     }
 
     .navbar a:hover {
-        color: #fff;
         background: var(--main-color);
+        color: #fff;
         border: none;
     }
 
-    .navbar a::after {
+
+    .menu-icon {
         display: none;
+        cursor: pointer;
+        padding: 1rem;
+        border-left: 2px solid var(--main-color);
+        margin: 1rem;
+    }
+
+    /* CSS untuk ikon menu hamburger */
+    .bx-menu {
+        font-size: 24px;
+    }
+
+    @media (max-width: 768px) {
+        .navbar {
+            flex-direction: column;
+        }
+
+        .menu-icon {
+            display: block;
+        }
+
+        .navbar:not(.active) {
+            display: none;
+        }
     }
 
 }
