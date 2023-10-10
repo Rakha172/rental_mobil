@@ -31,7 +31,7 @@
                                 </ul>
                                 <div class="d-flex justify-content-between align-items-center mt-2 gap-2" style="width: ">
                                     @if($vhpk->vehicle->status_pesanan != 'dipesan')
-                                        <a href="{{ route('order.create', $vhpk->id) }}?vehicle={{ $vhpk->id }}" data-id-vhpk="{{ $vhpk->id }}" class="btn btn-primary">Order Now</a>
+                                    <a href="{{ route('order.create', $vhpk->id) }}?vehicle={{ $vhpk->id }}" data-id-vhpk="{{ $vhpk->id }}" class="btn btn-primary" style="font-size: 10px;">Order Now</a>
                                     @else
                                         <span class="text-muted">Di pesan</span>
                                     @endif
