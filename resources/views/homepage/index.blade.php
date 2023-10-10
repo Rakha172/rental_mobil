@@ -17,7 +17,7 @@
                             About Vehicle
                         </div>
                         <div class="img">
-                            <img src="{{ asset($vhpk->image) }}" class="card-img-top" alt="...">
+                            <img src="{{ asset($vhpk->image) }}" class="card-img-top" alt="..." style="height: 200px">
                         </div>
                         <div class="card-body">
                             <ul class="list-group list-group-flush">
