@@ -79,128 +79,6 @@
         @endforeach
 
         </div>
-        {{-- <div class="form-container">
-            <form action="">
-                <div class="input-box">
-                    <span>Location</span>
-                    <input type="search" name="" id="" placeholder="Search Places">
-                </div>
-                <div class="input-box">
-                    <span>Pick-Up Date</span>
-                    <input type="date" id="" name="">
-                </div>
-                <div class="input-box">
-                    <span>Return Date</span>
-                    <input type="date" id="" name="">
-                </div>
-                <input type="submit" value="simpan" class="btn">
-            </form>
-        </div> --}}
-    </section>
-    <!-- Ride -->
-    <section class="ride" id="ride">
-        <div class="history">
-            <div class="heading">
-                @foreach ($settings as $item)
-                <div>
-                    <h1>History</h1>
-
-                    <h3 class="footer-about">
-                        {{ $item['history'] }}
-                    </h3>
-                    <i class="fa fa-car"></i>
-                </div>
-            @endforeach
-
-            </div>
-        </div>
-
-    </section>
-    <section class="services" id="services">
-        {{-- <div class="heading">
-            <span>Best Services</span>
-            <h1>Vehivcle</h1>
-        </div>
-        <div class="services-container">
-            <div class="box">
-                <div class="box-img">
-                    <img src="{{ asset('images/') }}" alt="">
-                    <p>2023</p>
-                    <h3>2021 Honda Civic</h3>
-                    <h2>Harga /1<span>Day</span></h2>
-                    <a href="#" class="btn">booking</a>
-                </div>
-            </div>
-
-            <div class="box">
-                <div class="box-img">
-                    <img src="{{ asset('images/') }}" alt="">
-                </div>
-                <p>2023</p>
-                <h3>2021 Honda Civic</h3>
-                <h2>Harga /<span>1 Day</span></h2>
-                <a href="#" class="btn">booking</a>
-            </div>
-
-            <div class="box">
-                <div class="box-img">
-                    <img src="{{ asset('images/') }}" alt="">
-                </div>
-                <p>2023</p>
-                <h3>2021 Honda Civic</h3>
-                <h2>Harga/<span>Day</span></h2>
-                <a href="#" class="btn">booking</a>
-            </div>
-
-            <div class="box">
-                <div class="box-img">
-                    <img src="{{ asset('images/') }}" alt="">
-                </div>
-                <p>2023</p>
-                <h3>2021 Honda Civic</h3>
-                <h2>Harga /<span>Day</span></h2>
-                <a href="#" class="btn">booking</a>
-            </div>
-
-            <div class="box">
-                <div class="box-img">
-                    <img src="{{ asset('images/') }}" alt="">
-                </div>
-                <p>2023</p>
-                <h3>2021 Honda Civic</h3>
-                <h2>Harga /<span>Day</span></h2>
-                <a href="#" class="btn">booking</a>
-            </div>
-
-            <div class="box">
-                <div class="box-img">
-                    <img src="{{ asset('images/') }}" alt="">
-                </div>
-                <p>2023</p>
-                <h3>2021 Honda Civic</h3>
-                <h2>Harga/ <span>Day</span></h2>
-                <a href="#" class="btn">booking</a>
-            </div>
-
-            <div class="box">
-                <div class="box-img">
-                    <img src="{{ asset('images/') }}" alt="">
-                </div>
-                <p>2023</p>
-                <h3>2021 Honda Civic</h3>
-                <h2>Harga/ <span>Day</span></h2>
-                <a href="#" class="btn">booking</a>
-            </div>
-            <div class="box">
-                <div class="box-img">
-                    <img src="{{ asset('images/') }}" alt="">
-                </div>
-                <p>2023</p>
-                <h3>2021 Honda Civic</h3>
-                <h2>Harga/<span>Day</span></h2>
-                <a href="#" class="btn">booking</a>
-            </div> --}}
-
 
         </div>
     </section>
@@ -213,8 +91,6 @@
                     <img src="{{ asset('') }}" alt="">
                     <img src="{{ asset('') }}" alt="">
                 </div>
-                {{-- <p class="footer-copyright">Rental Mobil</p> --}}
-            </div>
 
             <div class="footer-center">
                 <div>
@@ -246,11 +122,6 @@
                 </div>
             @endforeach
 
-                {{-- <div class="footer-media">
-
-                    <a href="#"><i class="fa fa-whatsapp"></i></a>
-
-                </div> --}}
             </div>
 
     </section>
