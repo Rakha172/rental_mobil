@@ -1,9 +1,6 @@
 <x-app-layout>
     <div class="container-fluid">
         <h1 class="text-center fs-1">Status Pembayaran</h1>
-        {{-- <a href="{{ route('order.index') }}"><ion-icon name="arrow-back-circle-outline"
-            class="shadow mb-3 p-3 bg-body rounded" style="font-size: 30px; position: relative; margin-top:-30px;
-            color:black"></ion-icon></a> --}}
             <div class="card">
                 <div class="card-body">
                         <ul class="list-group">
