@@ -75,6 +75,8 @@ class OrderController extends Controller
         // Session::flash('sukses','checkout berhasil dilakukan, segera lakukan pembayaran untuk mengyelesaikan order');
         return view('payment.create')->with(['user' => $user, 'order' => $order]);
 
+
+
     }
     public function edit(Order $order)
     {
