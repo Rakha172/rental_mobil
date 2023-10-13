@@ -1,4 +1,3 @@
-  <body style="background-color :rgb(243, 201, 111);">
     <x-app-layout>
         <div class="container-fluid">
             <div class="card">
@@ -103,5 +102,4 @@
                     </div>
                 </div>
             </div>
-
     </x-app-layout>
