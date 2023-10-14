@@ -1,7 +1,7 @@
     <x-app-layout>
         <div class="container-fluid">
             <div class="card">
-                <h1 class="text-center fs-2 mt-4">DATA ORDER {{$ordercount}}</h1>
+                <h1 class="text-center fs-2 mt-4">DATA ORDER</h1>
                 <div class="card-body">
                         <form action="" method="GET">
                             <div class="row mb-2">
