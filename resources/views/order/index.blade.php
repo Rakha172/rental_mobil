@@ -38,9 +38,7 @@
                                                 <form action="{{ route('order.destroy', $ordr->id) }}"method="POST">
                                                     @csrf
                                                     @method('delete')
-                                                    @if ($payment->count()>0)
                                                     <a href="{{ route('payment.edit', $ordr->id)}}" class="btn ml-2 btn-secondary" style="height:40px; color:black;">Payment</a>
-                                                    @endif
                                                     <button class="btn ml-2 btn-secondary" style="height:40px; color:black;">Delate</button>
                                                 </form>
                                             </td>
