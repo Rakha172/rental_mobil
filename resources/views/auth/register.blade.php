@@ -38,8 +38,8 @@
         <div class="form-floating">
             <x-input-label for="id_card_photo" :value="__('Id Card Photo')" />
             <input style="border-radius: 5px; border: rgba(185, 184, 184, 0.637) 1px solid;" type="file"
-                name="id_card_photo" class="block mt-1 w-full"
-                id="id_card_photo" value="{{ old('id_card_photo') }}" accept="image/*"
+                name="id_card_photo" class="block mt-1 w-full" id="id_card_photo" value="{{ old('id_card_photo') }}"
+                accept="image/*"
                 onchange="document.getElementById('output').src = window.URL.createObjectURL(this.files[0])">
             <div class="block mt-1 w-full"><img src="" id="output" height="30"></div>
             <x-input-error :messages="$errors->get('id_card_photo')" class="mt-2" />
@@ -48,8 +48,7 @@
         <div class="form-floating">
             <x-input-label for="driver_licence_photo" :value="__('Driver Licence Photo')" />
             <input style="border-radius: 5px; border: rgba(185, 184, 184, 0.637) 1px solid;" type="file"
-                name="driver_licence_photo"
-                class="block mt-1 w-full" id="driver_licence_photo"
+                name="driver_licence_photo" class="block mt-1 w-full" id="driver_licence_photo"
                 value="{{ old('driver_licence_photo') }}" accept="image/*"
                 onchange="document.getElementById('output2').src = window.URL.createObjectURL(this.files[0])">
             <div class="block mt-1 w-full"><img src="" id="output2" height="30""></div>

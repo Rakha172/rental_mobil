@@ -9,7 +9,8 @@
                             <div class="card-header">
                                 <h1>Order</h1>
                             </div>
-                            <img src="{{ asset($vhpk->vehicle->image) }}" alt="..." class="card-img-top" style="height: 200px;">
+                            <img src="{{ asset($vhpk->vehicle->image) }}" alt="..." class="card-img-top"
+                                style="height: 200px;">
                             <div class="card-body">
                                 <ul class="list-group">
                                     <li class="list-group-item">
@@ -29,13 +30,17 @@
                                         {{ $vhpk->description }}
                                     </li>
                                 </ul>
-                                <div class="d-flex justify-content-between align-items-center mt-2 gap-2" style="width: ">
-                                    @if($vhpk->vehicle->status_pesanan != 'dipesan')
-                                    <a href="{{ route('order.create', $vhpk->id) }}?vehicle={{ $vhpk->id }}" data-id-vhpk="{{ $vhpk->id }}" class="btn btn-primary" style="font-size: 10px;">Order Now</a>
+                                <div class="d-flex justify-content-between align-items-center mt-2 gap-2"
+                                    style="width: ">
+                                    @if ($vhpk->vehicle->status_pesanan != 'dipesan')
+                                        <a href="{{ route('order.create', $vhpk->id) }}?vehicle={{ $vhpk->id }}"
+                                            data-id-vhpk="{{ $vhpk->id }}" class="btn btn-primary"
+                                            style="font-size: 10px;">Order Now</a>
                                     @else
                                         <span class="text-muted">Di pesan</span>
                                     @endif
-                                    <input type="text" value="{{ $vhpk->vehicle->status_pesanan }}" readonly class="form-control" style="border-radius: 10px;">
+                                    <input type="text" value="{{ $vhpk->vehicle->status_pesanan }}" readonly
+                                        class="form-control" style="border-radius: 10px;">
                                 </div>
                             </div>
                         </div>
