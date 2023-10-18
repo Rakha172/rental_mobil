@@ -1,4 +1,3 @@
-
 <x-guest-layout>
     <x-auth-session-status class="mb-4" :status="session('status')" />
 
@@ -33,7 +32,7 @@
                 let password = document.getElementById("password");
 
                 show.onclick = function() {
-                    if(password.type == "password"){
+                    if (password.type == "password") {
                         password.type = "text";
                     } else {
                         password.type = "password";
@@ -44,8 +43,8 @@
 
         <div class="flex justify-left mt-5" style="position: absolute;">
             <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 "
-            href="{{ route('register') }}">
-            {{ __('Make account') }}
+                href="{{ route('register') }}">
+                {{ __('Make account') }}
             </a>
         </div>
 
