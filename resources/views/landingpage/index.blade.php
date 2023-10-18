@@ -33,8 +33,7 @@
 
 <body>
     <header>
-        <td>
-        <a href="" class="logo">
+
             @foreach ($settings as $setting)
             <li><img src="{{ asset($setting->image) }}" alt=""></li>
         @endforeach
@@ -44,31 +43,12 @@
             <li><a href="{{ route('homepage.index') }}">Booking</a></li>
 
         </ul>
-        </td>
-        @if (Route::has('login'))
-            @auth
-                <div class="header-btn" style="margin-left: 350px; position:absolute;">
-                    <ul class="navbar">
-                        <li><a href="{{ route('homepage.index') }}">Home</a></li>
-                    </ul>
-                </div>
-                <div class="header-btn">
-                    <form method="POST" action="{{ route('logout') }}">
-                        @csrf
-                        <x-responsive-nav-link :href="route('logout')"
-                            onclick="event.preventDefault();
-                                    this.closest('form').submit();">
-                            {{ __('Log Out') }}
-                        </x-responsive-nav-link>
-                    </form>
-                </div>
-            @else
+
                 <div class="header-btn">
                     <a href="{{ route('register') }}" class="sign-up">Sign Up</a>
                     <a href="{{ route('login') }}" class="sign-in">Sign In</a>
                 </div>
-            @endauth
-        @endif
+
     </header>
     <!-- home -->
     <section class="home" id="home">
@@ -79,23 +59,7 @@
         @endforeach
 
         </div>
-        {{-- <div class="form-container">
-            <form action="">
-                <div class="input-box">
-                    <span>Location</span>
-                    <input type="search" name="" id="" placeholder="Search Places">
-                </div>
-                <div class="input-box">
-                    <span>Pick-Up Date</span>
-                    <input type="date" id="" name="">
-                </div>
-                <div class="input-box">
-                    <span>Return Date</span>
-                    <input type="date" id="" name="">
-                </div>
-                <input type="submit" value="simpan" class="btn">
-            </form>
-        </div> --}}
+
     </section>
     <!-- Ride -->
     <section class="ride" id="ride">
@@ -117,90 +81,6 @@
 
     </section>
     <section class="services" id="services">
-        {{-- <div class="heading">
-            <span>Best Services</span>
-            <h1>Vehivcle</h1>
-        </div>
-        <div class="services-container">
-            <div class="box">
-                <div class="box-img">
-                    <img src="{{ asset('images/') }}" alt="">
-                    <p>2023</p>
-                    <h3>2021 Honda Civic</h3>
-                    <h2>Harga /1<span>Day</span></h2>
-                    <a href="#" class="btn">booking</a>
-                </div>
-            </div>
-
-            <div class="box">
-                <div class="box-img">
-                    <img src="{{ asset('images/') }}" alt="">
-                </div>
-                <p>2023</p>
-                <h3>2021 Honda Civic</h3>
-                <h2>Harga /<span>1 Day</span></h2>
-                <a href="#" class="btn">booking</a>
-            </div>
-
-            <div class="box">
-                <div class="box-img">
-                    <img src="{{ asset('images/') }}" alt="">
-                </div>
-                <p>2023</p>
-                <h3>2021 Honda Civic</h3>
-                <h2>Harga/<span>Day</span></h2>
-                <a href="#" class="btn">booking</a>
-            </div>
-
-            <div class="box">
-                <div class="box-img">
-                    <img src="{{ asset('images/') }}" alt="">
-                </div>
-                <p>2023</p>
-                <h3>2021 Honda Civic</h3>
-                <h2>Harga /<span>Day</span></h2>
-                <a href="#" class="btn">booking</a>
-            </div>
-
-            <div class="box">
-                <div class="box-img">
-                    <img src="{{ asset('images/') }}" alt="">
-                </div>
-                <p>2023</p>
-                <h3>2021 Honda Civic</h3>
-                <h2>Harga /<span>Day</span></h2>
-                <a href="#" class="btn">booking</a>
-            </div>
-
-            <div class="box">
-                <div class="box-img">
-                    <img src="{{ asset('images/') }}" alt="">
-                </div>
-                <p>2023</p>
-                <h3>2021 Honda Civic</h3>
-                <h2>Harga/ <span>Day</span></h2>
-                <a href="#" class="btn">booking</a>
-            </div>
-
-            <div class="box">
-                <div class="box-img">
-                    <img src="{{ asset('images/') }}" alt="">
-                </div>
-                <p>2023</p>
-                <h3>2021 Honda Civic</h3>
-                <h2>Harga/ <span>Day</span></h2>
-                <a href="#" class="btn">booking</a>
-            </div>
-            <div class="box">
-                <div class="box-img">
-                    <img src="{{ asset('images/') }}" alt="">
-                </div>
-                <p>2023</p>
-                <h3>2021 Honda Civic</h3>
-                <h2>Harga/<span>Day</span></h2>
-                <a href="#" class="btn">booking</a>
-            </div> --}}
-
 
         </div>
     </section>
@@ -213,8 +93,6 @@
                     <img src="{{ asset('') }}" alt="">
                     <img src="{{ asset('') }}" alt="">
                 </div>
-                {{-- <p class="footer-copyright">Rental Mobil</p> --}}
-            </div>
 
             <div class="footer-center">
                 <div>
@@ -246,11 +124,6 @@
                 </div>
             @endforeach
 
-                {{-- <div class="footer-media">
-
-                    <a href="#"><i class="fa fa-whatsapp"></i></a>
-
-                </div> --}}
             </div>
 
     </section>
